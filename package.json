@@ -1,23 +1,36 @@
 {
-  "name": "portfolio",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-		"prettier": "prettier --config .prettierrc --write . --plugin=prettier-plugin-astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/ts-plugin": "^1.3.1",
-    "astro": "^3.5.3",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
-    "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2"
-  }
+	"name": "portfolio",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"prettier": "prettier --config .prettierrc --write . --plugin=prettier-plugin-astro",
+		"lint": "eslint --fix -f table ."
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.3.1",
+		"@astrojs/ts-plugin": "^1.3.1",
+		"astro": "^3.5.3",
+		"typescript": "^5.2.2"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.11.0",
+		"@typescript-eslint/parser": "^6.11.0",
+		"astro-eslint-parser": "^0.16.0",
+		"eslint": "^8.53.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-formatter-table": "^7.32.1",
+		"eslint-plugin-astro": "^0.29.1",
+		"eslint-plugin-import": "^2.29.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"prettier": "^3.1.0",
+		"prettier-plugin-astro": "^0.12.2"
+	}
 }
