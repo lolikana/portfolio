@@ -14,9 +14,7 @@ module.exports = {
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
-		sourceType: 'module',
-		tsconfigRootDir: __dirname,
-		project: ['./tsconfig.json']
+		sourceType: 'module'
 	},
 	rules: {
 		'no-mixed-spaces-and-tabs': 'error',
@@ -42,6 +40,10 @@ module.exports = {
 		},
 		{
 			files: ['*.ts'],
+			parserOptions: {
+				tsconfigRootDir: __dirname,
+				project: ['./tsconfig.json']
+			},
 			extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
 			rules: {
 				'@typescript-eslint/no-unused-vars': [
