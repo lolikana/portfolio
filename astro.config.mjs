@@ -8,6 +8,13 @@ export default defineConfig({
 	},
 	// scopedStyleStrategy: 'where',
 	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use "@styles/abstracts" as *;`
+				}
+			}
+		},
 		resolve: {
 			alias: {
 				'@components': '/src/components',

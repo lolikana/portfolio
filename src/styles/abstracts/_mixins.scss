@@ -1,0 +1,92 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'breakpoints' as *;
+@use 'variables' as *;
+
+@mixin mq($size) {
+	@if map.has-key($breakpoints, $size) {
+		$breakpoint: map-get($breakpoints, $size);
+		@media screen and (min-width: $breakpoint) {
+			@content;
+		}
+	} @else if meta.type-of($size) == number {
+		@if math.is-unitless($size) {
+			@error 'when using a number with @mq() make sure to include a unit';
+		} @else {
+			@media screen and (min-width: $size) {
+				@content;
+			}
+		}
+	} @else {
+		@error 'the keyword #{$size} is not in the $breakpoints map';
+	}
+}
+
+@mixin font-responsive($min: 1rem, $val: 5vw, $max: 2.5rem) {
+	font-size: clamp($min, $val, $max);
+}
+
+// Define vertical, horizontal, or both position
+@mixin position-alignment($position) {
+	position: $absolute;
+
+	@if $position == 'vertical' {
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	} @else if $position == 'horizontal' {
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translate(-50%);
+	} @else if $position == 'center' {
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin position($position-value, $top-value, $right-value, $bottom-value, $left-value) {
+	position: $position-value;
+	top: $top-value;
+	right: $right-value;
+	bottom: $bottom-value;
+	left: $left-value;
+}
+
+@mixin margin-padding($margin, $padding) {
+	margin: $margin;
+	padding: $padding;
+}
+
+@mixin width-height($w-unit, $h-unit) {
+	width: $w-unit;
+	height: $h-unit;
+}
+
+@mixin box-shadow(
+	$inset: inset,
+	$horizontal-offset: 2px,
+	$vertical-offset: 2px,
+	$blur: 2px,
+	$spread: 2px,
+	$color: $main-color
+) {
+	-webkit-box-shadow: $inset $horizontal-offset $vertical-offset $blur $spread $color;
+	-moz-box-shadow: $inset $horizontal-offset $vertical-offset $blur $spread $color;
+	box-shadow: $inset $horizontal-offset $vertical-offset $blur $spread $color;
+}
+
+/** Extends **/
+%flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+}

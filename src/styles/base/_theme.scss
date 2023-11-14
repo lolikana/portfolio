@@ -1,0 +1,26 @@
+@use '@styles/abstracts/' as *;
+
+:root {
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		--theme: dark;
+		transition: $transtion-color-scheme;
+	}
+}
+
+body {
+	background-color: $sub-color;
+	color: $main-color;
+	transition: $transtion-color-scheme;
+}
+
+/* Attach dark mode styles */
+@container style(--theme: dark) {
+	body {
+		background-color: $main-color;
+		color: $sub-color;
+	}
+}
