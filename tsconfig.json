@@ -123,6 +123,7 @@
 		"**/*.tsx",
 		"**/*.astro",
 		"*.config.mjs",
+		".eslintrc.cjs"
 	],
 	"exclude": ["node_modules"]
 }
