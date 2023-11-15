@@ -1,6 +1,9 @@
 @use 'breakpoints' as *;
 
-$absolute: absolute;
+/** Variables **/
+$header-heightMobile: 32vw;
+$header-height-sm: 70px;
+$header-heightTransition: 300ms;
 
 /** Extends **/
 $transtion-color-scheme: all 1s ease;

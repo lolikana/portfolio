@@ -12,23 +12,21 @@
 }
 
 body {
+	transition: $transtion-color-scheme;
 	background-color: $primary-color;
 	color: $tertiary-color;
-	transition: $transtion-color-scheme;
+
+	@container style(--theme: dark) {
+		background-color: $main_color;
+		color: $tertiary-color_dark;
+	}
 }
 
 a {
+	transition: $transtion-color-scheme;
 	color: $tertiary-color;
-}
 
-/* Attach dark mode styles */
-@container style(--theme: dark) {
-	body {
-		background-color: $primary-color_dark;
-		color: $tertiary-color_dark;
-	}
-
-	a {
+	@container style(--theme: dark) {
 		color: $tertiary-color_dark;
 	}
 }
