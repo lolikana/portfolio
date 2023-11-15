@@ -9,7 +9,7 @@ import Navbar from '../navbar/Navbar.astro';
 <header class="header">
 	<div class="header__logo">
 		<a href="/">
-			<Image src={Logo} alt="logo" width={42} height={42} />
+			<Image src={Logo} alt="logo" />
 		</a>
 	</div>
 	<Navbar class="primary-navbar" />
@@ -39,15 +39,46 @@ import Navbar from '../navbar/Navbar.astro';
 		height: 42px;
 	}
 
+	.header__logo {
+		width: max(4vw, 42px);
+		height: max(4vw, 42px);
+		max-width: 58px;
+		max-height: 58px;
+		transition:
+			width $header-heightTransition,
+			filter $header-heightTransition;
+		filter: $filter-tertiary;
+		@container style(--theme: dark) {
+			filter: $filter-primary;
+		}
+
+		&:hover {
+			transition: filter 500ms ease;
+			filter: $filter-secondary;
+		}
+	}
+
 	.primary-navbar {
+		--padding-right: 7vw;
+
 		display: none;
 
 		@include mq('md') {
 			height: 100%;
 			display: flex;
 			align-items: center;
-			padding-right: 7vw;
+			padding-right: var(--padding-right);
+
 			@include font-responsive(16px, 2vw, 18px);
+
+			&::after {
+				content: '';
+				position: absolute;
+				background-color: $secondary-color;
+				width: calc(var(--padding-right) + 2vw);
+				height: 2px;
+				right: 0;
+			}
 		}
 	}
 </style>
