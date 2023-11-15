@@ -1,0 +1,35 @@
+---
+import { navbarLinksData } from '@libs/data';
+
+import NavbarLinks from './NavbarLinks.astro';
+
+type Props = {
+	class: string;
+};
+
+const { class: primary_navbar, ...rest } = Astro.props;
+---
+
+<nav class:list={['primary-navbar', primary_navbar]} {...rest}>
+	<ul class="primary-navbar__list_items">
+		{
+			navbarLinksData.map((link, index) => (
+				<NavbarLinks
+					link={link}
+					index={index}
+					class="primary-navbar__list_item"
+					class2="item_link"
+				/>
+			))
+		}
+	</ul>
+</nav>
+
+<style lang="scss">
+	.primary-navbar__list_items {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		gap: 2vw;
+	}
+</style>

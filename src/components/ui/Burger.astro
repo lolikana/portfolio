@@ -1,0 +1,176 @@
+---
+
+---
+
+<div class="menu-btn">
+	<div class="menu-btn__burger"></div>
+</div>
+
+<script>
+	const menuBtn = document.querySelector('.menu-btn') as HTMLDivElement;
+
+	let menuOpen = false;
+
+	const toggleMenu = (state: boolean) => {
+		!menuOpen ? menuBtn.classList.add('open') : menuBtn.classList.remove('open');
+		menuOpen = state;
+	};
+
+	menuBtn.addEventListener('click', () => {
+		if (!menuOpen) {
+			toggleMenu(true);
+		} else {
+			toggleMenu(false);
+		}
+	});
+</script>
+
+<style lang="scss">
+	/** Colors theme **/
+	.menu-btn__burger {
+		transition: $transtion-color-scheme;
+		background: $primary-color;
+		@container style(--theme: dark) {
+			background: $main-color;
+		}
+	}
+
+	.menu-btn__burger::before,
+	.menu-btn__burger::after {
+		transition: $transtion-color-scheme;
+		background: $secondary-color;
+		@container style(--theme:dark) {
+			background: $primary-color;
+		}
+	}
+
+	/** Burger Animation START **/
+	.menu-btn {
+		--burger-mobile-width: 40px;
+		--burger-mobile-height: 30px;
+		--burger-desktop-width: 50px;
+		--burger-desktop-height: 50px;
+		--burger-bar-height: 2px;
+
+		--translate-mobile-before: 0 -9px;
+		--translate-tablet-before: 0 -11px;
+		--translate-desktop-before: 0 -14px;
+		--translate-mobile-after: 0 9px;
+		--translate-tablet-after: 0 11px;
+		--translate-desktop-after: 0 14px;
+
+		--rotation-mobile: 25deg;
+		--rotation-tablet: 25deg;
+		--rotation-desktop: 35deg;
+
+		z-index: 1002;
+		position: absolute;
+		right: max(5vw, 2rem);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+
+		@include mq('md') {
+			display: none;
+		}
+	}
+
+	.menu-btn {
+		width: var(--burger-mobile-width);
+		height: var(--burger-mobile-height);
+		@include mq('sm') {
+			width: var(--burger-desktop-width);
+			height: var(--burger-desktop-height);
+		}
+	}
+
+	.menu-btn__burger,
+	.menu-btn__burger::before,
+	.menu-btn__burger::after {
+		width: 100%;
+		height: var(--burger-bar-height);
+		transition: all 0.5s ease-in-out;
+	}
+
+	.menu-btn__burger::before,
+	.menu-btn__burger::after {
+		content: '';
+		position: absolute;
+	}
+
+	/** Burger Animation  **/
+
+	/* remove the middle line burger */
+	.menu-btn.open .menu-btn__burger {
+		transform: translateX(
+			0
+		); /* If translateX(0), should delete translate(x,y) in ::before and ::after */
+		background: transparent;
+		box-shadow: none;
+	}
+
+	.menu-btn__burger::before,
+	.menu-btn__burger::after {
+		transition:
+			rotate 200ms 0ms ease,
+			translate 200ms 200ms ease;
+	}
+
+	.menu-btn__burger::before {
+		translate: var(--translate-mobile-before);
+		@include mq('sm') {
+			translate: var(--translate-tablet-before);
+		}
+		@include mq('md') {
+			translate: var(--translate-desktop-before);
+		}
+	}
+
+	.menu-btn__burger::after {
+		translate: var(--translate-mobile-after);
+		@include mq('sm') {
+			translate: var(--translate-tablet-after);
+		}
+		@include mq('md') {
+			translate: var(--translate-desktop-after);
+		}
+	}
+
+	.menu-btn.open .menu-btn__burger::before,
+	.menu-btn.open .menu-btn__burger::after {
+		translate: 0 0;
+		transition:
+			translate 200ms 0ms ease,
+			rotate 300ms 200ms ease;
+	}
+
+	/* transform the burger to a X */
+	.menu-btn.open .menu-btn__burger::before {
+		rotate: var(--rotation-mobile);
+		@include mq('sm') {
+			rotate: var(--rotation-tablet);
+		}
+		@include mq('md') {
+			rotate: var(--rotation-desktop);
+		}
+	}
+	.menu-btn.open .menu-btn__burger::after {
+		rotate: calc(-1 * var(--rotation-mobile));
+		@include mq('sm') {
+			rotate: calc(-1 * var(--rotation-tablet));
+		}
+		@include mq('md') {
+			rotate: calc(-1 * var(--rotation-desktop));
+		}
+	}
+
+	.menu-btn:not(.open):hover {
+		.menu-btn__burger::before {
+			animation: 350ms expandWidth 100ms forwards ease-out;
+		}
+		.menu-btn__burger::after {
+			animation: 250ms expandWidth 200ms forwards ease-out;
+		}
+	}
+</style>

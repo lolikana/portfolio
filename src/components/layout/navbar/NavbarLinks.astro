@@ -1,0 +1,42 @@
+---
+import { firstCapitalizeLetter } from '@libs/helpers';
+
+type Props = {
+	class: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
+	class2?: string;
+	link: {
+		href: string;
+	};
+	index: number;
+};
+
+const { link, index } = Astro.props;
+const { class: styled_navbar, class2: styled_link, ...rest } = Astro.props;
+---
+
+<li class:list={['navbar__list_item', styled_navbar]} {...rest}>
+	<a
+		class:list={['item-link hover-overline', styled_link]}
+		href=`#${link.href}`
+		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
+		style={`--delay: ${(index + 1) * 0.2}s`}
+		{...rest}
+	>
+		{firstCapitalizeLetter(link.href)}
+	</a>
+</li>
+
+<style lang="scss">
+	.navbar__list_item {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.item-link::before {
+			content: attr(data-link-index);
+			color: $secondary-color;
+			margin-right: 0.25rem;
+		}
+	}
+</style>

@@ -19,6 +19,7 @@ export default defineConfig({
 			alias: {
 				'@components': '/src/components',
 				'@layouts': '/src/layouts',
+				'@libs': '/src/libs',
 				'@styles': '/src/styles',
 				'@scripts': '/src/scripts',
 				'@assets': '/src/assets'

@@ -29,7 +29,7 @@
 
 // Define vertical, horizontal, or both position
 @mixin position-alignment($position) {
-	position: $absolute;
+	position: absolute;
 
 	@if $position == 'vertical' {
 		top: 50%;

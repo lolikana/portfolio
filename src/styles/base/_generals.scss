@@ -10,7 +10,3 @@ body {
 a {
 	color: $link-color;
 }
-
-a:is(:hover, :focus) {
-	color: $link-color-hover;
-}
