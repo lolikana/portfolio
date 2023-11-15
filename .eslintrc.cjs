@@ -7,10 +7,10 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:astro/recommended',
-		'plugin:prettier/recommended',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:@typescript-eslint/recommended',
+		'prettier'
 	],
-	plugins: ['@typescript-eslint', 'simple-import-sort', 'prettier', 'import'],
+	plugins: ['@typescript-eslint', 'simple-import-sort', 'import'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
@@ -44,7 +44,10 @@ module.exports = {
 				tsconfigRootDir: __dirname,
 				project: ['./tsconfig.json']
 			},
-			extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
+			extends: [
+				'plugin:@typescript-eslint/recommended-requiring-type-checking',
+				'plugin:prettier/recommended'
+			],
 			rules: {
 				'@typescript-eslint/no-unused-vars': [
 					'error',
