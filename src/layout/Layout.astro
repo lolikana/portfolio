@@ -29,6 +29,7 @@ const { pageTitle } = Astro.props;
 	const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
 	const isDarkTheme = colorTheme.matches;
 
+	/** Change the favicon */
 	document.addEventListener('visibilitychange', () => {
 		if (document.hidden) {
 			isDarkTheme
@@ -49,5 +50,18 @@ const { pageTitle } = Astro.props;
 			favIcon.setAttribute('href', '/favicon-light.png');
 		}
 		return;
+	});
+
+	/** Scroll listener */
+	const header = document.querySelector('.header') as HTMLDivElement;
+	const scrollY = window.scrollY;
+
+	scrollY ? header.classList.add('scrolled') : null;
+
+	window.addEventListener('scroll', () => {
+		const scrollY = window.scrollY;
+		if (scrollY >= 20) return;
+
+		scrollY === 0 ? header.classList.remove('scrolled') : header.classList.add('scrolled');
 	});
 </script>

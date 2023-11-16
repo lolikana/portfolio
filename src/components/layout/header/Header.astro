@@ -35,17 +35,13 @@ import Navbar from '../navbar/Navbar.astro';
 	}
 
 	.header__logo {
-		width: 42px;
-		height: 42px;
-	}
-
-	.header__logo {
 		width: max(4vw, 42px);
 		height: max(4vw, 42px);
 		max-width: 58px;
 		max-height: 58px;
 		transition:
 			width $header-heightTransition,
+			height $header-heightTransition,
 			filter $header-heightTransition;
 		filter: $filter-tertiary;
 		@container style(--theme: dark) {
@@ -68,6 +64,7 @@ import Navbar from '../navbar/Navbar.astro';
 			display: flex;
 			align-items: center;
 			padding-right: var(--padding-right);
+			transition: padding-right $header-heightTransition;
 
 			@include font-responsive(16px, 2vw, 18px);
 
@@ -78,7 +75,22 @@ import Navbar from '../navbar/Navbar.astro';
 				width: calc(var(--padding-right) + 2vw);
 				height: 2px;
 				right: 0;
+				transition: width $header-heightTransition;
 			}
 		}
+	}
+
+	.header.scrolled .primary-navbar {
+		padding-right: calc(var(--padding-right) - 2vw);
+
+		@include font-responsive(12px, 2vw, 14px);
+
+		&::after {
+			width: var(--padding-right);
+		}
+	}
+
+	.header.scrolled .header__logo {
+		@include width-height(38px, 38px);
 	}
 </style>
