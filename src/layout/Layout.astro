@@ -11,7 +11,7 @@ const { pageTitle } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/png+xml" href="/favicon-cyber.png" />
+		<link rel="icon" type="image/svg+xml" href="/favicon-cyber.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
@@ -33,21 +33,21 @@ const { pageTitle } = Astro.props;
 	document.addEventListener('visibilitychange', () => {
 		if (document.hidden) {
 			isDarkTheme
-				? favIcon.setAttribute('href', '/favicon-dark.png')
-				: favIcon.setAttribute('href', '/favicon-light.png');
+				? favIcon.setAttribute('href', '/favicon-dark.svg')
+				: favIcon.setAttribute('href', '/favicon-light.svg');
 			return;
 		}
-		favIcon.setAttribute('href', '/favicon-cyber.png');
+		favIcon.setAttribute('href', '/favicon-cyber.svg');
 		return;
 	});
 
 	colorTheme.addEventListener('change', event => {
 		if (document.hidden) {
 			if (event.matches) {
-				favIcon.setAttribute('href', '/favicon-dark.png');
+				favIcon.setAttribute('href', '/favicon-dark.svg');
 				return;
 			}
-			favIcon.setAttribute('href', '/favicon-light.png');
+			favIcon.setAttribute('href', '/favicon-light.svg');
 		}
 		return;
 	});

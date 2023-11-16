@@ -1,7 +1,6 @@
 ---
-import Logo from '@assets/logo.png';
 import Burger from '@components/ui/Burger.astro';
-import { Image } from 'astro:assets';
+import Logo from '@components/ui/Logo.astro';
 
 import Navbar from '../navbar/Navbar.astro';
 ---
@@ -9,7 +8,7 @@ import Navbar from '../navbar/Navbar.astro';
 <header class="header">
 	<div class="header__logo">
 		<a href="/">
-			<Image src={Logo} alt="logo" />
+			<Logo />
 		</a>
 	</div>
 	<Navbar class="primary-navbar" />
@@ -41,17 +40,7 @@ import Navbar from '../navbar/Navbar.astro';
 		max-height: 58px;
 		transition:
 			width $header-heightTransition,
-			height $header-heightTransition,
-			filter $header-heightTransition;
-		filter: $filter-tertiary;
-		@container style(--theme: dark) {
-			filter: $filter-primary;
-		}
-
-		&:hover {
-			transition: filter 500ms ease;
-			filter: $filter-secondary;
-		}
+			height $header-heightTransition;
 	}
 
 	.primary-navbar {
@@ -91,6 +80,8 @@ import Navbar from '../navbar/Navbar.astro';
 	}
 
 	.header.scrolled .header__logo {
-		@include width-height(38px, 38px);
+		@include mq('md') {
+			@include width-height(38px, 38px);
+		}
 	}
 </style>
