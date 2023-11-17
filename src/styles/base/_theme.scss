@@ -11,7 +11,8 @@
 	}
 }
 
-body {
+body,
+main {
 	transition: $transtion-color-scheme;
 	background-color: $primary-color;
 	color: $tertiary-color;
@@ -19,6 +20,14 @@ body {
 	@container style(--theme: dark) {
 		background-color: $main_color;
 		color: $tertiary-color_dark;
+	}
+}
+
+.parallax__foreground-front {
+	transition: $transtion-color-scheme;
+	filter: $filter-primary;
+	@container style(--theme: dark) {
+		filter: $filter-main;
 	}
 }
 

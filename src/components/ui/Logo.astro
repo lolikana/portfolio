@@ -1,5 +1,8 @@
 ---
-
+type Props = {
+	type?: 2;
+};
+const { type } = Astro.props;
 ---
 
 <!--?xml version="1.0" encoding="utf-8"?--><!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -13,7 +16,7 @@
 	viewBox="0 0 396.75 396.91"
 	style="enable-background:new 0 0 396.75 396.91;"
 	xml:space="preserve"
-	class="container"
+	class:list={['container', !type || type !== 2 ? 'container-type1' : 'container-type2']}
 >
 	<g class="group-small">
 		<path
@@ -124,9 +127,18 @@
 		.group-big path,
 		.group-small,
 		path {
-			transition: fill 200ms ease;
+			transition:
+				fill 100ms ease,
+				100ms filter 100ms ease;
+			&:hover {
+				transition:
+					fill 100ms ease,
+					100ms filter 100ms ease;
+			}
 		}
+	}
 
+	.container-type1 {
 		.group-initials,
 		.group-small {
 			fill: $secondary-color;
@@ -147,13 +159,6 @@
 
 		&:hover {
 			.group-initials,
-			.group-big,
-			.group-big path,
-			.group-small,
-			path {
-				transition: fill 200ms ease;
-			}
-			.group-initials,
 			.group-small {
 				fill: $tertiary-color;
 				@container style(--theme: dark) {
@@ -165,6 +170,17 @@
 				path {
 					fill: $secondary-color;
 				}
+			}
+		}
+	}
+
+	.container-type2 {
+		> * {
+			fill: $primary-color;
+			filter: drop-shadow(0px 0px 1px $primary-color);
+			&:hover {
+				fill: $secondary-color;
+				filter: drop-shadow(0px 0px 6px $primary-color);
 			}
 		}
 	}

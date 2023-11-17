@@ -1,5 +1,6 @@
 ---
 import Header from '@components/layout/header/Header.astro';
+import Parallax from '@components/layout/parallax/Parallax.astro';
 
 type Props = {
 	pageTitle: string;
@@ -18,11 +19,19 @@ const { pageTitle } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<Parallax />
+		<main class="main">
 			<slot />
 		</main>
 	</body>
 </html>
+
+<style lang="scss">
+	.main {
+		position: relative;
+		z-index: 1;
+	}
+</style>
 
 <script>
 	const favIcon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
