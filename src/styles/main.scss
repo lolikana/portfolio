@@ -4,14 +4,6 @@ body {
 	min-height: 300vh; /* for demo only */
 }
 
-main {
-	padding-top: $header-heightMobile;
-	transition: padding-top $header-heightTransition ease;
-	@include mq('sm') {
-		padding-top: $header-height-sm;
-	}
-}
-
 .hover-overline::after {
 	content: '';
 	position: absolute;
