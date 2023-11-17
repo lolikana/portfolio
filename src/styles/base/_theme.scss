@@ -18,6 +18,7 @@ main {
 	color: $tertiary-color;
 
 	@container style(--theme: dark) {
+		transition: $transtion-color-scheme;
 		background-color: $main_color;
 		color: $tertiary-color_dark;
 	}
@@ -25,9 +26,10 @@ main {
 
 .parallax__foreground-front {
 	transition: $transtion-color-scheme;
-	filter: $filter-primary;
+	background-color: $primary-color;
+
 	@container style(--theme: dark) {
-		filter: $filter-main;
+		background-color: $main-color;
 	}
 }
 
