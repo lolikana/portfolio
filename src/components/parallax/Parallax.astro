@@ -57,15 +57,20 @@ import { Image } from 'astro:assets';
 	}
 
 	.parallax__fg {
-		--parallax-speed: -10;
+		--parallax-speed: -7;
 		height: 120%;
 		z-index: 2;
 		position: relative;
-		bottom: -6rem;
 		background-image: url('@assets/parallax/foreground.png');
 		background-size: cover;
 		background-position: top center;
 		filter: brightness(90%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.7));
+		bottom: -7rem;
+		transition: bottom 500ms ease;
+		@include mq('xl') {
+			transition: bottom 500ms ease;
+			bottom: -3rem;
+		}
 	}
 
 	.parallax__dust {

@@ -1,6 +1,5 @@
 ---
 import Header from '@components/layout/header/Header.astro';
-import Parallax from '@components/layout/parallax/Parallax.astro';
 
 type Props = {
 	pageTitle: string;
@@ -19,7 +18,7 @@ const { pageTitle } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<Parallax />
+		<slot name="parallax" />
 		<main class="main">
 			<slot />
 		</main>
