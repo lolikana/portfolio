@@ -13,11 +13,11 @@
 
 body,
 header,
-main {
+main,
+section {
 	transition: $transtion-color-scheme;
 	background-color: $primary-color;
 	color: $tertiary-color;
-
 	@container style(--theme: dark) {
 		transition: $transtion-color-scheme;
 		background-color: $main_color;
@@ -28,7 +28,6 @@ main {
 .parallax__foreground-front {
 	transition: $transtion-color-scheme;
 	background-color: $primary-color;
-
 	@container style(--theme: dark) {
 		background-color: $main-color;
 	}
@@ -37,8 +36,15 @@ main {
 a {
 	transition: $transtion-color-scheme;
 	color: $tertiary-color;
-
 	@container style(--theme: dark) {
 		color: $tertiary-color_dark;
+	}
+}
+
+.section-border {
+	transition: $transtion-color-scheme;
+	background-color: $tertiary-color;
+	@container style(--theme: dark) {
+		background-color: $tertiary-color_dark;
 	}
 }

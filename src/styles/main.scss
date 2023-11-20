@@ -4,6 +4,10 @@ body {
 	display: grid;
 }
 
+main {
+	padding: 2rem 1rem;
+}
+
 .hover-overline::after {
 	content: '';
 	position: absolute;
