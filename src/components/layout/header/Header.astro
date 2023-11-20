@@ -70,19 +70,23 @@ import Navbar from '../navbar/Navbar.astro';
 		}
 	}
 
-	.header.scrolled .primary-navbar {
-		padding-right: calc(var(--padding-right) - 2vw);
-
-		@include font-responsive(12px, 2vw, 14px);
-
-		&::after {
-			width: var(--padding-right);
-		}
-	}
-
-	.header.scrolled .header__logo {
+	.header.scrolled {
 		@include mq('md') {
-			@include width-height(38px, 38px);
+			height: $header-height-scrolled;
+
+			.primary-navbar {
+				padding-right: calc(var(--padding-right) - 2vw);
+				@include font-responsive(12px, 2vw, 14px);
+				&::after {
+					width: var(--padding-right);
+				}
+			}
+
+			.header__logo {
+				@include mq('md') {
+					@include width-height(38px, 38px);
+				}
+			}
 		}
 	}
 </style>
