@@ -6,13 +6,15 @@ import { Image } from 'astro:assets';
 ---
 
 <div class="parallax">
-	<slot />
+	<div class="parallax__hero">
+		<slot name="hero-section" />
+	</div>
 	<div class="parallax__bg">
-		<Image src={Background} alt="" width={Background.width} />
+		<Image src={Background} alt="Background Image" width={Background.width} />
 	</div>
 	<div class="parallax__fg"></div>
 	<div class="parallax__dust">
-		<Image src={Dust} alt="" width={Dust.width} />
+		<Image src={Dust} alt="Dust Image" width={Dust.width} />
 	</div>
 	<div class="parallax__logo">
 		<Logo type={2} />
@@ -23,10 +25,15 @@ import { Image } from 'astro:assets';
 
 <style lang="scss">
 	.parallax {
+		--parallax-speed-hero: 20;
+		--parallax-speed-bg: 7;
+		--parallax-speed-fg: -2;
+		--parallax-speed-dust: -15;
+		--parallax-speed-logo: 5;
+
 		position: relative;
 		z-index: 0;
-		min-height: 50vh;
-		max-height: 750px;
+		height: 60vh;
 		display: grid;
 		grid-template-rows: 100%;
 		grid-template-areas: 'stack';
@@ -43,13 +50,18 @@ import { Image } from 'astro:assets';
 		object-fit: cover;
 	}
 
+	.parallax__hero {
+		--parallax-speed: var(--parallax-speed-hero);
+		z-index: 10;
+	}
+
 	.parallax__bg {
-		--parallax-speed: 7;
+		--parallax-speed: var(--parallax-speed-bg);
 		z-index: 1;
 	}
 
 	.parallax__fg {
-		--parallax-speed: -2;
+		--parallax-speed: var(--parallax-speed-fg);
 		height: 120%;
 		z-index: 2;
 		position: relative;
@@ -58,14 +70,16 @@ import { Image } from 'astro:assets';
 		background-position: top center;
 		bottom: -7rem;
 		transition: bottom 500ms ease;
-		@include mq('xl') {
-			transition: bottom 500ms ease;
+		@include mq('md') {
 			bottom: -3rem;
+		}
+		@include mq('xl') {
+			bottom: 2rem;
 		}
 	}
 
 	.parallax__dust {
-		--parallax-speed: -15;
+		--parallax-speed: var(--parallax-speed-dust);
 		z-index: 3;
 		img {
 			object-fit: cover;
@@ -73,7 +87,7 @@ import { Image } from 'astro:assets';
 	}
 
 	.parallax__logo {
-		--parallax-speed: 5;
+		--parallax-speed: var(--parallax-speed-logo);
 		z-index: 11;
 		position: absolute;
 		right: 13vw;
@@ -118,7 +132,7 @@ import { Image } from 'astro:assets';
 
 	@keyframes parallax {
 		to {
-			transform: translateY(calc(var(--parallax-speed) * 100px));
+			transform: translateY(calc(var(--parallax-speed) * 200px));
 		}
 	}
 </style>
