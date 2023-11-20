@@ -69,7 +69,6 @@ const { pageTitle } = Astro.props;
 	window.addEventListener('scroll', () => {
 		const scrollY = window.scrollY;
 		if (scrollY >= 20) return;
-
 		scrollY === 0 ? header.classList.remove('scrolled') : header.classList.add('scrolled');
 	});
 </script>

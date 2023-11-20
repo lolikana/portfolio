@@ -1,0 +1,60 @@
+---
+import Akira from '@components/ui/Akira.astro';
+
+import DynamicText from './DynamicText.astro';
+---
+
+<section class="hero-section">
+	<h1 class="hero-section__title">
+		Hello, <span>my name is</span>
+		<div class="hero-section__title-name">
+			<span>Thomas Guiart</span>
+			<span class="stamp">
+				<Akira />
+			</span>
+		</div>
+	</h1>
+	<DynamicText />
+</section>
+
+<style lang="scss">
+	.hero-section {
+		width: fit-content;
+		border-radius: 20px;
+		margin-top: 20vh;
+		margin-left: max(10vw, 1rem);
+		color: $primary-color;
+		filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+	}
+
+	.hero-section__title {
+		@include font-responsive(2rem, 6vw, 3rem);
+		line-height: 1;
+		font-style: italic;
+		font-weight: 900;
+		position: relative;
+		margin-bottom: 1rem;
+
+		span {
+			white-space: nowrap;
+		}
+
+		span:first-child {
+			display: block;
+			white-space: nowrap;
+		}
+
+		&-name {
+			position: relative;
+			width: fit-content;
+
+			.stamp {
+				position: absolute;
+				inset: 0;
+				margin: auto;
+				padding-left: 1.5rem;
+				transform: rotate(-2deg);
+			}
+		}
+	}
+</style>
