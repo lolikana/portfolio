@@ -1,7 +1,7 @@
 @use 'base';
 
 body {
-	min-height: 300vh; /* for demo only */
+	display: grid;
 }
 
 .hover-overline::after {

@@ -1,0 +1,54 @@
+---
+
+---
+
+<footer class="footer">
+	<p class="footer__text">
+		Copyright &copy;<span>&nbsp;<time class="footer__time"></time>&nbsp;</span>
+		<a class="footer__link" target="_blank" href="https://github.com/lolikana">
+			Thomas Guiart
+		</a>
+	</p>
+</footer>
+
+<style lang="scss">
+	.footer {
+		height: 3rem;
+		@extend %flex-center;
+	}
+
+	.footer__text {
+		display: flex;
+	}
+
+	.footer__link {
+		position: relative;
+		transition: color 250ms ease;
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+
+		&::after {
+			content: '';
+			background-image: url('icons/github-icon.svg');
+			background-size: cover;
+			width: 1rem;
+			height: 1rem;
+			margin-bottom: 0.25rem;
+			filter: $filter-black;
+			transition: filter 250ms ease;
+		}
+		&:hover {
+			color: $secondary-color;
+			&::after {
+				filter: $filter-secondary;
+			}
+		}
+	}
+</style>
+
+<script>
+	const time = document.querySelector('.footer__time') as HTMLTimeElement;
+	const date = new Date();
+	time.textContent = date.getFullYear().toString();
+</script>
