@@ -11,13 +11,8 @@ type Props = {
 	index: number;
 };
 
-const { link, index } = Astro.props;
-const {
-	class: styled_navbar,
-	class2: styled_link,
-	class3: hover_line,
-	...rest
-} = Astro.props;
+const { link, index, ...rest } = Astro.props;
+const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.props;
 ---
 
 <li class:list={['navbar__list_item', styled_navbar]} {...rest}>
