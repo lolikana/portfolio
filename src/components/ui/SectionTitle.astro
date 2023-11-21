@@ -1,0 +1,42 @@
+---
+type Props = {
+	sectionNumber: number;
+	sectionTitle: string;
+};
+const { sectionNumber, sectionTitle } = Astro.props;
+---
+
+<h1 class="section-title">
+	<span class="section-title__number">
+		{sectionNumber.toString().padStart(2, '0')}.
+	</span>
+	<span class="section-title__text">{sectionTitle}</span>
+</h1>
+
+<style lang="scss">
+	.section-title {
+		width: calc(100% - 2rem);
+		position: relative;
+		overflow: hidden;
+
+		&__number {
+			padding-right: 0.5rem;
+		}
+
+		&__text {
+			color: $main-color;
+			@include font-responsive(1.5rem, 3vw, 2rem);
+			padding-right: 1rem;
+		}
+
+		&::after {
+			content: '';
+			width: 30vw;
+			max-width: 400px;
+			height: 2px;
+			background-color: $main-color;
+			position: absolute;
+			top: 50%;
+		}
+	}
+</style>

@@ -1,17 +1,25 @@
 ---
+import SectionShape from '@components/ui/SectionShape.astro';
 
+type Props = {
+	sectionNumber: number;
+	sectionTitle: string;
+	shape: 'type1';
+};
+
+const { sectionNumber, sectionTitle, shape } = Astro.props;
 ---
 
-<div class="section-border">
-	<section class="section-container about-section">
-		<p>
+<SectionShape sectionNumber={sectionNumber} sectionTitle={sectionTitle} class={shape}>
+	<div slot="section-text" class="about-section__text">
+		<p class="about-section__text_description">
 			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,
 			Japan. With a passion for creating responsive and engaging websites. With a focus on
 			quality and attention to detail, I'm dedicated to delivering exceptional web solutions
 			that exceed expectations. I'm constantly seeking new opportunities to learn and grow as
 			a developer, and I'm excited to contribute my skills to the tech industry.
 		</p>
-		<div class="about-section__technologies">
+		<div class="about-section__text_technologies">
 			<p>Here are a few technologies I've been working with recently:</p>
 			<ul>
 				<li>Javascript (ES6+)</li>
@@ -21,47 +29,27 @@
 				<li>Vite</li>
 			</ul>
 		</div>
-	</section>
-</div>
+	</div>
+</SectionShape>
 
 <style lang="scss">
-	.section-border,
-	.section-container {
-		--clip-path: polygon(
-			25% 0%,
-			100% 0,
-			100% 30%,
-			100% 92%,
-			80% 100%,
-			16% 100%,
-			0 86%,
-			0 10%
-		);
-		clip-path: var(--clip-path);
-	}
-
-	.section-border {
-		max-width: 700px;
-		padding: 2px;
-		margin: 0 auto;
-	}
-
-	.section-container {
-		padding: 3rem 3rem 2rem;
-	}
-
-	.about-section {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	.about-section__text {
+		padding: 3rem 2rem 3rem;
 		text-align: justify;
-		word-spacing: -1px;
+		letter-spacing: 1px;
 	}
 
-	.about-section__technologies {
+	.about-section__text_description {
+		margin-bottom: 2rem;
+	}
+
+	.about-section__text_technologies {
 		ul {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 1fr;
+			@include mq('md') {
+				grid-template-columns: repeat(2, 1fr);
+			}
 			grid-template-rows: repeat(3, 1fr);
 			column-gap: 2rem;
 			margin: 1rem auto 0;

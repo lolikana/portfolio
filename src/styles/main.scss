@@ -5,7 +5,10 @@ body {
 }
 
 main {
-	padding: 2rem 1rem;
+	padding-inline: 5%;
+	@include mq(md) {
+		padding-inline: 15%;
+	}
 }
 
 .hover-overline::after {

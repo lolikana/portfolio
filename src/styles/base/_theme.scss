@@ -12,9 +12,19 @@
 }
 
 body,
+main {
+	transition: $transtion-color-scheme;
+	background-color: $secondary-color;
+	color: $primary-color;
+	@container style(--theme: dark) {
+		transition: $transtion-color-scheme;
+		background-color: $main_color;
+		color: $tertiary-color_dark;
+	}
+}
+
 header,
-main,
-section {
+footer {
 	transition: $transtion-color-scheme;
 	background-color: $primary-color;
 	color: $tertiary-color;
@@ -25,9 +35,21 @@ section {
 	}
 }
 
+section {
+	color: $tertiary-color;
+	h1 {
+		transition: $transtion-color-scheme;
+		color: $primary-color;
+		@container style(--theme: dark) {
+			transition: $transtion-color-scheme;
+			color: $tertiary-color_dark;
+		}
+	}
+}
+
 .parallax__foreground-front {
 	transition: $transtion-color-scheme;
-	background-color: $primary-color;
+	background-color: $secondary-color;
 	@container style(--theme: dark) {
 		background-color: $main-color;
 	}
@@ -38,13 +60,5 @@ a {
 	color: $tertiary-color;
 	@container style(--theme: dark) {
 		color: $tertiary-color_dark;
-	}
-}
-
-.section-border {
-	transition: $transtion-color-scheme;
-	background-color: $tertiary-color;
-	@container style(--theme: dark) {
-		background-color: $tertiary-color_dark;
 	}
 }
