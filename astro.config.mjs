@@ -30,5 +30,7 @@ export default defineConfig({
 		domains: ['astro.build'],
 		remotePatterns: [{ protocol: 'https' }]
 	},
-	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true })
+	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true }),
+	site: import.meta.env.PROD ? 'https://lolikana.github.io' : undefined,
+	base: import.meta.env.PROD ? '/astro-nayuta' : undefined
 });
