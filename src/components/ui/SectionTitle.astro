@@ -25,6 +25,9 @@ const { sectionNumber, sectionTitle } = Astro.props;
 
 		&__text {
 			color: $main-color;
+			@container style(--theme: dark) {
+				color: $secondary-color;
+			}
 			@include font-responsive(1.5rem, 3vw, 2rem);
 			padding-right: 1rem;
 		}
@@ -35,6 +38,9 @@ const { sectionNumber, sectionTitle } = Astro.props;
 			max-width: 400px;
 			height: 2px;
 			background-color: $main-color;
+			@container style(--theme: dark) {
+				background-color: $secondary-color;
+			}
 			position: absolute;
 			top: 50%;
 		}
