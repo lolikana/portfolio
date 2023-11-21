@@ -2,15 +2,21 @@
 import SectionShape from '@components/ui/SectionShape.astro';
 
 type Props = {
+	id: string;
 	sectionNumber: number;
 	sectionTitle: string;
 	shape: 'type1';
 };
 
-const { sectionNumber, sectionTitle, shape } = Astro.props;
+const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 ---
 
-<SectionShape sectionNumber={sectionNumber} sectionTitle={sectionTitle} class={shape}>
+<SectionShape
+	id={id}
+	sectionNumber={sectionNumber}
+	sectionTitle={sectionTitle}
+	class={shape}
+>
 	<div slot="section-text" class="about-section__text">
 		<p class="about-section__text_description">
 			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,

@@ -2,17 +2,18 @@
 import SectionTitle from './SectionTitle.astro';
 
 type Props = {
+	id: string;
 	sectionNumber: number;
 	sectionTitle: string;
 	class: 'type1';
 };
 
-const { sectionNumber, sectionTitle } = Astro.props;
+const { id } = Astro.props;
 const { class: shape, ...rest } = Astro.props;
 ---
 
-<section class="section-wrapper" {...rest}>
-	<SectionTitle sectionNumber={sectionNumber} sectionTitle={sectionTitle} />
+<section id={id} class="section-wrapper">
+	<SectionTitle {...rest} />
 	<div class="section-container">
 		<div class:list={['section-container__shape-shadow', shape]}>
 			<div class:list={['section-container__shape', shape]}></div>
