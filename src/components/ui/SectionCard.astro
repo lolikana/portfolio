@@ -1,0 +1,28 @@
+---
+import ContainerShape from './ContainerShape.astro';
+import SectionTitle from './SectionTitle.astro';
+
+type Props = {
+	id: string;
+	sectionNumber: number;
+	sectionTitle: string;
+	class: 'type1';
+};
+
+const { id } = Astro.props;
+const { class: shape, ...rest } = Astro.props;
+---
+
+<section id={id} class="section-wrapper">
+	<SectionTitle {...rest} />
+	<ContainerShape class={shape}>
+		<slot name="section-text" />
+	</ContainerShape>
+</section>
+
+<style lang="scss">
+	.section-wrapper {
+		max-width: 760px;
+		margin: 0 auto;
+	}
+</style>
