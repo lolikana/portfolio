@@ -1,6 +1,7 @@
 ---
 import Footer from '@components/layout/footer/Footer.astro';
 import Header from '@components/layout/header/Header.astro';
+import SnsBar from '@components/layout/sns/SnsBar.astro';
 
 type Props = {
 	pageTitle: string;
@@ -22,6 +23,7 @@ const { pageTitle } = Astro.props;
 		<slot name="parallax" />
 		<main class="main">
 			<slot />
+			<SnsBar />
 		</main>
 		<Footer />
 	</body>
@@ -70,13 +72,16 @@ const { pageTitle } = Astro.props;
 
 	/** Scroll listener */
 	const header = document.querySelector('.header') as HTMLDivElement;
+	const snsBar = document.querySelector('.sns-bar') as HTMLDivElement;
 	const scrollY = window.scrollY;
 
 	scrollY ? header.classList.add('scrolled') : null;
+	scrollY ? snsBar.setAttribute('aria-hidden', 'false') : null;
 
 	window.addEventListener('scroll', () => {
 		const scrollY = window.scrollY;
 		if (scrollY >= 20) return;
 		scrollY === 0 ? header.classList.remove('scrolled') : header.classList.add('scrolled');
+		snsBar.setAttribute('aria-hidden', 'false');
 	});
 </script>

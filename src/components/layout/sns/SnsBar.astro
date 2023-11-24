@@ -1,0 +1,91 @@
+---
+import { snsData } from '@libs/data';
+---
+
+<div class="sns-bar" aria-hidden="true">
+	<ul class="sns-bar__items">
+		{
+			snsData.map((sns, index) => (
+				<li class="sns-bar__item" style={`--delay: ${(index + 1) * 0.5}s`}>
+					<a href={sns.link} target="_blank">
+						<img src={sns.icon.src} alt={sns.alt} />
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
+
+<style lang="scss">
+	.sns-bar {
+		--duration-bar: 1s;
+
+		position: fixed;
+		bottom: 10vw;
+		left: 1vw;
+		bottom: 0;
+		background-color: $primary-color;
+		height: 0;
+		transition: height var(--duration-bar) ease;
+
+		.sns-bar__items::after {
+			transition: height calc(var(--duration-bar) * 2) var(--duration-bar) ease;
+			height: 0;
+		}
+
+		.sns-bar__item {
+			opacity: 0;
+			transition: opacity var(--delay) var(--duration-bar) ease;
+		}
+
+		&[aria-hidden='false'] {
+			transition: height var(--duration-bar) ease;
+			height: 30%;
+
+			.sns-bar__items::after {
+				transition: height calc(var(--duration-bar) * 2) var(--duration-bar) ease;
+				height: 100vh;
+			}
+
+			.sns-bar__item {
+				opacity: 1;
+				transition:
+					opacity var(--delay) 500ms ease,
+					filter 500ms ease;
+			}
+		}
+	}
+
+	.sns-bar__items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2vw;
+		padding: 1rem 0.25rem 2vw;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 2px;
+			height: 100vh;
+			top: 100%;
+			background-color: $tertiary-color;
+		}
+	}
+
+	.sns-bar__item {
+		position: relative;
+		filter: $filter-tertiary;
+		&:hover {
+			filter: $filter-secondary;
+		}
+
+		a {
+			display: block;
+			width: 16px;
+			height: 16px;
+		}
+	}
+</style>
