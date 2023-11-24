@@ -6,24 +6,65 @@ type Props = {
 const { sectionNumber, sectionTitle } = Astro.props;
 ---
 
-<h1 class="section-title">
+<h1 class="section-title" data-show-title="false">
 	<span class="section-title__number">
 		{sectionNumber.toString().padStart(2, '0')}.
 	</span>
 	<span class="section-title__text">{sectionTitle}</span>
 </h1>
 
+<script>
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const target = entry.target as HTMLTitleElement;
+					target.dataset.showTitle = 'true';
+				}
+			});
+		},
+		{
+			root: null,
+			rootMargin: '-50px',
+			threshold: 0.5
+		}
+	);
+
+	const sections = document.querySelectorAll('.section-title');
+
+	sections.forEach(section => observer.observe(section));
+</script>
+
 <style lang="scss">
 	.section-title {
+		--transition-duration: 500ms;
+
 		width: calc(100% - 2rem);
 		position: relative;
 		overflow: hidden;
 
-		&__number {
+		&::after {
+			width: 30vw;
+			max-width: 400px;
+			transition: width var(--transition-duration) ease;
+		}
+
+		&[data-show-title='false'] {
+			&::after {
+				width: 0;
+			}
+			.section-title__text {
+				opacity: 0;
+			}
+		}
+
+		.section-title__number {
 			padding-right: 0.5rem;
 		}
 
-		&__text {
+		.section-title__text {
+			opacity: 1;
+			transition: opacity var(--transition-duration) ease;
 			color: $main-color;
 			@container style(--theme: dark) {
 				color: $secondary-color;
@@ -34,8 +75,6 @@ const { sectionNumber, sectionTitle } = Astro.props;
 
 		&::after {
 			content: '';
-			width: 30vw;
-			max-width: 400px;
 			height: 2px;
 			background-color: $main-color;
 			@container style(--theme: dark) {
