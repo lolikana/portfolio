@@ -8,7 +8,7 @@ import { snsData } from '@libs/data';
 			snsData.map((sns, index) => (
 				<li class="sns-bar__item" style={`--delay: ${(index + 1) * 0.5}s`}>
 					<a href={sns.link} target="_blank">
-						<img src={sns.icon.src} alt={sns.alt} />
+						<img src={sns.icon.src} alt={`${sns.site} icon`} />
 					</a>
 				</li>
 			))
