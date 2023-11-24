@@ -1,5 +1,7 @@
 ---
-import SectionShape from '@components/ui/SectionShape.astro';
+import ProfileImg from '@assets/img-profile.png';
+import SectionCard from '@components/ui/SectionCard.astro';
+import { Image } from 'astro:assets';
 
 type Props = {
 	id: string;
@@ -11,19 +13,23 @@ type Props = {
 const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 ---
 
-<SectionShape
+<SectionCard
 	id={id}
 	sectionNumber={sectionNumber}
 	sectionTitle={sectionTitle}
 	class={shape}
 >
 	<div slot="section-text" class="about-section__text">
+		<div class="about-section__image corner-border">
+			<Image src={ProfileImg} alt="Profile Image" width={ProfileImg.width} />
+		</div>
 		<p class="about-section__text_description">
 			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,
 			Japan. With a passion for creating responsive and engaging websites. With a focus on
 			quality and attention to detail, I'm dedicated to delivering exceptional web solutions
-			that exceed expectations. I'm constantly seeking new opportunities to learn and grow as
-			a developer, and I'm excited to contribute my skills to the tech industry.
+			that exceed expectations.
+			<br />I'm constantly seeking new opportunities to learn and grow as a developer, and
+			I'm excited to contribute my skills to the tech industry.
 		</p>
 		<div class="about-section__text_technologies">
 			<p>Here are a few technologies I've been working with recently:</p>
@@ -36,10 +42,33 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 			</ul>
 		</div>
 	</div>
-</SectionShape>
+</SectionCard>
 
 <style lang="scss">
+	.about-section__image {
+		width: fit-content;
+		position: relative;
+		margin: 0 auto 2rem;
+		width: 150px;
+		height: 200px;
+		img {
+			object-fit: cover;
+		}
+
+		&::after {
+			--corner-color: #{$main-color};
+			--corner-weigth: 2px;
+		}
+
+		@include mq('md') {
+			position: absolute;
+			top: -2.3rem;
+			right: -2rem;
+		}
+	}
+
 	.about-section__text {
+		margin: 2rem 0;
 		padding: 3rem 2rem 3rem;
 		text-align: justify;
 		letter-spacing: 1px;
@@ -47,6 +76,9 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 
 	.about-section__text_description {
 		margin-bottom: 2rem;
+		@include mq('md') {
+			padding-right: 8rem;
+		}
 	}
 
 	.about-section__text_technologies {
