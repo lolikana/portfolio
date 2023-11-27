@@ -1,7 +1,7 @@
 import type { ImageMetadata } from 'astro';
 
 export type TNavbarLinksData = {
-	href: 'about' | 'experiences' | 'works' | 'contact';
+	href: 'about' | 'experiences' | 'works' | 'contact' | 'projects';
 };
 
 export type TSnsData = {

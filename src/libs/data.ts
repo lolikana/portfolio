@@ -10,10 +10,7 @@ export const navbarLinksData: TNavbarLinksData[] = [
 		href: 'about'
 	},
 	{
-		href: 'experiences'
-	},
-	{
-		href: 'works'
+		href: 'projects'
 	},
 	{
 		href: 'contact'
