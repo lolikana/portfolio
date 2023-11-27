@@ -15,12 +15,15 @@ const { link, index, ...rest } = Astro.props;
 const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.props;
 ---
 
-<li class:list={['navbar__list_item', styled_navbar]} {...rest}>
+<li
+	class:list={['navbar__list_item', styled_navbar]}
+	style={`--delay: ${(index + 1) * 0.2}s`}
+	{...rest}
+>
 	<a
 		class:list={['item-link translate-transition', styled_link, hover_line]}
 		href=`#${link.href}`
 		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
-		style={`--delay: ${(index + 1) * 0.2}s`}
 		{...rest}
 	>
 		{firstCapitalizeLetter(link.href)}
@@ -41,7 +44,7 @@ const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.
 		}
 	}
 
-	.navbar__list_item .item-link {
+	.navbar__list_item {
 		opacity: 0;
 		@include text-appear($speed: $header-heightTransition, $translateY-from: -20px);
 		animation-delay: var(--delay);
