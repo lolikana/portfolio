@@ -4,6 +4,7 @@ import '@styles/main.scss';
 import Parallax from '@components/parallax/Parallax.astro';
 import AboutSection from '@components/section/about/AboutSection.astro';
 import HeroSection from '@components/section/hero/HeroSection.astro';
+import ProjectsSection from '@components/section/projects/ProjectsSection.astro';
 import Layout from 'src/layout/Layout.astro';
 ---
 
@@ -12,4 +13,5 @@ import Layout from 'src/layout/Layout.astro';
 		<HeroSection slot="hero-section" />
 	</Parallax>
 	<AboutSection id="about" sectionNumber={1} sectionTitle="About" shape="type1" />
+	<ProjectsSection id="Projects" sectionNumber={2} sectionTitle="Projects" shape="type2" />
 </Layout>

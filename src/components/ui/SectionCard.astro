@@ -6,7 +6,7 @@ type Props = {
 	id: string;
 	sectionNumber: number;
 	sectionTitle: string;
-	class: 'type1';
+	class: 'type1' | 'type2';
 	classAnimation?: string;
 };
 
@@ -22,7 +22,5 @@ const { class: shape, classAnimation: animation, id: id, ...rest } = Astro.props
 
 <style lang="scss">
 	.section-wrapper {
-		max-width: 760px;
-		margin: 1rem auto;
 	}
 </style>

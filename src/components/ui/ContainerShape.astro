@@ -1,6 +1,6 @@
 ---
 type Props = {
-	class: 'type1';
+	class: 'type1' | 'type2';
 };
 
 const { class: shape, ...rest } = Astro.props;
@@ -15,11 +15,32 @@ const { class: shape, ...rest } = Astro.props;
 		position: relative;
 		background-color: $primary-color;
 
+		&.type1 {
+			margin: 1rem auto 2rem auto;
+			max-width: 760px;
+		}
+
 		&.type1::before {
 			content: '';
 			position: absolute;
 			background: url('@assets/shape/type1.svg') no-repeat;
 			width: 100%;
+			height: 2rem;
+			top: -2rem;
+		}
+
+		&.type2 {
+			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
+			@include mq('md') {
+				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
+			}
+		}
+
+		&.type2::before {
+			content: '';
+			position: absolute;
+			background: url('@assets/shape/type2.svg');
+			min-width: 100%;
 			height: 2rem;
 			top: -2rem;
 		}

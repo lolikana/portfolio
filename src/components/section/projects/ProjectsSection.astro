@@ -1,0 +1,30 @@
+---
+import SectionCard from '@components/ui/SectionCard.astro';
+
+type Props = {
+	id: string;
+	sectionNumber: number;
+	sectionTitle: string;
+	shape: 'type2';
+};
+
+const { id, sectionNumber, sectionTitle, shape } = Astro.props;
+---
+
+<SectionCard
+	id={id}
+	sectionNumber={sectionNumber}
+	sectionTitle={sectionTitle}
+	class={shape}
+>
+	<div slot="section-text" class="section-container">
+		<h2>Personal Projects</h2>
+		<h2>The Odin Project</h2>
+		<h2>Open Class Room</h2>
+	</div>
+</SectionCard>
+
+<style lang="scss">
+	.section-container {
+	}
+</style>

@@ -5,9 +5,9 @@ body {
 }
 
 main {
-	padding-inline: 5%;
+	padding-inline: $main-inlinePadding-mobile;
 	@include mq(md) {
-		padding-inline: 15%;
+		padding-inline: $main-inlinePadding-desktop;
 	}
 }
 
