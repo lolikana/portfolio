@@ -7,13 +7,12 @@ type Props = {
 	sectionNumber: number;
 	sectionTitle: string;
 	class: 'type1' | 'type2';
-	classAnimation?: string;
 };
 
-const { class: shape, classAnimation: animation, id: id, ...rest } = Astro.props;
+const { class: shape, id: id, ...rest } = Astro.props;
 ---
 
-<section id={id} class:list={['section-wrapper', animation]} {...rest}>
+<section id={id} class="section-wrapper" {...rest}>
 	<SectionTitle {...rest} />
 	<ContainerShape class={shape}>
 		<slot name="section-text" />
@@ -22,5 +21,11 @@ const { class: shape, classAnimation: animation, id: id, ...rest } = Astro.props
 
 <style lang="scss">
 	.section-wrapper {
+		opacity: 0;
+		@include text-appear(
+			$speed: calc($header-heightTransition * 4),
+			$translateY-from: 10px
+		);
+		animation-delay: $loading-delay-2;
 	}
 </style>
