@@ -11,7 +11,9 @@
 	const body = document.body;
 	const menuBtn = document.querySelector('.menu-btn') as HTMLDivElement;
 	const secondaryNavbar = document.querySelector('.secondary-navbar') as HTMLElement;
-
+	const secondaryNavbarLinks = document.querySelectorAll(
+		'.secondary-navbar__list_item .item_link'
+	);
 	let menuOpen = false;
 
 	const toggleMenu = (state: boolean) => {
@@ -22,31 +24,46 @@
 	let menuOpenTimeout: ReturnType<typeof setTimeout>;
 	let scrollbarWidth: number;
 
+	function openBurgerMenu() {
+		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+		toggleMenu(true);
+		secondaryNavbar.style.display = 'block';
+
+		if (menuOpenTimeout) {
+			clearTimeout(menuOpenTimeout);
+		}
+		menuOpenTimeout = setTimeout(() => {
+			secondaryNavbar.setAttribute('aria-hidden', 'false');
+			root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+			body.style.overflowY = 'hidden';
+		}, 10);
+	}
+
+	function closeBurgerMenu() {
+		toggleMenu(false);
+		if (menuOpenTimeout) {
+			clearTimeout(menuOpenTimeout);
+		}
+		menuOpenTimeout = setTimeout(() => {
+			secondaryNavbar.style.display = 'none';
+		}, 1000);
+		secondaryNavbar.setAttribute('aria-hidden', 'true');
+		root.style.setProperty('--scrollbar-width', `0px`);
+		body.style.overflowY = 'visible';
+	}
+
 	menuBtn.addEventListener('click', () => {
 		if (!menuOpen) {
-			scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-			toggleMenu(true);
-			secondaryNavbar.setAttribute('style', `display: block;`);
-			if (menuOpenTimeout) {
-				clearTimeout(menuOpenTimeout); // Clear the previous timeout.
-			}
-			menuOpenTimeout = setTimeout(() => {
-				secondaryNavbar.setAttribute('aria-hidden', 'false');
-				root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-				body.setAttribute('style', `overflow-y: hidden; `);
-			}, 10); // Timer to ensure transitions work correctly
+			openBurgerMenu();
 		} else {
-			toggleMenu(false);
-			if (menuOpenTimeout) {
-				clearTimeout(menuOpenTimeout); // Clear the previous timeout.
-			}
-			menuOpenTimeout = setTimeout(() => {
-				secondaryNavbar.setAttribute('style', `display: none;`);
-			}, 1000); // Timer to ensure transitions work correctly
-			secondaryNavbar.setAttribute('aria-hidden', 'true');
-			root.style.setProperty('--scrollbar-width', `0px`);
-			body.setAttribute('style', `overflow-y: visible;`);
+			closeBurgerMenu();
 		}
+	});
+
+	secondaryNavbarLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			closeBurgerMenu();
+		});
 	});
 </script>
 
