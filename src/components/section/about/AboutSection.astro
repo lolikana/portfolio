@@ -48,7 +48,10 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 <style lang="scss">
 	.section_loading-animation {
 		opacity: 0;
-		@include text-appear($speed: $header-heightTransition, $translateY-from: 10px);
+		@include text-appear(
+			$speed: calc($header-heightTransition * 4),
+			$translateY-from: 10px
+		);
 		animation-delay: $loading-delay-2;
 	}
 
