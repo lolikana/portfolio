@@ -40,4 +40,10 @@ const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.
 			margin-right: 0.25rem;
 		}
 	}
+
+	.navbar__list_item .item-link {
+		opacity: 0;
+		@include text-appear($speed: $header-heightTransition, $translateY-from: -20px);
+		animation-delay: var(--delay);
+	}
 </style>

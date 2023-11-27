@@ -7,13 +7,13 @@ type Props = {
 	sectionNumber: number;
 	sectionTitle: string;
 	class: 'type1';
+	classAnimation?: string;
 };
 
-const { id } = Astro.props;
-const { class: shape, ...rest } = Astro.props;
+const { class: shape, classAnimation: animation, id: id, ...rest } = Astro.props;
 ---
 
-<section id={id} class="section-wrapper">
+<section id={id} class:list={['section-wrapper', animation]} {...rest}>
 	<SectionTitle {...rest} />
 	<ContainerShape class={shape}>
 		<slot name="section-text" />
