@@ -50,9 +50,12 @@ main {
 }
 
 .corner-border::after {
+	--corner-weigth: 2px;
+	--corner-scale: 1.2;
+
 	content: '';
 	position: absolute;
-	scale: 1.2;
+	scale: var(--corner-scale);
 	width: 100%;
 	height: 100%;
 	left: 0;

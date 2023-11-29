@@ -23,6 +23,7 @@ const allProjects = await getCollection('projects');
 						alt={data.mobileImg.alt}
 					/>
 				</div>
+				<div class="project-card__overlay corner-border" />
 			</div>
 		);
 	})
@@ -30,12 +31,52 @@ const allProjects = await getCollection('projects');
 
 <style lang="scss">
 	.project-card {
+		--transition-duration: 500ms;
+
+		transition:
+			box-shadow var(--transition-duration) ease,
+			opacity var(--transition-duration) ease;
+
 		background-color: $secondary-color;
 		color: $primary-color;
 		margin: 1rem 0;
 		height: fit-content;
 		max-height: 70vh;
 		overflow: hidden;
+		position: relative;
+	}
+
+	.project-card__overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(1px);
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+		&::after {
+			--corner-color: #{$main-color};
+			--corner-scale: 1.05;
+		}
+
+		opacity: 0;
+		transition: opacity var(--transition-duration) ease;
+	}
+
+	.project-card:hover {
+		box-shadow: none;
+		.project-card__overlay {
+			opacity: 1;
+		}
+
+		@include mq('sm') {
+			.project-card__mobileImg {
+				transition: opacity var(--transition-duration) ease;
+				opacity: 0;
+			}
+		}
 	}
 
 	.project-card__title {
@@ -49,10 +90,6 @@ const allProjects = await getCollection('projects');
 
 	.project-card__desktopImg {
 		display: none;
-	}
-
-	.project-card__mobileImg {
-		// object-fit: cover;
 	}
 
 	@include mq('sm') {
@@ -81,6 +118,8 @@ const allProjects = await getCollection('projects');
 		}
 
 		.project-card__mobileImg {
+			opacity: 1;
+			transition: opacity var(--transition-duration) ease;
 			position: absolute;
 			top: -2rem;
 			left: -2rem;
