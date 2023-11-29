@@ -20,13 +20,18 @@ const { class: shape, ...rest } = Astro.props;
 			max-width: 760px;
 		}
 
-		&.type1::before {
+		&.type1::before,
+		&.type2::before {
 			content: '';
 			position: absolute;
-			background: url('@assets/shape/type1.svg') no-repeat;
 			width: 100%;
+			height: 100%;
 			height: 2rem;
 			top: -2rem;
+		}
+
+		&.type1::before {
+			background: url('@assets/shape/type1.svg') no-repeat;
 		}
 
 		&.type2 {
@@ -37,17 +42,12 @@ const { class: shape, ...rest } = Astro.props;
 		}
 
 		&.type2::before {
-			content: '';
-			position: absolute;
 			background: url('@assets/shape/type2.svg') no-repeat;
 			background-size: 100%;
 			background-position: bottom;
 			@include mq('md') {
 				background-position: center;
 			}
-			width: 100%;
-			height: 2rem;
-			top: -2rem;
 		}
 	}
 </style>
