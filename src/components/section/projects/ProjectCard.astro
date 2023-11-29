@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+---
+
+{
+	allProjects.map(async frontmatter => {
+		const { data } = frontmatter;
+
+		return (
+			<div class="project-card">
+				<h3 class="project-card__title">{data.title}</h3>
+				<div class="project-card__imgContainer">
+					<img
+						class="project-card__desktopImg"
+						src={data.desktopImg.url.src}
+						alt={data.desktopImg.alt}
+					/>
+					<img
+						class="project-card__mobileImg"
+						src={data.mobileImg.url.src}
+						alt={data.mobileImg.alt}
+					/>
+				</div>
+			</div>
+		);
+	})
+}
+
+<style lang="scss">
+	.project-card {
+		background-color: $secondary-color;
+		color: $primary-color;
+		margin: 1rem 0;
+		height: fit-content;
+		max-height: 70vh;
+		overflow: hidden;
+	}
+
+	.project-card__title {
+		text-align: center;
+		padding: 1rem 0;
+	}
+
+	.project-card__imgContainer {
+		display: flex;
+	}
+
+	.project-card__desktopImg {
+		display: none;
+	}
+
+	.project-card__mobileImg {
+		// object-fit: cover;
+	}
+
+	@include mq('sm') {
+		.project-card {
+			width: 70%;
+			max-width: 600px;
+			height: fit-content;
+			margin: 0 auto;
+			overflow: visible;
+		}
+
+		.project-card__imgContainer {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+
+		.project-card,
+		.project-card__mobileImg {
+			box-shadow: 5px 5px 10px $tertiary-color;
+		}
+
+		.project-card__desktopImg {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.project-card__mobileImg {
+			position: absolute;
+			top: -2rem;
+			left: -2rem;
+		}
+	}
+</style>

@@ -118,6 +118,14 @@
 			}
 		]
 	},
-	"include": ["src", "**/*.ts", "**/*.tsx", "**/*.astro", "*.config.mjs", ".eslintrc.cjs"],
+	"include": [
+		"src",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.astro",
+		"*.config.mjs",
+		".eslintrc.cjs",
+		"**/*.md"
+	],
 	"exclude": ["node_modules"]
 }

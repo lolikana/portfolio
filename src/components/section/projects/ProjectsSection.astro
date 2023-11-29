@@ -1,6 +1,8 @@
 ---
 import SectionCard from '@components/ui/SectionCard.astro';
 
+import ProjectCard from './ProjectCard.astro';
+
 type Props = {
 	id: string;
 	sectionNumber: number;
@@ -19,6 +21,7 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 >
 	<div slot="section-text" class="section-container">
 		<h2>Personal Projects</h2>
+		<ProjectCard />
 		<h2>The Odin Project</h2>
 		<h2>Open Class Room</h2>
 	</div>
@@ -26,6 +29,6 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 
 <style lang="scss">
 	.section-container {
-		padding: 2rem 4rem;
+		padding: 2rem 0.5rem;
 	}
 </style>
