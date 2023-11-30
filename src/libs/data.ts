@@ -1,7 +1,7 @@
-import IconCodePen from '@assets/icon/codepen-icon.svg';
-import IconGithub from '@assets/icon/github-icon.svg';
-import IconInstagram from '@assets/icon/instagram-icon.svg';
-import IconLinkedIn from '@assets/icon/linkedin-icon.svg';
+import IconCodePen from '@assets/icons/codepen-icon.svg';
+import IconGithub from '@assets/icons/github-icon.svg';
+import IconInstagram from '@assets/icons/instagram-icon.svg';
+import IconLinkedIn from '@assets/icons/linkedin-icon.svg';
 
 import type { TNavbarLinksData, TSnsData } from './types';
 

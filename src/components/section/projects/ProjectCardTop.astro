@@ -1,0 +1,40 @@
+---
+import ProjectCardLink from './ProjectCardLink.astro';
+
+type Props = {
+	title: string;
+	codeUrl: string;
+	previewUrl: string;
+};
+
+const { title, codeUrl, previewUrl } = Astro.props;
+---
+
+<div class="project-card__top">
+	<h3 class="project-card__title">{title}</h3>
+	<div class="project-card__links">
+		{codeUrl && <ProjectCardLink class="github" url={codeUrl} />}
+		{previewUrl && <ProjectCardLink class="preview" url={previewUrl} />}
+	</div>
+</div>
+
+<style lang="scss">
+	.project-card__top {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.project-card__title {
+		text-align: center;
+		padding: 1rem 0;
+	}
+
+	.project-card__links {
+		z-index: 10;
+		position: absolute;
+		right: 1rem;
+		display: flex;
+		gap: 1rem;
+	}
+</style>

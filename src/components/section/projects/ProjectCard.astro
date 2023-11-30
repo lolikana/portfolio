@@ -2,6 +2,8 @@
 import Frame from '@assets/shape/frame1.png';
 import { getCollection } from 'astro:content';
 
+import ProjectCardTop from './ProjectCardTop.astro';
+
 const allProjects = await getCollection('projects');
 ---
 
@@ -11,7 +13,11 @@ const allProjects = await getCollection('projects');
 
 		return (
 			<div class="project-card">
-				<h3 class="project-card__title">{data.title}</h3>
+				<ProjectCardTop
+					title={data.title}
+					codeUrl={data.codeUrl}
+					previewUrl={data.previewUrl}
+				/>
 				<div class="project-card__imgContainer">
 					<img
 						class="project-card__desktopImg"
@@ -34,49 +40,19 @@ const allProjects = await getCollection('projects');
 	.project-card {
 		--transition-duration: 500ms;
 
+		position: relative;
 		transition:
 			box-shadow var(--transition-duration) ease,
 			opacity var(--transition-duration) ease;
-
 		background-color: $secondary-color;
 		color: $primary-color;
 		margin: 1rem 0;
+		padding: 0 0 1rem;
 		height: fit-content;
-		overflow: hidden;
-		position: relative;
 	}
 
 	.project-card__overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: rgba(0, 0, 0, 0.2);
-		backdrop-filter: blur(1px);
-
-		&::after {
-			--corner-color: #{$main-color};
-			--corner-scale: 1.05;
-		}
-
-		opacity: 0;
-		transition: opacity var(--transition-duration) ease;
-	}
-
-	.project-card:hover {
-		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-
-		.project-card__overlay {
-			opacity: 1;
-		}
-
-		@include mq('sm') {
-			.project-card__mobileImg {
-				transition: opacity var(--transition-duration) ease;
-				opacity: 0;
-			}
-		}
+		display: none;
 	}
 
 	.project-card,
@@ -84,56 +60,74 @@ const allProjects = await getCollection('projects');
 		filter: drop-shadow(5px 5px 5px $tertiary-color);
 	}
 
-	.project-card__title {
-		text-align: center;
-		padding: 1rem 0;
-	}
-
 	.project-card__imgContainer {
 		display: flex;
-	}
+		justify-content: center;
 
-	.project-card__desktopImg {
-		display: none;
-	}
+		.project-card__desktopImg {
+			display: none;
+		}
 
-	.project-card__mobileImg {
-		margin: 0 auto;
-		background-size: calc(100% - 1vw) calc(100% - 0.7rem);
-		background-repeat: no-repeat;
-		background-position: center;
-		border-radius: 28px;
+		.project-card__mobileImg {
+			background-size: calc(100% - 1vw) calc(100% - 0.7rem);
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 28px;
+		}
 	}
 
 	@include mq('sm') {
 		.project-card {
 			width: 70%;
 			max-width: 600px;
-			height: fit-content;
 			margin: 0 auto;
-			overflow: visible;
+			padding: 0;
+		}
+
+		.project-card__overlay {
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.2);
+			backdrop-filter: blur(1px);
+			opacity: 0;
+			transition: opacity var(--transition-duration) ease;
+
+			&::after {
+				--corner-color: #{$main-color};
+				--corner-scale: 1.05;
+			}
+		}
+
+		.project-card:hover {
+			box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+			.project-card__overlay {
+				opacity: 1;
+			}
+			.project-card__mobileImg {
+				opacity: 0;
+				transition: opacity var(--transition-duration) ease;
+			}
 		}
 
 		.project-card__imgContainer {
 			position: relative;
-			width: 100%;
 			max-height: 50vh;
-		}
 
-		.project-card__desktopImg {
-			display: block;
-			margin: 0 auto;
-		}
+			.project-card__desktopImg {
+				display: block;
+			}
 
-		.project-card__mobileImg {
-			opacity: 1;
-			transition: opacity var(--transition-duration) ease;
-			position: absolute;
-			top: -2rem;
-			left: -2rem;
-			background-size: calc(100% - 0.3rem) calc(100% - 0.7rem);
-
-			border-radius: 13px;
+			.project-card__mobileImg {
+				position: absolute;
+				top: -2rem;
+				left: -2rem;
+				background-size: calc(100% - 0.3rem) calc(100% - 0.7rem);
+				border-radius: 0px;
+				opacity: 1;
+				transition: opacity var(--transition-duration) ease;
+			}
 		}
 	}
 </style>
