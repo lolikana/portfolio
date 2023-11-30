@@ -1,8 +1,9 @@
+import react from '@astrojs/react';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [],
+	integrations: [react()],
 	build: {
 		inlineStylesheets: 'auto'
 	},
@@ -18,6 +19,7 @@ export default defineConfig({
 		resolve: {
 			alias: {
 				'@components': '/src/components',
+				'@functionnal-components': '/src/functionnal-components',
 				'@layouts': '/src/layouts',
 				'@libs': '/src/libs',
 				'@styles': '/src/styles',
