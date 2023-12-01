@@ -11,8 +11,6 @@
 	}
 
 	@include mq('md') {
-		width: 70%;
-		max-width: 1000px;
 		margin: 0 auto;
 	}
 }

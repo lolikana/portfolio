@@ -1,5 +1,5 @@
 .swiper-container {
-	padding: 1rem 0;
+	padding: 2rem 0 1rem;
 
 	.swiper-slide {
 		width: 70%;
@@ -40,9 +40,6 @@
 	.swiper-pagination-bullets {
 		bottom: initial !important;
 		top: -0.4rem !important;
-		width: initial !important;
-		left: initial !important;
-		right: 4rem !important;
 
 		.swiper-pagination-bullet-active {
 			background-color: $secondary-color;
