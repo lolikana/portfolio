@@ -1,7 +1,7 @@
 ---
 import SectionCard from '@components/ui/SectionCard.astro';
-
-import ProjectCard from './ProjectCard.astro';
+import Swiper from '@functionnal-components/Swiper';
+import { getCollection } from 'astro:content';
 
 type Props = {
 	id: string;
@@ -11,6 +11,7 @@ type Props = {
 };
 
 const { id, sectionNumber, sectionTitle, shape } = Astro.props;
+const allProjects = await getCollection('projects');
 ---
 
 <SectionCard
@@ -21,14 +22,10 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 >
 	<div slot="section-text" class="section-container">
 		<h2>Personal Projects</h2>
-		<ProjectCard />
+		<Swiper client:load projects={allProjects} />
 		<h2>The Odin Project</h2>
 		<h2>Open Class Room</h2>
 	</div>
 </SectionCard>
 
-<style lang="scss">
-	.section-container {
-		padding: 2rem 0.5rem;
-	}
-</style>
+<style lang="scss"></style>

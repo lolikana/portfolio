@@ -1,0 +1,51 @@
+.swiper-container {
+	padding: 1rem 0;
+
+	.swiper-slide {
+		width: 70%;
+		max-width: 600px;
+	}
+
+	.swiper-button-prev {
+		@include mq(md) {
+			left: 2rem;
+		}
+	}
+
+	.swiper-button-next {
+		@include mq(md) {
+			right: 2rem;
+		}
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		overflow: visible;
+		z-index: 1;
+		color: $primary-color;
+		width: 2rem;
+		height: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		background-color: $tertiary-color;
+		border-radius: 50%;
+
+		&::after {
+			font-size: 1rem;
+		}
+	}
+
+	.swiper-pagination-bullets {
+		bottom: initial !important;
+		top: -0.4rem !important;
+		width: initial !important;
+		left: initial !important;
+		right: 4rem !important;
+
+		.swiper-pagination-bullet-active {
+			background-color: $secondary-color;
+		}
+	}
+}

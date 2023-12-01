@@ -1,0 +1,28 @@
+.project-card__title {
+	text-align: center;
+}
+
+.project-card__links {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.project-card__title,
+.project-card__links {
+	margin: 0.5rem 0;
+}
+
+@include mq('sm') {
+	.project-card__top {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.project-card__links {
+		z-index: 10;
+		position: absolute;
+		right: 1rem;
+	}
+}
