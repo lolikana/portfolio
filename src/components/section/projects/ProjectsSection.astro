@@ -45,5 +45,30 @@ const ocrProject = allProjects.filter(item => item.data.type === 'ocr');
 	.section-container__title {
 		padding: 1rem 0;
 		text-align: center;
+
+		position: relative;
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			width: 15vw;
+			height: 2px;
+			background: $tertiary-color;
+			top: 50%;
+			position: absolute;
+
+			@include mq('sm') {
+				width: 30vw;
+			}
+			@include mq('md') {
+				width: 40vw;
+			}
+		}
+		&::before {
+			left: 0;
+		}
+		&::after {
+			right: 0;
+		}
 	}
 </style>
