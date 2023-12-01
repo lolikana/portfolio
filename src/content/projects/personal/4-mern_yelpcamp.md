@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/yelpcamp-mern'
 previewUrl: 'https://yelpcamp-mern.vercel.app/'
-technologies: ['react', 'express', 'mongodb', 'nodejs', 'sass', 'swiper', 'mapbox', 'zod']
+technologies: ['mongodb', 'express', 'react', 'nodejs', 'sass', 'swiper', 'mapbox', 'zod']
 ---
 

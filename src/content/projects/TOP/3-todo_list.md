@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/odin-vite_ts-todo'
 previewUrl: 'https://top-todo.onrender.com/'
-technologies: ['vite', 'vite-express', 'mongodb', 'typescript', 'sass', 'onrender']
+technologies: ['vitejs', 'express', 'mongodb', 'typescript', 'sass']
 ---
 

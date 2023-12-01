@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/odin-shopping_cart'
 previewUrl: 'https://yelpcamp-mern.vercel.app/'
-technologies: ['react', 'redux', 'react-router', 'vite',  'vitest', 'sass']
+technologies: ['react', 'redux', 'react-router', 'vitejs',  'vitest', 'sass']
 ---
 

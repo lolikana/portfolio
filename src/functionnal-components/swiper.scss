@@ -13,10 +13,14 @@
 }
 
 .swiper-cube {
+	@include mq('sm') {
+		margin: 0 10%;
+	}
 	@include mq('md') {
 		width: 40%;
 		max-width: 500px;
 		height: fit-content;
+		margin: 0 auto;
 	}
 
 	.swiper-slide {

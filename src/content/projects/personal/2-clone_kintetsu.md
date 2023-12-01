@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/pawdog-g'
 previewUrl: 'https://lolikana.github.io/pawdog-g/'
-technologies: ['astro', 'swiper', 'sass', 'tsparticles']
+technologies: ['astro', 'sass', 'swiper']
 ---
 

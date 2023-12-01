@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/ocr-p2-reservia'
 previewUrl: 'https://lolikana.github.io/ocr-p2-reservia/'
-technologies: ['html', 'css', 'font-awesome']
+technologies: ['html-5', 'css-3', 'font-awesome']
 ---
 

@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/clone-playstation/'
 previewUrl: 'https://clone-playstation.vercel.app/'
-technologies: ['webpack', 'restapi', 'typescript', 'swiper']
+technologies: ['webpack', 'typescript', 'rest-api', 'swiper']
 ---
 

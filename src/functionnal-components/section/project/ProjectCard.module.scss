@@ -36,6 +36,21 @@
 	}
 }
 
+.project-card_technologies {
+	background-color: $primary-color;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.25rem 0 0.25rem 0.5rem;
+
+	img {
+		max-width: auto;
+		max-height: 2rem;
+	}
+}
+
 @include mq('sm') {
 	.project-card {
 		border-radius: 0%;
@@ -72,7 +87,7 @@
 
 	.project-card__imgContainer {
 		position: relative;
-		max-height: 50vh;
+		max-height: 40vh;
 
 		.project-card__desktopImg {
 			display: block;

@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/ocr-p3-ohmyfood'
 previewUrl: 'https://lolikana.github.io/ocr-p3-ohmyfood/'
-technologies: ['html', 'sass', 'font-awesome']
+technologies: ['html-5', 'sass', 'font-awesome']
 ---
 

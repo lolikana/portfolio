@@ -11,6 +11,6 @@ desktopImg: {
 	}
 codeUrl: 'https://github.com/lolikana/astro-nayuta'
 previewUrl: 'https://lolikana.github.io/astro-nayuta/'
-technologies: ['astro', 'react', 'sass', 'microcms']
+technologies: ['astro', 'react', 'sass', 'micro-cms']
 ---
 

@@ -10,6 +10,6 @@ desktopImg: {
   alt: 'Screenshot The Odin Project todo list project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-weather_app'
-technologies: ['react-native', 'restapi', 'typescript', 'axios', 'jotai']
+technologies: ['react-native', 'typescript', 'rest-api', 'axios', 'jotai']
 ---
 

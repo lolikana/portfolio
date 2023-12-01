@@ -1,29 +1,12 @@
 import SmartphoneFrame from '@assets/shape/frame1.png';
+import type { TProjectContent } from '@libs/types';
 import type { FC } from 'react';
 
 import style from './ProjectCard.module.scss';
 import ProjectCardTop from './ProjectCardTop';
 
-type Props = {
-	title: string;
-	codeUrl: string;
-	previewUrl?: string;
-	desktopImg: {
-		url: {
-			src: string;
-		};
-		alt: string;
-	};
-	mobileImg: {
-		url: {
-			src: string;
-		};
-		alt: string;
-	};
-};
-
-const ProjectCard: FC<Props> = props => {
-	const { title, codeUrl, previewUrl, desktopImg, mobileImg } = props;
+const ProjectCard: FC<TProjectContent> = props => {
+	const { title, codeUrl, previewUrl, desktopImg, mobileImg, technologies } = props;
 
 	return (
 		<div className={style['project-card']}>
@@ -39,7 +22,12 @@ const ProjectCard: FC<Props> = props => {
 					src={SmartphoneFrame.src}
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
 				/>
-				<div className={`${style['project-card__overlay']} ${style['corner-border']}`} />
+				<div className={`${style['project-card__overlay']} corner-border`} />
+			</div>
+			<div className={style['project-card_technologies']}>
+				{technologies.map(icon => (
+					<img src={`icons/${icon}.svg`} alt={`${icon} icon`} />
+				))}
 			</div>
 		</div>
 	);

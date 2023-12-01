@@ -4,6 +4,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import './swiper.scss';
 
+import type { TProjectContent } from '@libs/types';
 import type { FC } from 'react';
 import { EffectCoverflow, EffectCube, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,19 +15,7 @@ import style from './Swiper.module.scss';
 type Props = {
 	effect: 'coverflow' | 'cube';
 	projects: {
-		data: {
-			title: string;
-			codeUrl: string;
-			previewUrl?: string;
-			desktopImg: {
-				url: { src: string };
-				alt: string;
-			};
-			mobileImg: {
-				url: { src: string };
-				alt: string;
-			};
-		};
+		data: TProjectContent;
 	}[];
 };
 
@@ -71,6 +60,7 @@ const SwiperTopics: FC<Props> = props => {
 									previewUrl={data.previewUrl}
 									desktopImg={data.desktopImg}
 									mobileImg={data.mobileImg}
+									technologies={data.technologies}
 								/>
 							</SwiperSlide>
 						);
