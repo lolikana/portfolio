@@ -12,6 +12,8 @@ type Props = {
 
 const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 const allProjects = await getCollection('projects');
+const personalProject = allProjects.filter(item => item.data.type === 'personnal');
+const topProject = allProjects.filter(item => item.data.type === 'top');
 ---
 
 <SectionCard
@@ -21,11 +23,17 @@ const allProjects = await getCollection('projects');
 	class={shape}
 >
 	<div slot="section-text" class="section-container">
-		<h2>Personal Projects</h2>
-		<Swiper client:load projects={allProjects} />
-		<h2>The Odin Project</h2>
-		<h2>Open Class Room</h2>
+		<h2 class="section-container__title">Personal Projects</h2>
+		<Swiper client:load projects={personalProject} />
+		<h2 class="section-container__title">The Odin Project</h2>
+		<Swiper client:load projects={topProject} />
+		<h2 class="section-container__title">Open Class Room</h2>
 	</div>
 </SectionCard>
 
-<style lang="scss"></style>
+<style lang="scss">
+	.section-container__title {
+		padding: 1rem 0;
+		text-align: center;
+	}
+</style>

@@ -1,12 +1,12 @@
 ---
-title: 'MERN-Yelpcamp'
+title: 'MERN Yelpcamp'
 type: 'personnal'
 mobileImg: {
-  url: './../../assets/project/mern-yelpcamp-XR.png',
+  url: '@assets/project/mern-yelpcamp-XR.png',
   alt: 'Screenshot Yelpcamp website project mobile'
 }
 desktopImg: {
-  url: './../../assets/project/mern-yelpcamp.png',
+  url: '@assets/project/mern-yelpcamp.png',
   alt: 'Screenshot Yelpcamp website project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/yelpcamp-mern'

@@ -7,7 +7,7 @@ import ProjectCardTop from './ProjectCardTop';
 type Props = {
 	title: string;
 	codeUrl: string;
-	previewUrl: string;
+	previewUrl?: string;
 	desktopImg: {
 		url: {
 			src: string;

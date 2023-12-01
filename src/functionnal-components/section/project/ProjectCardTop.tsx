@@ -6,7 +6,7 @@ import style from './ProjectCardTop.module.scss';
 type Props = {
 	title: string;
 	codeUrl: string;
-	previewUrl: string;
+	previewUrl?: string;
 };
 
 const ProjectCardTop: FC<Props> = props => {
