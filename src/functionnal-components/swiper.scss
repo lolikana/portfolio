@@ -1,6 +1,32 @@
-.swiper-container {
-	--arrow-distance: 20%;
+.swiper-coverflow,
+.swiper-cube {
 	padding: 2rem 0;
+
+	.swiper-pagination-bullets {
+		bottom: initial !important;
+		top: -0.4rem !important;
+
+		.swiper-pagination-bullet-active {
+			background-color: $secondary-color;
+		}
+	}
+}
+
+.swiper-cube {
+	@include mq('md') {
+		width: 40%;
+		max-width: 500px;
+		height: fit-content;
+	}
+
+	.swiper-slide {
+		background-position: center;
+		background-size: cover;
+	}
+}
+
+.swiper-coverflow {
+	--arrow-distance: 20%;
 
 	.swiper-slide {
 		width: 70%;
@@ -44,13 +70,4 @@
 	// 		font-size: 1rem;
 	// 	}
 	// }
-
-	.swiper-pagination-bullets {
-		bottom: initial !important;
-		top: -0.4rem !important;
-
-		.swiper-pagination-bullet-active {
-			background-color: $secondary-color;
-		}
-	}
 }

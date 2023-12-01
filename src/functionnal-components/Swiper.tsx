@@ -1,16 +1,18 @@
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
+import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import './swiper.scss';
 
 import type { FC } from 'react';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { EffectCoverflow, EffectCube, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ProjectCard from './section/project/ProjectCard';
 import style from './Swiper.module.scss';
 
 type Props = {
+	effect: 'coverflow' | 'cube';
 	projects: {
 		data: {
 			title: string;
@@ -29,16 +31,22 @@ type Props = {
 };
 
 const SwiperTopics: FC<Props> = props => {
-	const { projects } = props;
+	const { projects, effect } = props;
 	return (
 		<>
 			<div className={style['projects']}>
 				<Swiper
-					effect={'coverflow'}
-					modules={[Pagination, EffectCoverflow]}
+					effect={`${effect}`}
+					modules={[Pagination, EffectCoverflow, EffectCube]}
 					slidesPerView={'auto'}
 					spaceBetween={0}
 					grabCursor={true}
+					cubeEffect={{
+						shadow: true,
+						slideShadows: true,
+						shadowOffset: 20,
+						shadowScale: 0.94
+					}}
 					coverflowEffect={{
 						rotate: 50,
 						stretch: 50,
@@ -50,7 +58,7 @@ const SwiperTopics: FC<Props> = props => {
 					pagination={{ clickable: false }}
 					loop={true}
 					speed={500}
-					className="swiper-container"
+					className={`swiper-${effect}`}
 				>
 					{projects.map((item, index) => {
 						const { data } = item;

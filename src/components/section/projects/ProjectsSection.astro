@@ -26,16 +26,16 @@ const ocrProject = allProjects.filter(item => item.data.type === 'ocr');
 	<div slot="section-text" class="section-container">
 		<div class="section-container__personnal">
 			<h2 class="section-container__title">Personal Projects</h2>
-			<Swiper client:load projects={personalProject} />
+			<Swiper client:load projects={personalProject} effect="coverflow" />
 		</div>
 		<div class="section-container__top">
 			<h2 class="section-container__title">The Odin Project</h2>
-			<Swiper client:load projects={topProject} />
+			<Swiper client:load projects={topProject} effect="coverflow" />
 		</div>
 		<div class="section-container__ocr">
 			<h2 class="section-container__title">Open Class Room</h2>
 			<div class="section-container__ocr_projects">
-				<Swiper client:load projects={ocrProject} />
+				<Swiper client:load projects={ocrProject} effect={'cube'} />
 			</div>
 		</div>
 	</div>
