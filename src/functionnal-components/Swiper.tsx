@@ -1,6 +1,5 @@
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './swiper.scss';
 
@@ -16,7 +15,7 @@ type Props = {
 		data: {
 			title: string;
 			codeUrl: string;
-			previewUrl: string;
+			previewUrl?: string;
 			desktopImg: {
 				url: { src: string };
 				alt: string;

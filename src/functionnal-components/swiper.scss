@@ -7,6 +7,12 @@
 		max-width: 600px;
 	}
 
+	@include mq('md') {
+		.swiper-slide-active {
+			scale: 1.05;
+		}
+	}
+
 	// .swiper-button-prev {
 	// 	@include mq(md) {
 	// 		left: var(--arrow-distance);
