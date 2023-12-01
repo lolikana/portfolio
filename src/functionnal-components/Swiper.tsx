@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import './swiper.scss';
 
 import type { FC } from 'react';
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ProjectCard from './section/project/ProjectCard';
@@ -36,10 +36,10 @@ const SwiperTopics: FC<Props> = props => {
 			<div className={style['projects']}>
 				<Swiper
 					effect={'coverflow'}
-					modules={[Pagination, Navigation, EffectCoverflow]}
+					modules={[Pagination, EffectCoverflow]}
 					slidesPerView={'auto'}
 					spaceBetween={0}
-					grabCursor={false}
+					grabCursor={true}
 					coverflowEffect={{
 						rotate: 50,
 						stretch: 50,
@@ -49,7 +49,6 @@ const SwiperTopics: FC<Props> = props => {
 					}}
 					centeredSlides={true}
 					pagination={{ clickable: false }}
-					navigation={true}
 					loop={true}
 					speed={500}
 					className="swiper-container"
