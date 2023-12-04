@@ -10,7 +10,9 @@ const ProjectCard: FC<TProjectContent> = props => {
 
 	return (
 		<div className={style['project-card']}>
-			<ProjectCardTop title={title} codeUrl={codeUrl} previewUrl={previewUrl} />
+			<div className={style['project-card__top']}>
+				<ProjectCardTop title={title} codeUrl={codeUrl} previewUrl={previewUrl} />
+			</div>
 			<div className={style['project-card__imgContainer']}>
 				<img
 					className={style['project-card__desktopImg']}

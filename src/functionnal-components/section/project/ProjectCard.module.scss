@@ -1,6 +1,8 @@
 .project-card {
 	--transition-duration: 500ms;
 
+	display: grid;
+	grid-template-rows: minmax(3, auto);
 	position: relative;
 	transition:
 		box-shadow var(--transition-duration) ease,
@@ -9,6 +11,10 @@
 	color: $primary-color;
 	padding: 0.5rem 0 0rem;
 	border-radius: 0 0 30px 30px;
+}
+
+.project-card__top {
+	grid-row: 1 / 2;
 }
 
 .project-card__overlay {
@@ -21,8 +27,13 @@
 }
 
 .project-card__imgContainer {
-	display: flex;
-	justify-content: center;
+	grid: 2 / 3;
+	margin: 0 auto;
+	padding: 0 0.5rem 0.5rem;
+
+	img {
+		// object-fit: cover;
+	}
 
 	.project-card__desktopImg {
 		display: none;
@@ -32,11 +43,12 @@
 		background-size: calc(100% - 1vw) calc(100% - 0.7rem);
 		background-repeat: no-repeat;
 		background-position: center;
-		border-radius: 28px;
+		border-radius: 20px;
 	}
 }
 
 .project-card_technologies {
+	grid: 3 / 4;
 	background-color: $primary-color;
 	display: flex;
 	flex-flow: row wrap;
@@ -46,14 +58,14 @@
 	padding: 0.25rem 0 0.25rem 0.5rem;
 
 	img {
-		max-width: auto;
+		max-width: 100px;
 		max-height: 2rem;
 	}
 }
 
 @include mq('sm') {
 	.project-card {
-		border-radius: 0%;
+		border-radius: 0;
 	}
 
 	.project-card__overlay {
@@ -61,6 +73,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		top: 0;
 		background-color: rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(1px);
 		opacity: 0;
@@ -87,7 +100,6 @@
 
 	.project-card__imgContainer {
 		position: relative;
-		max-height: 40vh;
 
 		.project-card__desktopImg {
 			display: block;
