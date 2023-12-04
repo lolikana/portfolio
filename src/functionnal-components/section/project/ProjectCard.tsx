@@ -30,7 +30,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 			</div>
 			<div className={style['project-card_technologies']}>
 				{technologies.map(icon => (
-					<img src={`icons/${icon}.svg`} alt={`${icon} icon`} />
+					<img src={`icons/${icon}.svg`} alt={`${icon} icon`} title={icon} />
 				))}
 			</div>
 		</div>
