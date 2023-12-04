@@ -14,3 +14,4 @@ previewUrl: 'https://lolikana.github.io/ocr-p2-reservia/'
 technologies: ['html-5', 'css-3', 'font-awesome']
 ---
 
+Reservia is a web application project from the OpenClassRoom curriculum. The goal is to transform a design mockup into a fully functional website for users to search and book accommodations and activities for their travel destinations.

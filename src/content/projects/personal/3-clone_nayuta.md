@@ -14,3 +14,4 @@ previewUrl: 'https://lolikana.github.io/astro-nayuta/'
 technologies: ['astro', 'react', 'sass', 'micro-cms']
 ---
 
+Astro-based Company Website Clone replicates Nayuta site, emphasizing practical skill application, Astro mastery, and technology synergy. Motivated by front-end development enhancement, microCMS content management, and coding best practices adherence.

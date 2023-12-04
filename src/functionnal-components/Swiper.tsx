@@ -15,12 +15,31 @@ import style from './Swiper.module.scss';
 type Props = {
 	effect: 'coverflow' | 'cube';
 	projects: {
+		body: string;
 		data: TProjectContent;
 	}[];
 };
 
 const SwiperTopics: FC<Props> = props => {
 	const { projects, effect } = props;
+	const content = projects.map((item, index) => {
+		const { data, body } = item;
+
+		return (
+			<SwiperSlide key={index}>
+				<ProjectCard
+					title={data.title}
+					codeUrl={data.codeUrl}
+					previewUrl={data.previewUrl}
+					desktopImg={data.desktopImg}
+					mobileImg={data.mobileImg}
+					technologies={data.technologies}
+					body={body}
+				/>
+			</SwiperSlide>
+		);
+	});
+
 	return (
 		<>
 			<div className={style['projects']}>
@@ -49,22 +68,7 @@ const SwiperTopics: FC<Props> = props => {
 					speed={500}
 					className={`swiper-${effect}`}
 				>
-					{projects.map((item, index) => {
-						const { data } = item;
-
-						return (
-							<SwiperSlide key={index}>
-								<ProjectCard
-									title={data.title}
-									codeUrl={data.codeUrl}
-									previewUrl={data.previewUrl}
-									desktopImg={data.desktopImg}
-									mobileImg={data.mobileImg}
-									technologies={data.technologies}
-								/>
-							</SwiperSlide>
-						);
-					})}
+					{content}
 				</Swiper>
 			</div>
 		</>

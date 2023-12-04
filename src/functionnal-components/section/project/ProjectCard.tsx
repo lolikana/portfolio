@@ -5,8 +5,8 @@ import type { FC } from 'react';
 import style from './ProjectCard.module.scss';
 import ProjectCardTop from './ProjectCardTop';
 
-const ProjectCard: FC<TProjectContent> = props => {
-	const { title, codeUrl, previewUrl, desktopImg, mobileImg, technologies } = props;
+const ProjectCard: FC<TProjectContent & { body: string }> = props => {
+	const { title, codeUrl, previewUrl, desktopImg, mobileImg, technologies, body } = props;
 
 	return (
 		<div className={style['project-card']}>
@@ -24,7 +24,9 @@ const ProjectCard: FC<TProjectContent> = props => {
 					src={SmartphoneFrame.src}
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
 				/>
-				<div className={`${style['project-card__overlay']} corner-border`} />
+				<div className={`${style['project-card__overlay']} corner-border`}>
+					<p className={`${style['project-card__description']} text-justify`}>{body}</p>
+				</div>
 			</div>
 			<div className={style['project-card_technologies']}>
 				{technologies.map(icon => (

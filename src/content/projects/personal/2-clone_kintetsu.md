@@ -14,3 +14,9 @@ previewUrl: 'https://lolikana.github.io/pawdog-g/'
 technologies: ['astro', 'sass', 'swiper']
 ---
 
+Astro Clone recreates Kintest-g's landing page with Astro, Swiper, and ts-particle, prioritizing hands-on Astro experience, dynamic Swiper components, and ts-particle particle effects. The technology stack optimizes performance with Astro, Swiper, and ts-particle for a dynamic user experience.
+
+
+
+
+

@@ -14,3 +14,4 @@ previewUrl: 'https://lolikana.github.io/ocr-p3-ohmyfood/'
 technologies: ['html-5', 'sass', 'font-awesome']
 ---
 
+Oh My Food, an OCR Web Developer project, is an online gourmet meal ordering platform using HTML, SASS, FontAwesome, and GitHub. It prioritizes personalized menus, mobile-first design, reservations, and high-end dining experiences.

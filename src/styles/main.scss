@@ -10,6 +10,11 @@ main {
 	}
 }
 
+.text-justify {
+	text-align: justify;
+	hyphens: auto;
+}
+
 .hover-overline::after {
 	content: '';
 	position: absolute;
