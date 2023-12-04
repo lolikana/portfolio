@@ -10,7 +10,7 @@ desktopImg: {
   alt: 'Screenshot The Odin Project shopping cart project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-shopping_cart'
-previewUrl: 'https://yelpcamp-mern.vercel.app/'
+previewUrl: 'https://odin-shopping-cart-two.vercel.app/'
 technologies: ['react', 'redux', 'react-router', 'vitejs',  'vitest', 'sass']
 ---
 
