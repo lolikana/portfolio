@@ -1,0 +1,6 @@
+.form__submit-btn {
+	@include mq('sm') {
+		width: 180px;
+		margin: 0 auto;
+	}
+}

@@ -1,4 +1,5 @@
 ---
+import GlitchButton from '@components/ui/buttons/GlitchButton.astro';
 import SectionCard from '@components/ui/SectionCard.astro';
 import ContactForm from '@functionnal-components/section/contact/ContactForm';
 
@@ -19,7 +20,9 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 	class={shape}
 >
 	<div slot="section-text">
-		<ContactForm client:load />
+		<ContactForm client:load slotSubmitButton>
+			<GlitchButton slot="slotSubmitButton" text="Submit" type="submit" />
+		</ContactForm>
 	</div>
 </SectionCard>
 
