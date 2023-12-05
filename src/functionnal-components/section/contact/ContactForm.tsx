@@ -18,7 +18,7 @@ const ContactSection = () => {
 		>
 			<Input name="fullName" label="Full Name" type="text" />
 			<Input name="email" label="Email" type="email" />
-			<TextArea name="message" label="Message" rows={10} cols={0} maxLength={300} />
+			<TextArea name="message" label="Message" rows={10} cols={0} maxLength={600} />
 			<input type="submit" value="Submit" />
 		</SmartForm>
 	);
