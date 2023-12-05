@@ -1,0 +1,22 @@
+.smart-form {
+	color: $secondary-color;
+}
+
+.smart-form__group {
+	margin-bottom: 1rem;
+}
+
+.smart-form__input {
+	display: flex;
+	flex-direction: column;
+	input,
+	textarea {
+		color: $tertiary-color;
+		border: 1px solid $tertiary-color;
+		padding: 0.5rem 0.25rem;
+	}
+
+	textarea {
+		resize: none;
+	}
+}

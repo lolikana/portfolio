@@ -24,3 +24,9 @@ export type TProjectContent = {
 	};
 	technologies: string[];
 };
+
+export type TContact = {
+	fullName: string;
+	email: string;
+	message: string;
+};

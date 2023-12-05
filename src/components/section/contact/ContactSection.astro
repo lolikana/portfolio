@@ -1,0 +1,26 @@
+---
+import SectionCard from '@components/ui/SectionCard.astro';
+import ContactForm from '@functionnal-components/section/contact/ContactForm';
+
+type Props = {
+	id: string;
+	sectionNumber: number;
+	sectionTitle: string;
+	shape: 'type3';
+};
+
+const { id, sectionNumber, sectionTitle, shape } = Astro.props;
+---
+
+<SectionCard
+	id={id}
+	sectionNumber={sectionNumber}
+	sectionTitle={sectionTitle}
+	class={shape}
+>
+	<div slot="section-text">
+		<ContactForm client:load />
+	</div>
+</SectionCard>
+
+<script></script>

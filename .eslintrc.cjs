@@ -17,10 +17,10 @@ module.exports = {
 		sourceType: 'module'
 	},
 	rules: {
-		'no-mixed-spaces-and-tabs': 'error',
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		indent: [2, 'tab', { SwitchCase: 1 }],
+		indent: [1, 'tab', { SwitchCase: 1 }],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
 		semi: ['error', 'always'],

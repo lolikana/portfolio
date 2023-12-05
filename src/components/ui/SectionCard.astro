@@ -6,7 +6,7 @@ type Props = {
 	id: string;
 	sectionNumber: number;
 	sectionTitle: string;
-	class: 'type1' | 'type2';
+	class: 'type1' | 'type2' | 'type3';
 };
 
 const { class: shape, id: id, ...rest } = Astro.props;
@@ -21,6 +21,7 @@ const { class: shape, id: id, ...rest } = Astro.props;
 
 <style lang="scss">
 	.section-wrapper {
+		margin: 4rem 0;
 		opacity: 0;
 		@include text-appear(
 			$speed: calc($header-heightTransition * 4),
