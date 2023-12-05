@@ -5,12 +5,6 @@ import TextArea from '@functionnal-components/smart-form/TextArea';
 import type { TContact } from '@libs/types';
 import { contactFormValidation } from '@libs/validations';
 
-const DefaultValues = {
-	fullName: 'tester',
-	email: 'test@test.com',
-	message: 'message'
-};
-
 const ContactSection = () => {
 	const contactData = async (contact: TContact) => {
 		console.log(contact);
@@ -19,7 +13,7 @@ const ContactSection = () => {
 	return (
 		<SmartForm<TContact>
 			validationSchema={contactFormValidation}
-			options={{ defaultValues: DefaultValues }}
+			options={{}}
 			onSubmnit={contactData}
 		>
 			<Input name="fullName" label="Full Name" type="text" />

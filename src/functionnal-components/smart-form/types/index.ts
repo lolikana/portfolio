@@ -1,4 +1,4 @@
-import type { HTMLInputTypeAttribute, ReactNode } from 'react';
+import type { ChangeEvent, HTMLInputTypeAttribute, ReactNode } from 'react';
 import type {
 	FieldValues,
 	SubmitHandler,
@@ -7,11 +7,11 @@ import type {
 } from 'react-hook-form';
 import { type AnyZodObject } from 'zod';
 
-export type TForm<TFormvalues extends FieldValues> = {
-	onSubmnit: SubmitHandler<TFormvalues>;
+export type TForm<TFieldValues extends FieldValues = FieldValues> = {
+	onSubmnit: SubmitHandler<TFieldValues>;
 	validationSchema: AnyZodObject;
 	children: ReactNode;
-	options?: UseFormProps<TFormvalues>;
+	options?: UseFormProps<TFieldValues>;
 };
 
 export type TInput = {
@@ -26,6 +26,7 @@ export type TTextArea = Omit<TInput, 'type'> & {
 	rows: number;
 	cols: number;
 	maxLength: number;
+	onChange?: (e: ChangeEvent) => void;
 };
 
 export type TFieldWrapper = Omit<TInput, 'register' | 'type'> & {
