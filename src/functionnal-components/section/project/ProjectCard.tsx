@@ -2,45 +2,39 @@ import SmartphoneFrame from '@assets/shape/mobile-frame.webp';
 import type { TProjectContent } from '@libs/types';
 import type { FC } from 'react';
 
-import style from './ProjectCard.module.scss';
+import styles from './ProjectCard.module.scss';
+import ProjectCardOverlay from './ProjectCardOverlay';
+import ProjectCardTechnologies from './ProjectCardTechnologies';
 import ProjectCardTop from './ProjectCardTop';
 
 const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 	const { title, codeUrl, previewUrl, desktopImg, mobileImg, technologies, body } = props;
 
 	return (
-		<div className={style['project-card']}>
-			<div className={style['project-card__top']}>
+		<div className={styles['project-card']}>
+			<div className={styles['project-card__top']}>
 				<ProjectCardTop title={title} codeUrl={codeUrl} previewUrl={previewUrl} />
 			</div>
-			<div className={style['project-card__imgContainer']}>
+			<div className={styles['project-card__imgContainer']}>
 				<img
-					className={style['project-card__desktopImg']}
+					className={styles['project-card__desktopImg']}
 					src={desktopImg.url.src}
 					alt={desktopImg.alt}
 				/>
 				<img
-					className={style['project-card__mobileImg']}
+					className={styles['project-card__mobileImg']}
 					alt="mobile frame"
 					src={SmartphoneFrame.src}
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
 					width={SmartphoneFrame.width}
 					height={SmartphoneFrame.height}
 				/>
-				<div className={`${style['project-card__overlay']} corner-border`}>
-					<p className={`${style['project-card__description']} text-justify`}>{body}</p>
+				<div className={`${styles['project-card__overlay']}`}>
+					<ProjectCardOverlay body={body} />
 				</div>
 			</div>
-			<div className={style['project-card_technologies']}>
-				{technologies.map(icon => (
-					<img
-						src={`icons/${icon}.svg`}
-						alt={`${icon} icon`}
-						title={icon}
-						width={28}
-						height={28}
-					/>
-				))}
+			<div className={styles['project-card_technologies']}>
+				<ProjectCardTechnologies technologies={technologies} />
 			</div>
 		</div>
 	);

@@ -10,7 +10,7 @@ import { EffectCoverflow, EffectCube, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ProjectCard from './section/project/ProjectCard';
-import style from './Swiper.module.scss';
+import styles from './Swiper.module.scss';
 
 type Props = {
 	effect: 'coverflow' | 'cube';
@@ -42,7 +42,7 @@ const SwiperTopics: FC<Props> = props => {
 
 	return (
 		<>
-			<div className={style['projects']}>
+			<div className={styles['projects']}>
 				<Swiper
 					effect={`${effect}`}
 					modules={[Pagination, EffectCoverflow, EffectCube]}

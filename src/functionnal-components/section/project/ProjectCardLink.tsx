@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import style from './ProjectCardLink.module.scss';
+import styles from './ProjectCardLink.module.scss';
 
 type Props = {
 	url: string;
@@ -11,7 +11,7 @@ const ProjectCardLink: FC<Props> = props => {
 	const { icon, url } = props;
 	return (
 		<a
-			className={`${style['project-card__link']} ${style[icon]}`}
+			className={`${styles['project-card__link']} ${styles[icon]}`}
 			target="_blank"
 			href={url}
 			aria-label={`go to ${icon}`}

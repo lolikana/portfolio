@@ -1,0 +1,27 @@
+.overlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(1px);
+
+	.overlay__description {
+		width: 70%;
+		@include font-responsive(12px, 5vw, 14px);
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 10;
+		-webkit-box-orient: vertical;
+	}
+
+	&::after {
+		--corner-color: #{$main-color};
+		--corner-scale: 1.05;
+	}
+}
