@@ -16,6 +16,26 @@ const { class: shape, ...rest } = Astro.props;
 		background-color: $primary-color;
 		padding: 2rem 0;
 
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2rem;
+			left: 0;
+			background-size: 100%;
+			background-position: bottom;
+			background-repeat: no-repeat;
+		}
+		&::before {
+			top: -1.9rem;
+		}
+		&::after {
+			bottom: -0.1rem;
+		}
+	}
+
+	.div-container {
 		&.type1,
 		&.type3 {
 			max-width: 760px;
@@ -23,87 +43,30 @@ const { class: shape, ...rest } = Astro.props;
 			padding: 3rem 2rem 2rem;
 		}
 
-		&.type1::before,
-		&.type2::before,
-		&.type3::before {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			height: 2rem;
-			left: 0;
-			top: -2rem;
-		}
-
-		&.type3::before {
-			top: -1rem;
+		&.type2 {
+			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
+			@include mq('md') {
+				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
+			}
 		}
 
 		&.type1::before {
-			background: url('@assets/shape/type1.svg') no-repeat;
+			background-image: url('@assets/shape/type1.svg');
 		}
-
-		&.type2 {
-			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
-			@include mq('md') {
-				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
-			}
-		}
-
-		&.type2::before,
-		&.type3::before {
-			background-size: 100%;
-			background-position: bottom;
-			@include mq('md') {
-				background-position: center;
-			}
+		&.type1::after {
+			background-image: url('@assets/shape/type2-black.svg');
 		}
 		&.type2::before {
-			background: url('@assets/shape/type2.svg') no-repeat;
-		}
-		&.type3::before {
-			background: url('@assets/shape/type3.svg') no-repeat;
-		}
-	}
-
-	.div-container {
-		&.type1::after,
-		&.type2::after,
-		&.type3::after {
-			z-index: 2;
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			height: 2rem;
-			left: 0;
-			bottom: 0rem;
-		}
-
-		&.type1::after {
-			background: url('@assets/shape/type2-black.svg') no-repeat;
-		}
-
-		&.type2 {
-			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
-			@include mq('md') {
-				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
-			}
-		}
-
-		&.type2::after,
-		&.type3::after {
-			background-size: 100%;
-			background-position: bottom;
-			@include mq('md') {
-				background-position: center;
-			}
+			background-image: url('@assets/shape/type2.svg');
 		}
 		&.type2::after {
-			background: url('@assets/shape/type3-black.svg') no-repeat;
+			background-image: url('@assets/shape/type3-black.svg');
+		}
+		&.type3::before {
+			background-image: url('@assets/shape/type3.svg');
 		}
 		&.type3::after {
-			background: url('@assets/shape/type1-black.svg') no-repeat;
+			background-image: url('@assets/shape/type1-black.svg');
 		}
 	}
 </style>
