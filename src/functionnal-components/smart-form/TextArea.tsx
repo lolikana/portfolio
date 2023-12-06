@@ -16,6 +16,7 @@ const TextArea = ({ register, error, label, name, rows, cols, maxLength }: TText
 			<textarea
 				className={styles.form_control}
 				{...register}
+				id={name}
 				rows={rows}
 				cols={cols}
 				maxLength={maxLength}
