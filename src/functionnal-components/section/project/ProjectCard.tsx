@@ -21,6 +21,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 				/>
 				<img
 					className={style['project-card__mobileImg']}
+					alt="mobile frame"
 					src={SmartphoneFrame.src}
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
 				/>
