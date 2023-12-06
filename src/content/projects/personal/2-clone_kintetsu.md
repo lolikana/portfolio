@@ -2,11 +2,11 @@
 title: 'Clone LP Kintetsu'
 type: 'personnal'
 mobileImg: {
-  url: '@assets/project/clone-kintetsu-XR.png',
+  url: '@assets/project/clone-kintetsu-XR.webp',
   alt: 'Screenshot Playstation clone project mobile'
 }
 desktopImg: {
-  url: '@assets/project/clone-kintetsu.png',
+  url: '@assets/project/clone-kintetsu.webp',
   alt: 'Screenshot Playstation clone project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/pawdog-g'

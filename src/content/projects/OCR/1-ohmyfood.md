@@ -2,11 +2,11 @@
 title: 'OhMyFood - Delivery'
 type: 'ocr'
 mobileImg: {
-  url: '@assets/project/odin-ohmyfood-XR.png',
+  url: '@assets/project/odin-ohmyfood-XR.webp',
   alt: 'Screenshot Open CLass Room Delivary App project mobile'
 }
 desktopImg: {
-  url: '@assets/project/odin-ohmyfood.png',
+  url: '@assets/project/odin-ohmyfood.webp',
   alt: 'Screenshot Open CLass Room Delivary App project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/ocr-p3-ohmyfood'

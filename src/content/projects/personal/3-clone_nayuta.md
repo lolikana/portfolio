@@ -2,11 +2,11 @@
 title: 'Clone Nayuta'
 type: 'personnal'
 mobileImg: {
-  url: '@assets/project/clone-nayuta-XR.png',
+  url: '@assets/project/clone-nayuta-XR.webp',
   alt: 'Screenshot Nayuta clone project mobile'
 }
 desktopImg: {
-  url: '@assets/project/clone-nayuta.png',
+  url: '@assets/project/clone-nayuta.webp',
   alt: 'Screenshot Nayuta clone project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/astro-nayuta'

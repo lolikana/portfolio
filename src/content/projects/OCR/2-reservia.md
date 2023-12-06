@@ -2,11 +2,11 @@
 title: 'HP Reservia'
 type: 'ocr'
 mobileImg: {
-  url: '@assets/project/ocr-reservia-XR.png',
+  url: '@assets/project/ocr-reservia-XR.webp',
   alt: 'Screenshot Open CLass Room Reservia homepage project mobile'
 }
 desktopImg: {
-  url: '@assets/project/ocr-reservia.png',
+  url: '@assets/project/ocr-reservia.webp',
   alt: 'Screenshot Open CLass Room Reservia homepage project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/ocr-p2-reservia'

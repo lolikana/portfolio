@@ -2,11 +2,11 @@
 title: 'Todo List'
 type: 'top'
 mobileImg: {
-  url: '@assets/project/odin-todo-XR.png',
+  url: '@assets/project/odin-todo-XR.webp',
   alt: 'Screenshot The Odin Project todo list project mobile'
 }
 desktopImg: {
-  url: '@assets/project/odin-todo.png',
+  url: '@assets/project/odin-todo.webp',
   alt: 'Screenshot The Odin Project todo list project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-vite_ts-todo'

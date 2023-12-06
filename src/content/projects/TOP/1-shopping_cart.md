@@ -2,11 +2,11 @@
 title: 'Shopping Cart'
 type: 'top'
 mobileImg: {
-  url: '@assets/project/odin-shopping-cart-XR.png',
+  url: '@assets/project/odin-shopping-cart-XR.webp',
   alt: 'Screenshot The Odin Project shopping cart project mobile'
 }
 desktopImg: {
-  url: '@assets/project/odin-shopping-cart.png',
+  url: '@assets/project/odin-shopping-cart.webp',
   alt: 'Screenshot The Odin Project shopping cart project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-shopping_cart'

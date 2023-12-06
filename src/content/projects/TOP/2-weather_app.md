@@ -2,11 +2,11 @@
 title: 'Weather App'
 type: 'top'
 mobileImg: {
-  url: '@assets/project/weather-app-SM.png',
+  url: '@assets/project/weather-app-SM.webp',
   alt: 'Screenshot The Odin Project todo list project mobile'
 }
 desktopImg: {
-  url: '@assets/project/weather-app.png',
+  url: '@assets/project/weather-app.webp',
   alt: 'Screenshot The Odin Project todo list project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-weather_app'

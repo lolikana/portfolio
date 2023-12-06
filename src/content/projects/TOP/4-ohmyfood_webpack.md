@@ -2,11 +2,11 @@
 title: 'OhMyFood - Delivery'
 type: 'top'
 mobileImg: {
-  url: '@assets/project/odin-ohmyfood-XR.png',
+  url: '@assets/project/odin-ohmyfood-XR.webp',
   alt: 'Screenshot The Odin Project Delivary App project mobile'
 }
 desktopImg: {
-  url: '@assets/project/odin-ohmyfood.png',
+  url: '@assets/project/odin-ohmyfood.webp',
   alt: 'Screenshot The Odin Project Delivary App project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/odin-webpack_restaurant'

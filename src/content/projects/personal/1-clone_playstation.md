@@ -2,11 +2,11 @@
 title: 'Clone HP Playstation'
 type: 'personnal'
 mobileImg: {
-  url: '@assets/project/clone-playstation-XR.png',
+  url: '@assets/project/clone-playstation-XR.webp',
   alt: 'Screenshot Playstation clone project mobile'
 }
 desktopImg: {
-  url: '@assets/project/clone-playstation.png',
+  url: '@assets/project/clone-playstation.webp',
   alt: 'Screenshot Playstation clone project desktop'
 	}
 codeUrl: 'https://github.com/lolikana/clone-playstation/'
