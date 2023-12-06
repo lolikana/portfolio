@@ -20,6 +20,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 					className={styles['project-card__desktopImg']}
 					src={desktopImg.url.src}
 					alt={desktopImg.alt}
+					loading="lazy"
 				/>
 				<img
 					className={styles['project-card__mobileImg']}
@@ -28,6 +29,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
 					width={SmartphoneFrame.width}
 					height={SmartphoneFrame.height}
+					loading="lazy"
 				/>
 				<div className={`${styles['project-card__overlay']}`}>
 					<ProjectCardOverlay body={body} />

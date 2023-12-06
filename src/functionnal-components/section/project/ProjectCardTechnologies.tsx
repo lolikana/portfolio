@@ -17,6 +17,7 @@ const ProjectCardTechnologies: FC<{
 					title={icon}
 					width={44}
 					height={44}
+					loading="lazy"
 				/>
 			))}
 		</div>
