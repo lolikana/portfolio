@@ -1,4 +1,4 @@
-import SmartphoneFrame from '@assets/shape/frame1.png';
+import SmartphoneFrame from '@assets/shape/mobile-frame.webp';
 import type { TProjectContent } from '@libs/types';
 import type { FC } from 'react';
 
