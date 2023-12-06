@@ -24,7 +24,7 @@ const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.
 		class:list={['item-link translate-transition', styled_link, hover_line]}
 		href=`#${link.href}`
 		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
-		aria-label={`go to ${link}`}
+		aria-label={`go to ${link.href} section`}
 		{...rest}
 	>
 		{firstCapitalizeLetter(link.href)}
