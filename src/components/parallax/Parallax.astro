@@ -3,7 +3,9 @@ import Background from '@assets/parallax/background.webp';
 import Dust from '@assets/parallax/dust.webp';
 import Foreground from '@assets/parallax/foreground.webp';
 import Logo from '@components/ui/Logo.astro';
-import { Image } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
+
+const optimizedForeground = await getImage({ src: Foreground });
 ---
 
 <div class="parallax">
@@ -13,7 +15,8 @@ import { Image } from 'astro:assets';
 	<div class="parallax__bg">
 		<Image src={Background} alt="Background Image" />
 	</div>
-	<div class="parallax__fg"><Image src={Foreground} alt="Foreground image" /></div>
+	<div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
+	</div>
 	<div class="parallax__dust">
 		<Image src={Dust} alt="Dust Image" />
 	</div>
@@ -76,10 +79,15 @@ import { Image } from 'astro:assets';
 		height: 70vh;
 		z-index: var(--parallax-index-fg);
 		position: relative;
+		background-size: cover;
+		background-position: top center;
 		bottom: -20rem;
 		transition: bottom 500ms ease;
 		@include mq('md') {
 			bottom: -16rem;
+		}
+		@include mq('lg') {
+			bottom: -10rem;
 		}
 		@include mq('xl') {
 			bottom: -5rem;
