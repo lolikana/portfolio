@@ -14,6 +14,7 @@ const { class: shape, ...rest } = Astro.props;
 	.div-container {
 		position: relative;
 		background-color: $primary-color;
+		padding: 2rem 0;
 
 		&.type1,
 		&.type3 {
@@ -32,6 +33,10 @@ const { class: shape, ...rest } = Astro.props;
 			height: 2rem;
 			left: 0;
 			top: -2rem;
+		}
+
+		&.type3::before {
+			top: -1rem;
 		}
 
 		&.type1::before {
@@ -58,6 +63,47 @@ const { class: shape, ...rest } = Astro.props;
 		}
 		&.type3::before {
 			background: url('@assets/shape/type3.svg') no-repeat;
+		}
+	}
+
+	.div-container {
+		&.type1::after,
+		&.type2::after,
+		&.type3::after {
+			z-index: 2;
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			height: 2rem;
+			left: 0;
+			bottom: 0rem;
+		}
+
+		&.type1::after {
+			background: url('@assets/shape/type2-black.svg') no-repeat;
+		}
+
+		&.type2 {
+			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
+			@include mq('md') {
+				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
+			}
+		}
+
+		&.type2::after,
+		&.type3::after {
+			background-size: 100%;
+			background-position: bottom;
+			@include mq('md') {
+				background-position: center;
+			}
+		}
+		&.type2::after {
+			background: url('@assets/shape/type3-black.svg') no-repeat;
+		}
+		&.type3::after {
+			background: url('@assets/shape/type1-black.svg') no-repeat;
 		}
 	}
 </style>
