@@ -13,7 +13,13 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
+  
+env: 
+  # Sets Deployment API credentials as environment variables
+  PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.PUBLIC_EMAILJS_SERVICE_ID }}
+  PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.PUBLIC_EMAILJS_TEMPLATE_ID }}
+  PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.PUBLIC_EMAILJS_PUBLIC_KEY }}
+  
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
 export const contactFormValidation = z.object({
-	fullName: z
+	from_name: z
 		.string({
 			required_error: 'Name is required',
 			invalid_type_error: 'Name must be a string'
 		})
 		.min(1, 'Name is required'),
-	email: z
+	from_email: z
 		.string({
 			required_error: 'Email is required',
 			invalid_type_error: 'Email must be a string'

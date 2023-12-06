@@ -26,7 +26,7 @@ export type TProjectContent = {
 };
 
 export type TContact = {
-	fullName: string;
-	email: string;
+	from_name: string;
+	from_email: string;
 	message: string;
 };

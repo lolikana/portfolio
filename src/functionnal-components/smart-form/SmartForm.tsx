@@ -25,6 +25,8 @@ const SmartForm = <
 
 	useEffect(() => {
 		if (!isSubmitSuccessful) return;
+		console.log(isSubmitSuccessful);
+
 		reset();
 	}, [isSubmitSuccessful, reset]);
 
