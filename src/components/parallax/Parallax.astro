@@ -3,9 +3,7 @@ import Background from '@assets/parallax/background.webp';
 import Dust from '@assets/parallax/dust.webp';
 import Foreground from '@assets/parallax/foreground.webp';
 import Logo from '@components/ui/Logo.astro';
-import { getImage, Image } from 'astro:assets';
-
-const optimizedForeground = await getImage({ src: Foreground });
+import { Image } from 'astro:assets';
 ---
 
 <div class="parallax">
@@ -15,8 +13,7 @@ const optimizedForeground = await getImage({ src: Foreground });
 	<div class="parallax__bg">
 		<Image src={Background} alt="Background Image" />
 	</div>
-	<div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
-	</div>
+	<div class="parallax__fg"><Image src={Foreground} alt="Foreground image" /></div>
 	<div class="parallax__dust">
 		<Image src={Dust} alt="Dust Image" />
 	</div>
@@ -35,9 +32,15 @@ const optimizedForeground = await getImage({ src: Foreground });
 		--parallax-speed-dust: -5;
 		--parallax-speed-logo: 5;
 
+		--parallax-index-hero: 5;
+		--parallax-index-bg: 1;
+		--parallax-index-fg: 4;
+		--parallax-index-dust: 2;
+		--parallax-index-logo: 3;
+
 		position: relative;
 		z-index: 0;
-		height: 60vh;
+		height: 80vh;
 		display: grid;
 		grid-template-rows: 100%;
 		grid-template-areas: 'stack';
@@ -53,39 +56,40 @@ const optimizedForeground = await getImage({ src: Foreground });
 	.parallax img {
 		width: 100%;
 		object-fit: cover;
+		overflow: visible;
 	}
 
 	.parallax__hero {
 		--parallax-speed: var(--parallax-speed-hero);
-		z-index: 4;
+		z-index: var(--parallax-index-hero);
+		width: fit-content;
+		height: fit-content;
 	}
 
 	.parallax__bg {
 		--parallax-speed: var(--parallax-speed-bg);
-		z-index: 1;
+		z-index: var(--parallax-index-bg);
 	}
 
 	.parallax__fg {
 		--parallax-speed: var(--parallax-speed-fg);
 		height: 70vh;
-		z-index: 3;
+		z-index: var(--parallax-index-fg);
 		position: relative;
-		background-size: cover;
-		background-position: top center;
-		bottom: -7rem;
+		bottom: -20rem;
 		transition: bottom 500ms ease;
 		@include mq('md') {
-			bottom: -3rem;
+			bottom: -16rem;
 		}
 		@include mq('xl') {
-			bottom: 2rem;
+			bottom: -5rem;
 		}
 	}
 
 	.parallax__dust {
 		height: 100vh;
 		--parallax-speed: var(--parallax-speed-dust);
-		z-index: 2;
+		z-index: var(--parallax-index-dust);
 		img {
 			object-fit: cover;
 		}
@@ -93,7 +97,7 @@ const optimizedForeground = await getImage({ src: Foreground });
 
 	.parallax__logo {
 		--parallax-speed: var(--parallax-speed-logo);
-		z-index: 4;
+		z-index: var(--parallax-index-logo);
 		position: absolute;
 		right: 13vw;
 		top: 10rem;
