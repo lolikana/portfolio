@@ -10,11 +10,16 @@ import { Image } from 'astro:assets';
 		<slot name="hero-section" />
 	</div>
 	<div class="parallax__bg">
-		<Image src={Background} alt="Background Image" width={Background.width} />
+		<Image
+			src={Background}
+			alt="Background Image"
+			width={Background.width}
+			height={Background.height}
+		/>
 	</div>
 	<div class="parallax__fg"></div>
 	<div class="parallax__dust">
-		<Image src={Dust} alt="Dust Image" width={Dust.width} />
+		<Image src={Dust} alt="Dust Image" width={Dust.width} height={Dust.height} />
 	</div>
 	<div class="parallax__logo">
 		<Logo type={2} />

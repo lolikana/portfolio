@@ -24,6 +24,8 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 					alt="mobile frame"
 					src={SmartphoneFrame.src}
 					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
+					width={SmartphoneFrame.width}
+					height={SmartphoneFrame.height}
 				/>
 				<div className={`${style['project-card__overlay']} corner-border`}>
 					<p className={`${style['project-card__description']} text-justify`}>{body}</p>
@@ -31,7 +33,13 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 			</div>
 			<div className={style['project-card_technologies']}>
 				{technologies.map(icon => (
-					<img src={`icons/${icon}.svg`} alt={`${icon} icon`} title={icon} />
+					<img
+						src={`icons/${icon}.svg`}
+						alt={`${icon} icon`}
+						title={icon}
+						width={28}
+						height={28}
+					/>
 				))}
 			</div>
 		</div>

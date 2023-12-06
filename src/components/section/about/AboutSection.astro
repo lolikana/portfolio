@@ -21,7 +21,12 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 >
 	<div slot="section-text" class="about-section__text text-justify">
 		<div class="about-section__image corner-border">
-			<Image src={ProfileImg} alt="Profile Image" width={ProfileImg.width} />
+			<Image
+				src={ProfileImg}
+				alt="Profile Image"
+				width={ProfileImg.width}
+				height={ProfileImg.height}
+			/>
 		</div>
 		<p class="about-section__text_description">
 			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,
