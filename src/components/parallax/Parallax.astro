@@ -68,7 +68,7 @@ import { Image } from 'astro:assets';
 
 	.parallax__fg {
 		--parallax-speed: var(--parallax-speed-fg);
-		height: 120%;
+		height: 70vh;
 		z-index: 3;
 		position: relative;
 		background-image: url('@assets/parallax/foreground.webp');
@@ -85,6 +85,7 @@ import { Image } from 'astro:assets';
 	}
 
 	.parallax__dust {
+		height: 100vh;
 		--parallax-speed: var(--parallax-speed-dust);
 		z-index: 2;
 		img {
