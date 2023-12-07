@@ -72,32 +72,19 @@ const { pageTitle } = Astro.props;
 	const favIcon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
 	const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
 	const isDarkTheme = colorTheme.matches;
-	const PRODUCTION = import.meta.env.PROD;
-	favIcon.setAttribute('href', `${PRODUCTION ? '/portfolio/' : ''}favicon-cyber.svg`);
-
 	/** Change the favicon */
 	document.addEventListener('visibilitychange', () => {
 		if (document.hidden) {
-			favIcon.setAttribute(
-				'href',
-				isDarkTheme
-					? `${PRODUCTION ? '/portfolio/' : ''}favicon-dark.svg`
-					: `${PRODUCTION ? '/portfolio/' : ''}favicon-light.svg`
-			);
+			favIcon.setAttribute('href', isDarkTheme ? `favicon-dark.svg` : `favicon-light.svg`);
 			return;
 		}
-		favIcon.setAttribute('href', `${PRODUCTION ? '/portfolio/' : ''}favicon-cyber.svg`);
+		favIcon.setAttribute('href', `favicon-cyber.svg`);
 		return;
 	});
 
 	colorTheme.addEventListener('change', event => {
 		if (document.hidden) {
-			favIcon.setAttribute(
-				'href',
-				event.matches
-					? `${PRODUCTION ? '/portfolio/' : ''}favicon-dark.svg`
-					: `${PRODUCTION ? '/portfolio/' : ''}favicon-light.svg`
-			);
+			favIcon.setAttribute('href', event.matches ? `favicon-dark.svg` : `favicon-light.svg`);
 		}
 		return;
 	});
