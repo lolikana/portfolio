@@ -18,7 +18,7 @@ const optimizedForeground = await getImage({ src: Foreground });
 	<div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
 	</div>
 	<div class="parallax__dust">
-		<Image src={Dust} alt="Dust Image" />
+		<Image src={Dust} alt="Dust Image" format="avif" />
 	</div>
 	<div class="parallax__logo">
 		<Logo type={2} />
@@ -94,7 +94,6 @@ const optimizedForeground = await getImage({ src: Foreground });
 	}
 
 	.parallax__dust {
-		height: 100vh;
 		--parallax-speed: var(--parallax-speed-dust);
 		z-index: var(--parallax-index-dust);
 		img {
