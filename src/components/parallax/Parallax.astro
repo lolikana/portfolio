@@ -3,9 +3,10 @@ import Background from '@assets/parallax/background.webp';
 import Dust from '@assets/parallax/dust.webp';
 import Foreground from '@assets/parallax/foreground.webp';
 import Logo from '@components/ui/Logo.astro';
-import { getImage, Image } from 'astro:assets';
+import { Image } from 'astro:assets';
+// import { getImage, Image } from 'astro:assets';
 
-const optimizedForeground = await getImage({ src: Foreground });
+// const optimizedForeground = await getImage({ src: Foreground, format: 'avif' });
 ---
 
 <div class="parallax">
@@ -15,8 +16,16 @@ const optimizedForeground = await getImage({ src: Foreground });
 	<div class="parallax__bg">
 		<Image src={Background} alt="Background Image" />
 	</div>
-	<div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
+	<div class="parallax__fg">
+		<Image
+			src={Foreground}
+			alt="Foreground Image"
+			widths={[240, 540, 720, Dust.width]}
+			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${Dust.width}px`}
+		/>
 	</div>
+	<!-- <div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
+	</div> -->
 	<div class="parallax__dust">
 		<Image
 			src={Dust}
@@ -87,6 +96,9 @@ const optimizedForeground = await getImage({ src: Foreground });
 		background-position: top center;
 		bottom: -20rem;
 		transition: bottom 500ms ease;
+		img {
+			overflow: visible;
+		}
 		@include mq('md') {
 			bottom: -16rem;
 		}
