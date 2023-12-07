@@ -32,8 +32,6 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 					src={desktopImg.url.src}
 					alt={desktopImg.alt}
 					loading="lazy"
-					width={desktopImg.url.width}
-					height={desktopImg.url.height}
 				/>
 				<img
 					className={`${styles['project-card__mobileImg']}`}
