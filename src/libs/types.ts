@@ -15,7 +15,7 @@ export type TProjectContent = {
 	codeUrl: string;
 	previewUrl?: string;
 	desktopImg: {
-		url: { src: string };
+		url: { src: string; width: number; height: number };
 		alt: string;
 	};
 	mobileImg: {

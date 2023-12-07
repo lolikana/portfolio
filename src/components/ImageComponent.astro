@@ -13,12 +13,16 @@ const { mobileImgUrl, desktopImgUrl, alt, class: picture, ...rest } = Astro.prop
 
 const mobileImg = await getImage({
 	src: mobileImgUrl,
-	format: 'webp'
+	format: 'webp',
+	width: mobileImgUrl.width,
+	height: mobileImgUrl.height
 });
 
 const desktopImg = await getImage({
 	src: desktopImgUrl,
-	format: 'webp'
+	format: 'webp',
+	width: desktopImgUrl.width,
+	height: desktopImgUrl.height
 });
 ---
 
