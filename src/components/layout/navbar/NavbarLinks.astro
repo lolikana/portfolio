@@ -11,8 +11,14 @@ type Props = {
 	index: number;
 };
 
-const { link, index, ...rest } = Astro.props;
-const { class: styled_navbar, class2: styled_link, class3: hover_line } = Astro.props;
+const {
+	link,
+	index,
+	class: styled_navbar,
+	class2: styled_link,
+	class3: hover_line,
+	...rest
+} = Astro.props;
 ---
 
 <li
