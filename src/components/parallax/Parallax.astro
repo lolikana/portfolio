@@ -1,12 +1,12 @@
 ---
 import Background from '@assets/parallax/background.webp';
+import BackgroundMobile from '@assets/parallax/background-mobile.webp';
 import Dust from '@assets/parallax/dust.webp';
+import DustMobile from '@assets/parallax/dust-mobile.webp';
 import Foreground from '@assets/parallax/foreground.webp';
+import ForegroundMobile from '@assets/parallax/foreground-mobile.webp';
+import ImageComponent from '@components/ImageComponent.astro';
 import Logo from '@components/ui/Logo.astro';
-import { Image } from 'astro:assets';
-// import { getImage, Image } from 'astro:assets';
-
-// const optimizedForeground = await getImage({ src: Foreground, format: 'avif' });
 ---
 
 <div class="parallax">
@@ -14,24 +14,27 @@ import { Image } from 'astro:assets';
 		<slot name="hero-section" />
 	</div>
 	<div class="parallax__bg">
-		<Image src={Background} alt="Background Image" />
-	</div>
-	<div class="parallax__fg">
-		<Image
-			src={Foreground}
-			alt="Foreground Image"
-			widths={[240, 540, 720, Dust.width]}
-			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${Dust.width}px`}
+		<ImageComponent
+			desktopImgUrl={Background}
+			mobileImgUrl={BackgroundMobile}
+			alt="Background image"
+			class="picture"
 		/>
 	</div>
-	<!-- <div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
-	</div> -->
+	<div class="parallax__fg">
+		<ImageComponent
+			desktopImgUrl={Foreground}
+			mobileImgUrl={ForegroundMobile}
+			alt="Background image"
+			class="picture"
+		/>
+	</div>
 	<div class="parallax__dust">
-		<Image
-			src={Dust}
-			alt="Dust Image"
-			widths={[240, 540, 720, Dust.width]}
-			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${Dust.width}px`}
+		<ImageComponent
+			desktopImgUrl={Dust}
+			mobileImgUrl={DustMobile}
+			alt="Background image"
+			class="picture"
 		/>
 	</div>
 	<div class="parallax__logo">
@@ -57,7 +60,9 @@ import { Image } from 'astro:assets';
 
 		position: relative;
 		z-index: 0;
-		height: 80vh;
+		@include mq('sm') {
+			height: 70vh;
+		}
 		display: grid;
 		grid-template-rows: 100%;
 		grid-template-areas: 'stack';
@@ -70,7 +75,7 @@ import { Image } from 'astro:assets';
 		animation-timeline: scroll();
 	}
 
-	.parallax img {
+	.picture {
 		width: 100%;
 		object-fit: cover;
 	}
@@ -89,7 +94,6 @@ import { Image } from 'astro:assets';
 
 	.parallax__fg {
 		--parallax-speed: var(--parallax-speed-fg);
-		height: 70vh;
 		z-index: var(--parallax-index-fg);
 		position: relative;
 		background-size: cover;
@@ -106,7 +110,7 @@ import { Image } from 'astro:assets';
 			bottom: -10rem;
 		}
 		@include mq('xl') {
-			bottom: -5rem;
+			bottom: -20rem;
 		}
 	}
 
