@@ -3,6 +3,7 @@ title: 'Weather App'
 type: 'top'
 mobileImg: {
   url: '@assets/project/weather-app-SM.webp',
+  url_lazy: '@assets/project/lazy/weather-app-SM-lazy.webp',
   alt: 'Screenshot The Odin Project todo list project mobile'
 }
 desktopImg: {

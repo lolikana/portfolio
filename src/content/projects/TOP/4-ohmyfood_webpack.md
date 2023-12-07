@@ -3,6 +3,7 @@ title: 'OhMyFood - Delivery'
 type: 'top'
 mobileImg: {
   url: '@assets/project/odin-ohmyfood-XR.webp',
+  url_lazy: '@assets/project/lazy/odin-ohmyfood-XR-lazy.webp',
   alt: 'Screenshot The Odin Project Delivary App project mobile'
 }
 desktopImg: {

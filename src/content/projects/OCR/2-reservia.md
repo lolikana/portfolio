@@ -3,6 +3,7 @@ title: 'HP Reservia'
 type: 'ocr'
 mobileImg: {
   url: '@assets/project/ocr-reservia-XR.webp',
+  url_lazy: '@assets/project/lazy/ocr-reservia-XR-lazy.webp',
   alt: 'Screenshot Open CLass Room Reservia homepage project mobile'
 }
 desktopImg: {

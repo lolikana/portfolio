@@ -3,6 +3,7 @@ title: 'Shopping Cart'
 type: 'top'
 mobileImg: {
   url: '@assets/project/odin-shopping-cart-XR.webp',
+  url_lazy: '@assets/project/lazy/odin-shopping-cart-XR-lazy.webp',
   alt: 'Screenshot The Odin Project shopping cart project mobile'
 }
 desktopImg: {

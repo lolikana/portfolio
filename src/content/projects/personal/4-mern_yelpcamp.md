@@ -3,6 +3,7 @@ title: 'MERN Yelpcamp'
 type: 'personnal'
 mobileImg: {
   url: '@assets/project/mern-yelpcamp-XR.webp',
+  url_lazy: '@assets/project/lazy/mern-yelpcamp-XR-lazy.webp',
   alt: 'Screenshot Yelpcamp website project mobile'
 }
 desktopImg: {

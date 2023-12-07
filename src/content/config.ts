@@ -14,6 +14,7 @@ const projectsCollection = defineCollection({
 			}),
 			mobileImg: z.object({
 				url: image(),
+				url_lazy: image(),
 				alt: z.string()
 			}),
 			codeUrl: z.string(),

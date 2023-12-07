@@ -3,6 +3,7 @@ title: 'Clone LP Kintetsu'
 type: 'personnal'
 mobileImg: {
   url: '@assets/project/clone-kintetsu-XR.webp',
+  url_lazy: '@assets/project/lazy/clone-kintetsu-XR-lazy.webp',
   alt: 'Screenshot Playstation clone project mobile'
 }
 desktopImg: {

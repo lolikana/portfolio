@@ -1,6 +1,7 @@
 import SmartphoneFrame from '@assets/shape/mobile-frame.webp';
 import type { TProjectContent } from '@libs/types';
-import type { FC } from 'react';
+import { type FC } from 'react';
+import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
 
 import styles from './ProjectCard.module.scss';
 import ProjectCardOverlay from './ProjectCardOverlay';
@@ -9,13 +10,23 @@ import ProjectCardTop from './ProjectCardTop';
 
 const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 	const { title, codeUrl, previewUrl, desktopImg, mobileImg, technologies, body } = props;
+	const [containerRef, isVisible] = useIntersectionObserver({
+		root: null,
+		threshold: 0,
+		rootMargin: '100px'
+	});
 
 	return (
-		<div className={styles['project-card']}>
+		<div className={`${styles['project-card']}`}>
 			<div className={styles['project-card__top']}>
 				<ProjectCardTop title={title} codeUrl={codeUrl} previewUrl={previewUrl} />
 			</div>
-			<div className={styles['project-card__imgContainer']}>
+			<div
+				className={`${styles['project-card__imgContainer']} ${
+					!isVisible ? styles['lazy-load'] : ''
+				}`}
+				ref={containerRef}
+			>
 				<img
 					className={styles['project-card__desktopImg']}
 					src={desktopImg.url.src}
@@ -23,10 +34,12 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 					loading="lazy"
 				/>
 				<img
-					className={styles['project-card__mobileImg']}
+					className={`${styles['project-card__mobileImg']}`}
 					alt="mobile frame"
 					src={SmartphoneFrame.src}
-					style={{ backgroundImage: `url(${mobileImg.url.src})` }}
+					style={{
+						backgroundImage: `url(${isVisible ? mobileImg.url.src : mobileImg.url_lazy.src})`
+					}}
 					width={SmartphoneFrame.width}
 					height={SmartphoneFrame.height}
 					loading="lazy"

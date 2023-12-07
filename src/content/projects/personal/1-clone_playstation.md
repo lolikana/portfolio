@@ -3,6 +3,7 @@ title: 'Clone HP Playstation'
 type: 'personnal'
 mobileImg: {
   url: '@assets/project/clone-playstation-XR.webp',
+  url_lazy: '@assets/project/lazy/clone-playstation-XR-lazy.webp',
   alt: 'Screenshot Playstation clone project mobile'
 }
 desktopImg: {

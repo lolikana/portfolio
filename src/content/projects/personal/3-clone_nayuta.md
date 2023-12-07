@@ -3,6 +3,7 @@ title: 'Clone Nayuta'
 type: 'personnal'
 mobileImg: {
   url: '@assets/project/clone-nayuta-XR.webp',
+  url_lazy: '@assets/project/lazy/clone-nayuta-XR-lazy.webp',
   alt: 'Screenshot Nayuta clone project mobile'
 }
 desktopImg: {

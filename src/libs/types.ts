@@ -20,6 +20,7 @@ export type TProjectContent = {
 	};
 	mobileImg: {
 		url: { src: string };
+		url_lazy: { src: string };
 		alt: string;
 	};
 	technologies: string[];

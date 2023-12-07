@@ -3,6 +3,7 @@ title: 'Todo List'
 type: 'top'
 mobileImg: {
   url: '@assets/project/odin-todo-XR.webp',
+  url_lazy: '@assets/project/lazy/odin-todo-XR-lazy.webp',
   alt: 'Screenshot The Odin Project todo list project mobile'
 }
 desktopImg: {
