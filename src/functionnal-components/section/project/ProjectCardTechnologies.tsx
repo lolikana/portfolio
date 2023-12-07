@@ -12,6 +12,7 @@ const ProjectCardTechnologies: FC<{
 		<div className={styles['technologies']}>
 			{technologies.map(icon => (
 				<img
+					key={icon}
 					src={`icons/${icon}.svg`}
 					alt={`${icon} icon`}
 					title={icon}
