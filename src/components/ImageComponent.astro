@@ -13,21 +13,17 @@ const { mobileImgUrl, desktopImgUrl, alt, class: picture, ...rest } = Astro.prop
 
 const mobileImg = await getImage({
 	src: mobileImgUrl,
-	format: 'webp',
-	width: mobileImgUrl.width,
-	height: mobileImgUrl.height
+	format: 'webp'
 });
 
 const desktopImg = await getImage({
 	src: desktopImgUrl,
-	format: 'webp',
-	width: desktopImgUrl.width,
-	height: desktopImgUrl.height
+	format: 'webp'
 });
 ---
 
 <picture>
-	<source media="(max-width: 459px)" srcset={mobileImg.src} />
-	<source media="(min-width: 460px)" srcset={desktopImg.src} />
+	<source media="(max-width: 759px)" srcset={mobileImg.src} />
+	<source media="(min-width: 760px)" srcset={desktopImg.src} />
 	<img class:list={picture} src={desktopImg.src} alt={alt} {...rest} />
 </picture>
