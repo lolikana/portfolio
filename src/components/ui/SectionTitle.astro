@@ -14,25 +14,27 @@ const { sectionNumber, sectionTitle } = Astro.props;
 </h1>
 
 <script>
-	const observer = new IntersectionObserver(
-		entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const target = entry.target as HTMLTitleElement;
-					target.dataset.showTitle = 'true';
-				}
-			});
-		},
-		{
-			root: null,
-			rootMargin: '-50px',
-			threshold: 0.5
-		}
-	);
+	const allSectionsTitles = document.querySelectorAll('.section-title');
 
-	const sections = document.querySelectorAll('.section-title');
+	const revealSectionTitle = (
+		entries: IntersectionObserverEntry[],
+		observer: IntersectionObserver
+	) => {
+		entries.forEach(entry => {
+			if (!entry.isIntersecting) return;
+			const target = entry.target as HTMLTitleElement;
+			target.dataset.showTitle = 'true';
+			observer.unobserve(entry.target);
+		});
+	};
 
-	sections.forEach(section => observer.observe(section));
+	const sectionTitleObserver = new IntersectionObserver(revealSectionTitle, {
+		root: null,
+		rootMargin: '-50px',
+		threshold: 0.5
+	});
+
+	allSectionsTitles.forEach(section => sectionTitleObserver.observe(section));
 </script>
 
 <style lang="scss">
