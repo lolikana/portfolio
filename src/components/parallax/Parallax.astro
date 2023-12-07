@@ -18,7 +18,12 @@ const optimizedForeground = await getImage({ src: Foreground });
 	<div class="parallax__fg" style={`background-image: url(${optimizedForeground.src})`}>
 	</div>
 	<div class="parallax__dust">
-		<Image src={Dust} alt="Dust Image" format="avif" />
+		<Image
+			src={Dust}
+			alt="Dust Image"
+			widths={[240, 540, 720, Dust.width]}
+			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${Dust.width}px`}
+		/>
 	</div>
 	<div class="parallax__logo">
 		<Logo type={2} />
