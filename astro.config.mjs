@@ -1,9 +1,17 @@
+import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [react()],
+	integrations: [
+		react(),
+		partytown({
+			config: {
+				forward: ['dataLayer.push']
+			}
+		})
+	],
 	build: {
 		inlineStylesheets: 'auto'
 	},
@@ -32,7 +40,7 @@ export default defineConfig({
 		domains: ['astro.build'],
 		remotePatterns: [{ protocol: 'https' }]
 	},
-	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true })
-	// site: import.meta.env.PROD ? 'https://lolikana.github.io' : undefined,
+	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true }),
+	site: import.meta.env.PROD ? 'https://portfolio-lolikana.vercel.app/' : undefined
 	// base: import.meta.env.PROD ? '/portfolio' : undefined
 });
