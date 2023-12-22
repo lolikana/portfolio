@@ -49,10 +49,22 @@ const {
 	}
 
 	.navbar__list_item {
+		color: $primary-color;
 		.item-link::before {
 			content: attr(data-link-index);
-			color: $secondary-color;
+			color: $main-color;
+			transition: $transtion-color-scheme;
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				color: $secondary-color;
+			}
 			margin-right: 0.25rem;
+		}
+	}
+
+	.navbar__list_item:last-child {
+		.item-link::before {
+			color: $secondary-color;
 		}
 	}
 

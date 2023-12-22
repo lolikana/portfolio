@@ -21,7 +21,12 @@
 		top: 1px;
 		width: calc(100% - 2px);
 		height: calc(100% - 2px);
-		background-color: $main-color;
+		background-color: $secondary-color;
+		transition: $transtion-color-scheme;
+		@container style(--theme: dark) {
+			transition: $transtion-color-scheme;
+			background-color: $main-color;
+		}
 	}
 
 	.nav-container,
