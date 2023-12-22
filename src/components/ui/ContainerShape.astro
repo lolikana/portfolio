@@ -54,19 +54,34 @@ const { class: shape, ...rest } = Astro.props;
 			background-image: url('@assets/shape/type1.svg');
 		}
 		&.type1::after {
-			background-image: url('@assets/shape/type2-black.svg');
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type2-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type2-black.svg');
+			}
 		}
 		&.type2::before {
 			background-image: url('@assets/shape/type2.svg');
 		}
 		&.type2::after {
-			background-image: url('@assets/shape/type3-black.svg');
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type3-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type3-black.svg');
+			}
 		}
 		&.type3::before {
 			background-image: url('@assets/shape/type3.svg');
 		}
 		&.type3::after {
-			background-image: url('@assets/shape/type1-black.svg');
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type1-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type1-black.svg');
+			}
 		}
 	}
 </style>
