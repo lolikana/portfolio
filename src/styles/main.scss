@@ -1,8 +1,5 @@
 @use 'base';
 
-body {
-}
-
 main {
 	padding-inline: $main-inlinePadding-mobile;
 	@include mq(md) {

@@ -7,6 +7,56 @@ body {
 	line-height: $body-line-height;
 }
 
+nav {
+	font-family: 'BlenderPro Book', sans-serif;
+	font-size: $font20;
+	@include mq('md') {
+		font-size: $font18;
+	}
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Impact', sans-serif;
+}
+
+h1 {
+	font-size: $font36;
+	@include mq('md') {
+		font-size: $font40;
+	}
+}
+
+h2 {
+	font-size: $font24;
+	@include mq('md') {
+		font-size: $font32;
+	}
+}
+
+h3 {
+	font-size: $font20;
+	@include mq('md') {
+		font-size: $font24;
+	}
+}
+
+h4 {
+	font-size: $font18;
+	@include mq('md') {
+		font-size: $font20;
+	}
+}
+
+button {
+	font-family: 'Impact', sans-serif;
+	font-size: $font20;
+	@include mq('md') {
+		font-size: $font24;
+	}
+}
+
 a {
 	color: $link-color;
 }
