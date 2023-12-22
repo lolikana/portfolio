@@ -106,6 +106,7 @@ const { pageTitle } = Astro.props;
 
 	/** Scroll listener */
 	const header = document.querySelector('.header') as HTMLDivElement;
+	const nav = document.querySelector('nav') as HTMLDivElement;
 	const snsBar = document.querySelector('.sns-bar') as HTMLDivElement;
 	const scrollY = window.scrollY;
 
@@ -116,6 +117,7 @@ const { pageTitle } = Astro.props;
 		const scrollY = window.scrollY;
 		if (scrollY >= 20) return;
 		scrollY === 0 ? header.classList.remove('scrolled') : header.classList.add('scrolled');
+		scrollY === 0 ? nav.classList.remove('scrolled') : nav.classList.add('scrolled');
 		snsBar.setAttribute('aria-hidden', 'false');
 	});
 </script>

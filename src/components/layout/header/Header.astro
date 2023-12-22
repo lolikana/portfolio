@@ -12,7 +12,7 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 			<Logo />
 		</a>
 	</div>
-	<Navbar class="primary-navbar" />
+	<Navbar />
 	<SecondaryNavbar />
 	<Burger />
 </header>
@@ -46,33 +46,21 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 			height $header-heightTransition;
 	}
 
-	.primary-navbar {
-		display: none;
-
-		@include mq('md') {
-			display: inline-block;
-		}
-		&::after {
-			content: '';
-			position: absolute;
-			background-color: $secondary-color;
-			width: calc(var(--padding-right) + 2vw);
-			height: 2px;
-			right: 0;
-			transition: width $header-heightTransition;
-		}
-	}
-
 	.header.scrolled {
 		@include mq('md') {
 			height: $header-height-scrolled;
+			background: $linear-navbar;
+			background-blend-mode: hard-light;
 
 			.primary-navbar {
-				padding-right: calc(var(--padding-right) - 2vw);
-				@include font-responsive(12px, 2vw, 14px);
-				&::after {
-					width: var(--padding-right);
+				a {
+					@include font-responsive($font16, 2vw, $font18);
 				}
+				a::before {
+					@include font-responsive($font14, 3vw, $font16);
+				}
+
+				padding-right: calc(var(--padding-right) - 2vw);
 			}
 
 			.header__logo {

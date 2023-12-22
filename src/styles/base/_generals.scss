@@ -11,7 +11,6 @@ body {
 nav {
 	color: $sub-color;
 	font-family: 'BlenderPro Book', sans-serif;
-	@include font-responsive($font18, 3vw, $font20);
 	text-transform: uppercase;
 }
 
