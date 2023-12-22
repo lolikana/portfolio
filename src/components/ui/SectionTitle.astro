@@ -64,7 +64,10 @@ const { sectionNumber, sectionTitle } = Astro.props;
 
 		.section-title__number {
 			@include font-responsive($font20, 3vw, $font24);
-			color: $secondary-color;
+			color: $tertiary-color;
+			@container style(--theme: dark) {
+				color: $secondary-color;
+			}
 			padding-right: 0.5rem;
 		}
 
