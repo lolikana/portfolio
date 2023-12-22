@@ -139,36 +139,33 @@ const { type } = Astro.props;
 	}
 
 	.container-type1 {
-		.group-initials,
+		.group-initials {
+			fill: $option-color-1;
+		}
 		.group-small {
-			fill: $secondary-color;
+			fill: $primary-color;
 		}
 
 		.group-big {
 			path {
-				fill: $tertiary-color;
+				fill: $primary-color;
 				@container style(--theme: dark) {
 					fill: $primary-color;
-				}
-
-				&:nth-child(3) {
-					fill: $secondary-color;
 				}
 			}
 		}
 
 		&:hover {
-			.group-initials,
+			.group-initials {
+				fill: $primary-color;
+			}
 			.group-small {
-				fill: $tertiary-color;
-				@container style(--theme: dark) {
-					fill: $primary-color;
-				}
+				fill: $option-color-1;
 			}
 
 			.group-big {
 				path {
-					fill: $secondary-color;
+					fill: $option-color-1;
 				}
 			}
 		}
@@ -179,7 +176,7 @@ const { type } = Astro.props;
 			fill: $primary-color;
 			filter: drop-shadow(0px 0px 1px $primary-color);
 			&:hover {
-				fill: $secondary-color;
+				fill: $option-color-1;
 				filter: drop-shadow(0px 0px 6px $primary-color);
 			}
 		}
