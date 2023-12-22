@@ -47,28 +47,19 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 	}
 
 	.primary-navbar {
-		--padding-right: 7vw;
-
 		display: none;
 
 		@include mq('md') {
-			height: 100%;
-			display: flex;
-			align-items: center;
-			padding-right: var(--padding-right);
-			transition: padding-right $header-heightTransition;
-
-			@include font-responsive(16px, 2vw, 18px);
-
-			&::after {
-				content: '';
-				position: absolute;
-				background-color: $secondary-color;
-				width: calc(var(--padding-right) + 2vw);
-				height: 2px;
-				right: 0;
-				transition: width $header-heightTransition;
-			}
+			display: inline-block;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			background-color: $secondary-color;
+			width: calc(var(--padding-right) + 2vw);
+			height: 2px;
+			right: 0;
+			transition: width $header-heightTransition;
 		}
 	}
 

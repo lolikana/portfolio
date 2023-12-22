@@ -4,21 +4,14 @@ import { firstCapitalizeLetter } from '@libs/helpers';
 type Props = {
 	class: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
 	class2?: string;
-	class3: 'hover-underline' | 'hover-overline';
+	class3?: 'hover-underline' | 'hover-overline';
 	link: {
 		href: string;
 	};
 	index: number;
 };
 
-const {
-	link,
-	index,
-	class: styled_navbar,
-	class2: styled_link,
-	class3: hover_line,
-	...rest
-} = Astro.props;
+const { link, index, class: styled_navbar, class2: styled_link, ...rest } = Astro.props;
 ---
 
 <li
@@ -27,7 +20,7 @@ const {
 	{...rest}
 >
 	<a
-		class:list={['item-link translate-transition', styled_link, hover_line]}
+		class:list={['item-link translate-transition', styled_link]}
 		href=`#${link.href}`
 		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
 		aria-label={`go to ${link.href} section`}
@@ -39,16 +32,35 @@ const {
 
 <style lang="scss">
 	.navbar__list_item {
-		height: 100%;
+		width: fit-content;
 		display: flex;
 		align-items: center;
+		padding: 0.15rem 1vw;
 		position: relative;
+	}
+
+	.navbar__list_item:not(:last-child) {
+		&:hover {
+			color: $main-color;
+			background-color: $primary-color;
+		}
 
 		.item-link::before {
 			content: attr(data-link-index);
 			color: $secondary-color;
+			@include font-responsive($font16, 3vw, $font18);
 			margin-right: 0.25rem;
 		}
+	}
+
+	.navbar__list_item:first-child {
+		padding-left: 2rem;
+	}
+
+	.navbar__list_item:last-child {
+		color: $main-color;
+		background-color: $primary-color;
+		padding-right: 2rem;
 	}
 
 	.navbar__list_item {
