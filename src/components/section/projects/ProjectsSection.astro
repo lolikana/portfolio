@@ -51,17 +51,20 @@ const ocrProject = allProjects.filter(item => item.data.type === 'ocr');
 		&::after {
 			content: '';
 			display: block;
-			width: 15vw;
 			height: 2px;
 			background: $tertiary-color;
 			top: 50%;
 			position: absolute;
 
+			width: 0vw;
+			@include mq('xs') {
+				width: 20vw;
+			}
 			@include mq('sm') {
 				width: 30vw;
 			}
 			@include mq('md') {
-				width: 40vw;
+				width: 35vw;
 			}
 		}
 		&::before {
