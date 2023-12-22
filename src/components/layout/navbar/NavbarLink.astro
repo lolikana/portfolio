@@ -2,7 +2,7 @@
 import { firstCapitalizeLetter } from '@libs/helpers';
 
 type Props = {
-	classNavbar?: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
+	classNavbar: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
 	classLink: 'item-link';
 	classHover?: 'hover-underline';
 	link: {
@@ -16,12 +16,13 @@ const {
 	index,
 	classNavbar: navbar_item,
 	classLink: item_link,
+	classHover: hover_line,
 	...rest
 } = Astro.props;
 ---
 
 <li
-	class:list={['navbar__list_item', navbar_item]}
+	class:list={['navbar__list_item', navbar_item, hover_line]}
 	style={`--delay: ${(index + 1) * 0.2}s`}
 	{...rest}
 >
