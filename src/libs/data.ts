@@ -11,9 +11,6 @@ export const navbarLinksData: TNavbarLinksData[] = [
 	},
 	{
 		href: 'projects'
-	},
-	{
-		href: 'contact'
 	}
 ];
 

@@ -19,19 +19,14 @@ main {
 	@container style(--theme: dark) {
 		transition: $transtion-color-scheme;
 		background-color: $main_color;
-		color: $tertiary-color_dark;
 	}
 }
 
 header,
 footer {
 	transition: $transtion-color-scheme;
-	background-color: $primary-color;
-	color: $tertiary-color;
 	@container style(--theme: dark) {
 		transition: $transtion-color-scheme;
-		background-color: $main_color;
-		color: $tertiary-color_dark;
 	}
 }
 
@@ -52,13 +47,5 @@ section {
 	background-color: $secondary-color;
 	@container style(--theme: dark) {
 		background-color: $main-color;
-	}
-}
-
-a {
-	transition: $transtion-color-scheme;
-	color: $tertiary-color;
-	@container style(--theme: dark) {
-		color: $tertiary-color_dark;
 	}
 }

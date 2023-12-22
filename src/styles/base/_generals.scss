@@ -9,8 +9,10 @@ body {
 }
 
 nav {
+	color: $sub-color;
 	font-family: 'BlenderPro Book', sans-serif;
 	@include font-responsive($font18, 3vw, $font20);
+	text-transform: uppercase;
 }
 
 h1,
@@ -38,8 +40,4 @@ h4 {
 button {
 	font-family: 'Impact', sans-serif;
 	@include font-responsive($font20, 3vw, $font24);
-}
-
-a {
-	color: $link-color;
 }
