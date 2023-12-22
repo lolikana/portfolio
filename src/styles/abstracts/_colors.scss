@@ -28,6 +28,8 @@ $filter-secondary: brightness(0) saturate(100%) invert(29%) sepia(98%) saturate(
 $filter-tertiary: brightness(0) saturate(100%) invert(54%) sepia(31%) saturate(669%)
 	hue-rotate(170deg) brightness(86%) contrast(82%);
 
+$linear-navbar: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+
 $grey50: #fafafa;
 $grey100: #f9f9f9;
 $grey200: #eeeeee;

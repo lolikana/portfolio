@@ -2,25 +2,31 @@
 import { firstCapitalizeLetter } from '@libs/helpers';
 
 type Props = {
-	class: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
-	class2?: string;
-	class3?: 'hover-underline' | 'hover-overline';
+	classNavbar?: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
+	classLink: 'item-link';
+	classHover?: 'hover-underline';
 	link: {
 		href: string;
 	};
 	index: number;
 };
 
-const { link, index, class: styled_navbar, class2: styled_link, ...rest } = Astro.props;
+const {
+	link,
+	index,
+	classNavbar: navbar_item,
+	classLink: item_link,
+	...rest
+} = Astro.props;
 ---
 
 <li
-	class:list={['navbar__list_item', styled_navbar]}
+	class:list={['navbar__list_item', navbar_item]}
 	style={`--delay: ${(index + 1) * 0.2}s`}
 	{...rest}
 >
 	<a
-		class:list={['item-link translate-transition', styled_link]}
+		class:list={['item-link translate-transition', item_link]}
 		href=`#${link.href}`
 		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
 		aria-label={`go to ${link.href} section`}
@@ -31,6 +37,8 @@ const { link, index, class: styled_navbar, class2: styled_link, ...rest } = Astr
 </li>
 
 <style lang="scss">
+	.primary-navbar__list_item {
+	}
 	.navbar__list_item {
 		width: fit-content;
 		display: flex;
@@ -39,28 +47,12 @@ const { link, index, class: styled_navbar, class2: styled_link, ...rest } = Astr
 		position: relative;
 	}
 
-	.navbar__list_item:not(:last-child) {
-		&:hover {
-			color: $main-color;
-			background-color: $primary-color;
-		}
-
+	.navbar__list_item {
 		.item-link::before {
 			content: attr(data-link-index);
 			color: $secondary-color;
-			@include font-responsive($font16, 3vw, $font18);
 			margin-right: 0.25rem;
 		}
-	}
-
-	.navbar__list_item:first-child {
-		padding-left: 2rem;
-	}
-
-	.navbar__list_item:last-child {
-		color: $main-color;
-		background-color: $primary-color;
-		padding-right: 2rem;
 	}
 
 	.navbar__list_item {

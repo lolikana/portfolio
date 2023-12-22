@@ -1,15 +1,11 @@
 ---
-type Props = {
-	class: string;
-};
 
-const { class: primary_navbar, ...rest } = Astro.props;
 ---
 
-<nav class:list={['nav-container', primary_navbar]} {...rest}>
+<div class="nav-container">
 	<div class="nav-container__small-clip"></div>
 	<slot name="navbar" />
-</nav>
+</div>
 
 <style lang="scss">
 	.nav-container {
