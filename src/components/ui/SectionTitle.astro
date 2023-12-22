@@ -6,12 +6,12 @@ type Props = {
 const { sectionNumber, sectionTitle } = Astro.props;
 ---
 
-<h1 class="section-title" data-show-title="false">
+<h2 class="section-title" data-show-title="false">
 	<span class="section-title__number">
 		{sectionNumber.toString().padStart(2, '0')}.
 	</span>
 	<span class="section-title__text">{sectionTitle}</span>
-</h1>
+</h2>
 
 <script>
 	const allSectionsTitles = document.querySelectorAll('.section-title');
@@ -63,26 +63,27 @@ const { sectionNumber, sectionTitle } = Astro.props;
 		}
 
 		.section-title__number {
+			@include font-responsive($font20, 3vw, $font24);
+			color: $secondary-color;
 			padding-right: 0.5rem;
 		}
 
 		.section-title__text {
 			opacity: 1;
 			transition: opacity var(--transition-duration) ease;
-			color: $main-color;
+			color: $primary-color;
 			@container style(--theme: dark) {
-				color: $secondary-color;
+				color: $tertiary-color;
 			}
-			@include font-responsive(1.5rem, 3vw, 2rem);
 			padding-right: 1rem;
 		}
 
 		&::after {
 			content: '';
 			height: 2px;
-			background-color: $main-color;
+			background-color: $primary-color;
 			@container style(--theme: dark) {
-				background-color: $secondary-color;
+				background-color: $tertiary-color;
 			}
 			position: absolute;
 			top: 50%;

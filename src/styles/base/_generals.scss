@@ -5,14 +5,12 @@ body {
 	font-weight: $font-weight-default;
 	font-size: $font-size-default;
 	line-height: $body-line-height;
+	@include font-responsive($font14, 3vw, $font16);
 }
 
 nav {
 	font-family: 'BlenderPro Book', sans-serif;
-	font-size: $font20;
-	@include mq('md') {
-		font-size: $font18;
-	}
+	@include font-responsive($font18, 3vw, $font20);
 }
 
 h1,
@@ -22,39 +20,24 @@ h3 {
 }
 
 h1 {
-	font-size: $font36;
-	@include mq('md') {
-		font-size: $font40;
-	}
+	@include font-responsive($font36, 3vw, $font40);
 }
 
 h2 {
-	font-size: $font24;
-	@include mq('md') {
-		font-size: $font32;
-	}
+	@include font-responsive($font24, 3vw, $font32);
 }
 
 h3 {
-	font-size: $font20;
-	@include mq('md') {
-		font-size: $font24;
-	}
+	@include font-responsive($font20, 3vw, $font24);
 }
 
 h4 {
-	font-size: $font18;
-	@include mq('md') {
-		font-size: $font20;
-	}
+	@include font-responsive($font28, 3vw, $font20);
 }
 
 button {
 	font-family: 'Impact', sans-serif;
-	font-size: $font20;
-	@include mq('md') {
-		font-size: $font24;
-	}
+	@include font-responsive($font20, 3vw, $font24);
 }
 
 a {
