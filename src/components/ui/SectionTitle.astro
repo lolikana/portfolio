@@ -76,7 +76,7 @@ const { sectionNumber, sectionTitle } = Astro.props;
 			transition: opacity var(--transition-duration) ease;
 			color: $primary-color;
 			@container style(--theme: dark) {
-				color: $tertiary-color;
+				color: $primary-color;
 			}
 			padding-right: 1rem;
 		}
@@ -86,7 +86,7 @@ const { sectionNumber, sectionTitle } = Astro.props;
 			height: 2px;
 			background-color: $primary-color;
 			@container style(--theme: dark) {
-				background-color: $tertiary-color;
+				background-color: $primary-color;
 			}
 			position: absolute;
 			top: 50%;
