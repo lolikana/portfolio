@@ -48,10 +48,10 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 	}
 
 	.header.scrolled {
+		background: $linear-navbar;
+		background-blend-mode: hard-light;
 		@include mq('md') {
 			height: $header-height-scrolled;
-			background: $linear-navbar;
-			background-blend-mode: hard-light;
 
 			.primary-navbar {
 				a {
