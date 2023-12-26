@@ -9,10 +9,6 @@ body {
 }
 
 nav {
-	color: $tertiary-color;
-	@include mq('md') {
-		color: $primary-color;
-	}
 	font-family: 'BlenderPro Book', sans-serif;
 	text-transform: uppercase;
 }
