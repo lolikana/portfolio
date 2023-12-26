@@ -18,6 +18,12 @@ import NavbarLinks from './NavbarLink.astro';
 					/>
 				))
 			}
+			<NavbarLinks
+				link={{ href: 'contact' }}
+				index={navbarLinksData.length}
+				classNavbar="primary-navbar__list_item"
+				classLink="item-link"
+			/>
 		</ul>
 	</NavbarContainer>
 </nav>

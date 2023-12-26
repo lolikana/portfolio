@@ -111,6 +111,7 @@ const { pageTitle } = Astro.props;
 	const scrollY = window.scrollY;
 
 	scrollY ? header.classList.add('scrolled') : null;
+	scrollY ? nav.classList.add('scrolled') : null;
 	scrollY ? snsBar.setAttribute('aria-hidden', 'false') : null;
 
 	window.addEventListener('scroll', () => {

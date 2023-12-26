@@ -48,12 +48,16 @@ const {
 		position: relative;
 	}
 
-	.navbar__list_item {
+	.navbar__list_item:not(:last-child) {
 		.item-link::before {
 			content: attr(data-link-index);
 			color: $secondary-color;
 			margin-right: 0.25rem;
 		}
+	}
+
+	.navbar__list_item:last-child .item-link {
+		padding-left: 1rem;
 	}
 
 	.navbar__list_item {
