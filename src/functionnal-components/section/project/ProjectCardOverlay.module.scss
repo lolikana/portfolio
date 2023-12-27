@@ -7,21 +7,22 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(1px);
 
 	.overlay__description {
-		width: 70%;
-		@include font-responsive(12px, 5vw, 14px);
+		font-family: 'BlenderPro Book', sans-serif;
+		width: 80%;
+		@include font-responsive(14px, 5vw, 16px);
 		text-overflow: ellipsis;
 		overflow: hidden;
 		display: -webkit-box;
-		-webkit-line-clamp: 10;
+		-webkit-line-clamp: 15;
 		-webkit-box-orient: vertical;
 	}
 
 	&::after {
-		--corner-color: #{$main-color};
+		--corner-color: #{$secondary-color};
 		--corner-scale: 1.05;
 	}
 }

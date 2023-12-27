@@ -1,6 +1,6 @@
 .project-card {
 	--transition-duration: 500ms;
-
+	min-width: 200px;
 	display: grid;
 	grid-template-rows: repeat(3, auto);
 	position: relative;
@@ -28,10 +28,8 @@
 
 .project-card__imgContainer {
 	grid: 2 / 3;
-	position: relative;
-	margin: 0 auto;
-	padding: 0 0.5rem 0.5rem;
-	transition: filter 0.5s ease;
+	padding: 0.5rem 0.25rem;
+	justify-self: center;
 }
 
 .project-card__desktopImg {
@@ -39,11 +37,8 @@
 }
 
 .project-card__mobileImg {
-	max-height: 60vh;
-	background-size: calc(100% - 1vw) calc(100% - 0.7rem);
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 20px;
+	width: 200px;
+	height: 400px;
 }
 
 .project-card_technologies {
@@ -51,24 +46,22 @@
 }
 
 @include mq('sm') {
-	.project-card {
-		border-radius: 0;
+	.project-card__mobileImg {
+		width: 100px;
+		height: 200px;
+		position: absolute;
+		left: -2rem;
+		top: 2rem;
 	}
-	.project-card__imgContainer {
-		.project-card__desktopImg {
-			display: block;
-		}
-		.project-card__mobileImg {
-			height: 100%;
-			width: fit-content;
-			position: absolute;
-			top: -2rem;
-			left: -2rem;
-			background-size: calc(100% - 0.3rem) calc(100% - 0.7rem);
-			border-radius: 0px;
-			opacity: 1;
-			transition: opacity var(--transition-duration) ease;
-		}
+	.project-card__desktopImg {
+		display: block;
+	}
+}
+
+@include mq('md') {
+	.project-card__mobileImg {
+		width: 125px;
+		height: 250px;
 	}
 }
 
