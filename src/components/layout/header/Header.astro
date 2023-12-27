@@ -37,6 +37,7 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 	}
 
 	.header__logo {
+		z-index: 1002;
 		width: max(4vw, 42px);
 		height: max(4vw, 42px);
 		max-width: 58px;
@@ -47,10 +48,10 @@ import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
 	}
 
 	.header.scrolled {
+		background: $linear-navbar;
+		background-blend-mode: hard-light;
 		@include mq('md') {
 			height: $header-height-scrolled;
-			background: $linear-navbar;
-			background-blend-mode: hard-light;
 
 			.primary-navbar {
 				a {

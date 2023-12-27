@@ -1,25 +1,18 @@
 .project-card {
 	--transition-duration: 500ms;
-
 	display: grid;
 	grid-template-rows: repeat(3, auto);
 	position: relative;
 	transition:
 		box-shadow var(--transition-duration) ease,
 		opacity var(--transition-duration) ease;
-	background-color: $secondary-color;
-	color: $primary-color;
+	color: $secondary-color;
 	padding: 0.5rem 0 0rem;
-	border-radius: 0 0 30px 30px;
 }
 
 .project-card__top {
+	z-index: 2;
 	grid-row: 1 / 2;
-}
-
-.project-card,
-.project-card__mobileImg {
-	filter: drop-shadow(0px 0px 5px $tertiary-color);
 }
 
 .lazy-load {
@@ -27,11 +20,12 @@
 }
 
 .project-card__imgContainer {
-	grid: 2 / 3;
+	z-index: 5;
 	position: relative;
-	margin: 0 auto;
-	padding: 0 0.5rem 0.5rem;
-	transition: filter 0.5s ease;
+	grid: 2 / 3;
+	margin: 1rem;
+	padding: 0.5rem;
+	justify-self: center;
 }
 
 .project-card__desktopImg {
@@ -39,11 +33,8 @@
 }
 
 .project-card__mobileImg {
-	max-height: 60vh;
-	background-size: calc(100% - 1vw) calc(100% - 0.7rem);
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 20px;
+	width: 200px;
+	height: 400px;
 }
 
 .project-card_technologies {
@@ -52,23 +43,25 @@
 
 @include mq('sm') {
 	.project-card {
-		border-radius: 0;
+		min-width: 300px;
 	}
-	.project-card__imgContainer {
-		.project-card__desktopImg {
-			display: block;
-		}
-		.project-card__mobileImg {
-			height: 100%;
-			width: fit-content;
-			position: absolute;
-			top: -2rem;
-			left: -2rem;
-			background-size: calc(100% - 0.3rem) calc(100% - 0.7rem);
-			border-radius: 0px;
-			opacity: 1;
-			transition: opacity var(--transition-duration) ease;
-		}
+
+	.project-card__mobileImg {
+		width: 100px;
+		height: 200px;
+		position: absolute;
+		left: -2rem;
+		top: -1rem;
+	}
+	.project-card__desktopImg {
+		display: block;
+	}
+}
+
+@include mq('md') {
+	.project-card__mobileImg {
+		width: 125px;
+		height: 250px;
 	}
 }
 
@@ -79,9 +72,8 @@
 }
 
 .project-card:hover {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
 	.project-card__overlay {
+		color: $primary-color;
 		opacity: 1;
 	}
 
