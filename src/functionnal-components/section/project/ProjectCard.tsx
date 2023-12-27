@@ -4,8 +4,8 @@ import type { TProjectContent } from '@libs/types';
 import { type FC } from 'react';
 import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
 
-import LaptopCardFrame from './LaptopCardFrame';
-import MobileCardFrame from './MobileCardFrame';
+import LaptopCardFrame from '../../ui/LaptopCardFrame';
+import MobileCardFrame from '../../ui/MobileCardFrame';
 import styles from './ProjectCard.module.scss';
 import ProjectCardOverlay from './ProjectCardOverlay';
 import ProjectCardTechnologies from './ProjectCardTechnologies';

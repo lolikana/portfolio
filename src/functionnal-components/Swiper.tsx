@@ -50,17 +50,17 @@ const SwiperTopics: FC<Props> = props => {
 					spaceBetween={0}
 					grabCursor={true}
 					cubeEffect={{
-						shadow: true,
+						shadow: false,
 						slideShadows: true,
 						shadowOffset: 20,
 						shadowScale: 0.94
 					}}
 					coverflowEffect={{
-						rotate: 50,
-						stretch: 50,
-						depth: 50,
+						rotate: 60,
+						stretch: 10,
+						depth: 10,
 						modifier: 1,
-						slideShadows: true
+						slideShadows: false
 					}}
 					centeredSlides={true}
 					pagination={{ clickable: false }}

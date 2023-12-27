@@ -7,18 +7,22 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.8);
 	backdrop-filter: blur(1px);
 
 	.overlay__description {
 		font-family: 'BlenderPro Book', sans-serif;
-		width: 80%;
-		@include font-responsive(14px, 5vw, 16px);
+		width: 70%;
+		@include font-responsive(16px, 5vw, 18px);
 		text-overflow: ellipsis;
 		overflow: hidden;
 		display: -webkit-box;
 		-webkit-line-clamp: 15;
 		-webkit-box-orient: vertical;
+
+		@include mq('sm') {
+			-webkit-line-clamp: 8;
+		}
 	}
 
 	&::after {

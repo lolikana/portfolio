@@ -1,25 +1,19 @@
 .project-card {
 	--transition-duration: 500ms;
-	min-width: 200px;
+	min-width: 300px;
 	display: grid;
 	grid-template-rows: repeat(3, auto);
 	position: relative;
 	transition:
 		box-shadow var(--transition-duration) ease,
 		opacity var(--transition-duration) ease;
-	background-color: $secondary-color;
-	color: $primary-color;
+	color: $secondary-color;
 	padding: 0.5rem 0 0rem;
-	border-radius: 0 0 30px 30px;
 }
 
 .project-card__top {
+	z-index: 2;
 	grid-row: 1 / 2;
-}
-
-.project-card,
-.project-card__mobileImg {
-	filter: drop-shadow(0px 0px 5px $tertiary-color);
 }
 
 .lazy-load {
@@ -27,8 +21,11 @@
 }
 
 .project-card__imgContainer {
+	z-index: 5;
+	position: relative;
 	grid: 2 / 3;
-	padding: 0.5rem 0.25rem;
+	margin: 1rem;
+	padding: 0.5rem;
 	justify-self: center;
 }
 
@@ -51,7 +48,7 @@
 		height: 200px;
 		position: absolute;
 		left: -2rem;
-		top: 2rem;
+		top: -1rem;
 	}
 	.project-card__desktopImg {
 		display: block;
@@ -72,9 +69,8 @@
 }
 
 .project-card:hover {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
 	.project-card__overlay {
+		color: $primary-color;
 		opacity: 1;
 	}
 
