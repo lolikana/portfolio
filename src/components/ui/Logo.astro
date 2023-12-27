@@ -128,12 +128,12 @@ const { type } = Astro.props;
 		.group-small,
 		path {
 			transition:
-				fill 100ms ease,
-				100ms filter 100ms ease;
+				fill 300ms ease,
+				300ms filter 300ms ease;
 			&:hover {
 				transition:
-					fill 100ms ease,
-					100ms filter 100ms ease;
+					fill 300ms ease,
+					300ms filter 300ms ease;
 			}
 		}
 	}
@@ -141,14 +141,20 @@ const { type } = Astro.props;
 	.container-type1 {
 		.group-initials {
 			fill: $option-color-1;
+			@container style(--theme: dark) {
+				fill: $option-color-1;
+			}
 		}
 		.group-small {
 			fill: $primary-color;
+			@container style(--theme: dark) {
+				fill: $primary-color;
+			}
 		}
 
 		.group-big {
 			path {
-				fill: $primary-color;
+				fill: $option-color-1;
 				@container style(--theme: dark) {
 					fill: $primary-color;
 				}
@@ -157,7 +163,10 @@ const { type } = Astro.props;
 
 		&:hover {
 			.group-initials {
-				fill: $primary-color;
+				fill: $option-color-1;
+				@container style(--theme: dark) {
+					fill: $primary-color;
+				}
 			}
 			.group-small {
 				fill: $option-color-1;
@@ -165,7 +174,10 @@ const { type } = Astro.props;
 
 			.group-big {
 				path {
-					fill: $option-color-1;
+					fill: $primary-color;
+					@container style(--theme: dark) {
+						fill: $option-color-1;
+					}
 				}
 			}
 		}
