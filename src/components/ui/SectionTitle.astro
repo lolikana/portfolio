@@ -64,7 +64,7 @@ const { sectionNumber, sectionTitle } = Astro.props;
 
 		.section-title__number {
 			@include font-responsive($font20, 3vw, $font24);
-			color: $tertiary-color;
+			color: $main-color;
 			@container style(--theme: dark) {
 				color: $secondary-color;
 			}
@@ -75,9 +75,6 @@ const { sectionNumber, sectionTitle } = Astro.props;
 			opacity: 1;
 			transition: opacity var(--transition-duration) ease;
 			color: $primary-color;
-			@container style(--theme: dark) {
-				color: $primary-color;
-			}
 			padding-right: 1rem;
 		}
 
@@ -85,9 +82,6 @@ const { sectionNumber, sectionTitle } = Astro.props;
 			content: '';
 			height: 2px;
 			background-color: $primary-color;
-			@container style(--theme: dark) {
-				background-color: $primary-color;
-			}
 			position: absolute;
 			top: 50%;
 		}

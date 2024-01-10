@@ -10,10 +10,9 @@
 	let root = document.documentElement;
 	const body = document.body;
 	const menuBtn = document.querySelector('.menu-btn') as HTMLDivElement;
-	const secondaryNavbar = document.querySelector('.secondary-navbar') as HTMLElement;
-	const secondaryNavbarLinks = document.querySelectorAll(
-		'.secondary-navbar__list_item .item_link'
-	);
+	let secondaryNavbar: HTMLElement;
+	// eslint-disable-next-line no-undef
+	let secondaryNavbarLinks: NodeListOf<HTMLLinkElement>;
 	let menuOpen = false;
 
 	const toggleMenu = (state: boolean) => {
@@ -27,6 +26,7 @@
 	function openBurgerMenu() {
 		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 		toggleMenu(true);
+		secondaryNavbar = document.querySelector('.secondary-navbar') as HTMLElement;
 		secondaryNavbar.style.display = 'block';
 
 		if (menuOpenTimeout) {
@@ -39,15 +39,15 @@
 		}, 10);
 	}
 
-	function closeBurgerMenu() {
+	function closeBurgerMenu(navbar: HTMLElement) {
 		toggleMenu(false);
 		if (menuOpenTimeout) {
 			clearTimeout(menuOpenTimeout);
 		}
 		menuOpenTimeout = setTimeout(() => {
-			secondaryNavbar.style.display = 'none';
+			navbar.style.display = 'none';
 		}, 1000);
-		secondaryNavbar.setAttribute('aria-hidden', 'true');
+		navbar.setAttribute('aria-hidden', 'true');
 		root.style.setProperty('--scrollbar-width', `0px`);
 		body.style.overflowY = 'visible';
 	}
@@ -55,15 +55,19 @@
 	menuBtn.addEventListener('click', () => {
 		if (!menuOpen) {
 			openBurgerMenu();
-		} else {
-			closeBurgerMenu();
-		}
-	});
 
-	secondaryNavbarLinks.forEach(link => {
-		link.addEventListener('click', () => {
-			closeBurgerMenu();
-		});
+			secondaryNavbarLinks = document.querySelectorAll(
+				'.secondary-navbar__list_item > .item-link'
+			);
+
+			secondaryNavbarLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					closeBurgerMenu(secondaryNavbar);
+				});
+			});
+		} else {
+			closeBurgerMenu(secondaryNavbar);
+		}
 	});
 </script>
 
