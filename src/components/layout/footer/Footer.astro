@@ -40,13 +40,21 @@
 			width: 1rem;
 			height: 1rem;
 			margin-bottom: 0.25rem;
-			filter: $filter-black;
+			filter: $filter-primary;
 			transition: filter 250ms ease;
 		}
 		&:hover {
-			color: $secondary-color;
+			color: $main-color;
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				color: $secondary-color;
+			}
 			&::after {
-				filter: $filter-secondary;
+				filter: $filter-main;
+				@container style(--theme: dark) {
+					transition: $transtion-color-scheme;
+					filter: $filter-secondary;
+				}
 			}
 		}
 	}
