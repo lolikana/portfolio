@@ -1,10 +1,17 @@
 ---
-import Background from '@assets/parallax/background.webp';
-import BackgroundMobile from '@assets/parallax/background-mobile.webp';
-import Dust from '@assets/parallax/dust.webp';
-import DustMobile from '@assets/parallax/dust-mobile.webp';
-import Foreground from '@assets/parallax/foreground.webp';
-import ForegroundMobile from '@assets/parallax/foreground-mobile.webp';
+import BackgroundLG from '@assets/parallax/background/background_lg.webp';
+import BackgroundMD from '@assets/parallax/background/background_md.webp';
+import BackgroundSM from '@assets/parallax/background/background_sm.webp';
+import BackgroundXL from '@assets/parallax/background/background_xl.webp';
+import BackgroundXS from '@assets/parallax/background/background_xs.webp';
+import DustLG from '@assets/parallax/dust/dust_lg.png';
+import DustMD from '@assets/parallax/dust/dust_md.png';
+import DustSM from '@assets/parallax/dust/dust_sm.png';
+import DustXL from '@assets/parallax/dust/dust_xl.png';
+import DustXS from '@assets/parallax/dust/dust_xs.png';
+import ForegroundMD from '@assets/parallax/foreground/foreground_md.png';
+import ForegroundSM from '@assets/parallax/foreground/foreground_sm.png';
+import ForegroundXS from '@assets/parallax/foreground/foreground_xs.png';
 import ImageComponent from '@components/ImageComponent.astro';
 import Logo from '@components/ui/Logo.astro';
 ---
@@ -15,24 +22,31 @@ import Logo from '@components/ui/Logo.astro';
 	</div>
 	<div class="parallax__bg">
 		<ImageComponent
-			desktopImgUrl={Background}
-			mobileImgUrl={BackgroundMobile}
+			imgUrlXS={BackgroundXS}
+			imgUrlSM={BackgroundSM}
+			imgUrlMD={BackgroundMD}
+			imgUrlLG={BackgroundLG}
+			imgUrlXL={BackgroundXL}
 			alt="Background image"
 			class="picture"
 		/>
 	</div>
 	<div class="parallax__fg">
 		<ImageComponent
-			desktopImgUrl={Foreground}
-			mobileImgUrl={ForegroundMobile}
+			imgUrlXS={ForegroundXS}
+			imgUrlSM={ForegroundSM}
+			imgUrlMD={ForegroundMD}
 			alt="Background image"
 			class="picture"
 		/>
 	</div>
 	<div class="parallax__dust">
 		<ImageComponent
-			desktopImgUrl={Dust}
-			mobileImgUrl={DustMobile}
+			imgUrlXS={DustXS}
+			imgUrlSM={DustSM}
+			imgUrlMD={DustMD}
+			imgUrlLG={DustLG}
+			imgUrlXL={DustXL}
 			alt="Background image"
 			class="picture"
 		/>
