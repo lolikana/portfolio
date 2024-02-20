@@ -19,8 +19,6 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 		rootMargin: '100px'
 	});
 
-	console.log(containerRef);
-
 	return (
 		<div className={`${styles['project-card']}`}>
 			<div className={styles['project-card__top']}>

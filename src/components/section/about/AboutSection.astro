@@ -56,6 +56,8 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 		margin: 0 auto 2rem;
 		width: 150px;
 		height: 200px;
+		box-shadow: 0px 0px 10px 2px $tertiary-color;
+
 		img {
 			object-fit: cover;
 		}
@@ -97,3 +99,53 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 		}
 	}
 </style>
+
+<script>
+	let constrain = 100;
+	let mouseOverContainer = document.querySelector(
+		'.about-section__text'
+	) as HTMLDivElement;
+	let ex1Layer = document.querySelector('.about-section__image') as HTMLDivElement;
+
+	function transforms(x: number, y: number, el: HTMLElement) {
+		let box = el.getBoundingClientRect();
+		let calcX = -(y - box.y - box.height / 2) / constrain;
+		let calcY = (x - box.x - box.width / 2) / constrain;
+
+		return (
+			'perspective(100px) ' +
+			'   rotateX(' +
+			calcX +
+			'deg) ' +
+			'   rotateY(' +
+			calcY +
+			'deg) '
+		);
+	}
+
+	function boxShadow(x: number, y: number, el: HTMLElement) {
+		let box = el.getBoundingClientRect();
+		let offsetX = (x - box.x - box.width / 2) / constrain;
+		let offsetY = (y - box.y - box.height / 2) / constrain;
+
+		// Adjust the shadow direction based on the light source (mouse)
+		let shadowX = -offsetX;
+		let shadowY = -offsetY;
+
+		return shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2';
+	}
+
+	function transformElement(el: HTMLElement, xyEl: [number, number, HTMLDivElement]) {
+		el.style.transform = transforms(...xyEl);
+		el.style.boxShadow = boxShadow(...xyEl);
+	}
+
+	mouseOverContainer.onmousemove = function (e) {
+		let xy = [e.clientX, e.clientY] as [number, number];
+		let position: [number, number, HTMLDivElement] = [...xy, mouseOverContainer];
+
+		window.requestAnimationFrame(function () {
+			transformElement(ex1Layer, position);
+		});
+	};
+</script>
