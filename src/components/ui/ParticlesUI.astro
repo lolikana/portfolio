@@ -1,0 +1,30 @@
+---
+import Particles from 'astro-particles';
+import type { ISourceOptions } from 'tsparticles-engine';
+
+import options from '../../../particles.json';
+---
+
+<Particles id="tsparticles" options={options as ISourceOptions} init="particlesInit" />
+
+<script>
+	import { loadFull } from 'tsparticles';
+	import { type Container, type Engine } from 'tsparticles-engine';
+
+	// the function name is the parameter passed to the init attribute
+	// required
+	// add the function to window is mandatory, it will be searched there
+	window.particlesInit = async function (engine: Engine) {
+		await loadFull(engine);
+	};
+
+	// the function name is the parameter passed to the loaded attribute
+	// optional
+	// add the function to window is mandatory, it will be searched there
+	window.particlesLoaded = function (container: Container) {
+		console.log('container: ', container);
+		console.log('particlesLoaded callback');
+	};
+</script>
+
+<style is:global></style>

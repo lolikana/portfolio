@@ -2,6 +2,7 @@
 import Footer from '@components/layout/footer/Footer.astro';
 import Header from '@components/layout/header/Header.astro';
 import SnsBar from '@components/layout/sns/SnsBar.astro';
+import ParticlesUI from '@components/ui/ParticlesUI.astro';
 
 type Props = {
 	pageTitle: string;
@@ -73,13 +74,13 @@ const { pageTitle } = Astro.props;
 			<SnsBar />
 		</main>
 		<Footer />
+		<ParticlesUI />
 	</body>
 </html>
 
 <style lang="scss">
 	.main {
 		position: relative;
-		z-index: 1;
 	}
 </style>
 

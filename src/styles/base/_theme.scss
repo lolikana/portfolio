@@ -11,8 +11,7 @@
 	}
 }
 
-body,
-main {
+body {
 	transition: $transtion-color-scheme;
 	background-color: $secondary-color;
 	color: $primary-color;

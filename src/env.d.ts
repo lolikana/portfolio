@@ -10,3 +10,8 @@ interface ImportMetaEnv {
 interface ImportMeta {
 	readonly env: ImportMetaEnv;
 }
+
+interface Window {
+	particlesInit: (engine: Engine) => Promise<void>;
+	particlesLoaded: (container: Container) => void;
+}
