@@ -1,7 +1,7 @@
 import LaptopFrame from '@assets/shape/laptop-frame.webp';
 import SmartphoneFrame from '@assets/shape/mobile-frame.webp';
 import type { TProjectContent } from '@libs/types';
-import { type FC } from 'react';
+import { type FC, type LegacyRef } from 'react';
 import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
 
 import LaptopCardFrame from '../../ui/LaptopCardFrame';
@@ -19,6 +19,8 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 		rootMargin: '100px'
 	});
 
+	console.log(containerRef);
+
 	return (
 		<div className={`${styles['project-card']}`}>
 			<div className={styles['project-card__top']}>
@@ -28,7 +30,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 				className={`${styles['project-card__imgContainer']} ${
 					!isVisible ? styles['lazy-load'] : ''
 				}`}
-				ref={containerRef}
+				ref={!containerRef ? undefined : (containerRef as LegacyRef<HTMLDivElement>)}
 			>
 				<div className={`${styles['project-card__desktopImg']}`}>
 					<LaptopCardFrame frame={LaptopFrame} BgSource={`${desktopImg.url.src}`} />
