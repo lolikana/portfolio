@@ -111,20 +111,6 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 		let box = el.getBoundingClientRect();
 		let calcX = -(y - box.y - box.height / 2) / constrain;
 		let calcY = (x - box.x - box.width / 2) / constrain;
-
-		return (
-			'perspective(100px) ' +
-			'   rotateX(' +
-			calcX +
-			'deg) ' +
-			'   rotateY(' +
-			calcY +
-			'deg) '
-		);
-	}
-
-	function boxShadow(x: number, y: number, el: HTMLElement) {
-		let box = el.getBoundingClientRect();
 		let offsetX = (x - box.x - box.width / 2) / constrain;
 		let offsetY = (y - box.y - box.height / 2) / constrain;
 
@@ -132,12 +118,22 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 		let shadowX = -offsetX;
 		let shadowY = -offsetY;
 
-		return shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2';
+		return {
+			transform:
+				'perspective(100px) ' +
+				'   rotateX(' +
+				calcX +
+				'deg) ' +
+				'   rotateY(' +
+				calcY +
+				'deg) ',
+			boxShadow: shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2'
+		};
 	}
 
 	function transformElement(el: HTMLElement, xyEl: [number, number, HTMLDivElement]) {
-		el.style.transform = transforms(...xyEl);
-		el.style.boxShadow = boxShadow(...xyEl);
+		el.style.transform = transforms(...xyEl).transform;
+		el.style.boxShadow = transforms(...xyEl).boxShadow;
 	}
 
 	mouseOverContainer.onmousemove = function (e) {
