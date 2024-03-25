@@ -23,28 +23,31 @@ const { sectionNumber, sectionTitle } = Astro.props;
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	sectionsTitle.forEach((title, i) => {
-		gsap.to(title, {
+	const animateWithGsap = (
+		target: Element,
+		animationProps: gsap.TweenVars,
+		trigger?: Element,
+		scrollProps?: ScrollTrigger.Vars
+	) => {
+		gsap.to(target, {
+			...animationProps,
 			duration: 1,
-			y: 0,
-			opacity: 1,
 			scrollTrigger: {
-				trigger: title,
+				trigger: !trigger ? target : trigger,
 				toggleActions: 'restart reverse restart reverse',
-				start: '-100px 85%'
-			},
-			ease: 'power1.inOut'
-		});
-		gsap.to(lines[i], {
-			duration: 1,
-			width: '30vw',
-			maxWidth: '400px',
-			scrollTrigger: {
-				trigger: title,
-				toggleActions: 'restart reverse restart reverse',
-				start: '-100px 85%'
+				start: '-100px 85%',
+				...scrollProps
 			}
 		});
+	};
+
+	sectionsTitle.forEach((title, i) => {
+		animateWithGsap(title, { opacity: 1, y: 0, ease: 'power1.inOut' });
+		animateWithGsap(
+			lines[i],
+			{ width: '30vw', maxWidth: '400px', ease: 'power1.inOut' },
+			title
+		);
 	});
 </script>
 
