@@ -12,21 +12,52 @@ type Props = {
 const { class: shape, id: id, ...rest } = Astro.props;
 ---
 
-<section id={id} class="section-wrapper">
+<section id={id} class='section-wrapper'>
 	<SectionTitle {...rest} />
-	<ContainerShape class={shape}>
-		<slot name="section-text" />
-	</ContainerShape>
+	<div class='section-wrapper__container'>
+		<ContainerShape class={shape}>
+			<slot name='section-text' />
+		</ContainerShape>
+	</div>
 </section>
 
-<style lang="scss">
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+	const sectionsContainer = document.querySelectorAll('.section-wrapper__container');
+	const animateWithGsap = (
+		target: Element,
+		animationProps: gsap.TweenVars,
+		trigger?: Element,
+		scrollProps?: ScrollTrigger.Vars
+	) => {
+		gsap.to(target, {
+			...animationProps,
+			duration: 0.75,
+			scrollTrigger: {
+				trigger: !trigger ? target : trigger,
+				toggleActions: 'restart reverse restart reverse',
+				start: '-100px 85%',
+				markers: true,
+				...scrollProps
+			}
+		});
+	};
+	sectionsContainer.forEach(el => {
+		animateWithGsap(el, { opacity: 1, x: 0 });
+	});
+</script>
+
+<style lang='scss'>
 	.section-wrapper {
 		padding: 2rem 0;
+	}
+
+	.section-wrapper__container {
 		opacity: 0;
-		@include text-appear(
-			$speed: calc($header-heightTransition * 4),
-			$translateY-from: 10px
-		);
-		animation-delay: $loading-delay-2;
+		position: relative;
+		transform: translateX(100%);
 	}
 </style>
