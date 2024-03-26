@@ -5,6 +5,7 @@ main {
 	@include mq(md) {
 		padding-inline: $main-inlinePadding-desktop;
 	}
+	overflow: hidden;
 }
 
 .text-justify {
