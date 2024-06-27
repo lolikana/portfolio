@@ -9,11 +9,16 @@ import ProjectsSection from '@components/section/projects/ProjectsSection.astro'
 import Layout from 'src/layout/Layout.astro';
 ---
 
-<Layout pageTitle="Thomas Guiart">
-	<Parallax slot="parallax">
-		<HeroSection slot="hero-section" />
+<Layout pageTitle='Thomas Guiart'>
+	<Parallax slot='parallax'>
+		<HeroSection slot='hero-section' />
 	</Parallax>
-	<AboutSection id="about" sectionNumber={1} sectionTitle="About" shape="type1" />
-	<ProjectsSection id="projects" sectionNumber={2} sectionTitle="Projects" shape="type2" />
-	<ContactSection id="contact" sectionNumber={3} sectionTitle="Contact" shape="type3" />
+	<AboutSection id='about' sectionNumber={1} sectionTitle='About' shape='type1' />
+	<ProjectsSection
+		id='projects'
+		sectionNumber={2}
+		sectionTitle='Projects'
+		shape='type2'
+	/>
+	<ContactSection id='contact' sectionNumber={3} sectionTitle='Contact' shape='type3' />
 </Layout>
