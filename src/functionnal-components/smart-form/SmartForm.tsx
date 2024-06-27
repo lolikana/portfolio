@@ -8,11 +8,11 @@ import type { TForm } from './types';
 const SmartForm = <
 	TFormValues extends Record<string, unknown> = Record<string, unknown>,
 >({
-		onSubmnit,
-		validationSchema,
-		children,
-		options,
-	}: TForm<TFormValues>) => {
+	onSubmnit,
+	validationSchema,
+	children,
+	options,
+}: TForm<TFormValues>) => {
 	const resolver = zodResolver(validationSchema);
 	const methods = useForm<TFormValues>({ ...options, resolver });
 	const {
@@ -35,20 +35,20 @@ const SmartForm = <
 			<div className={styles['smart-form']}>
 				{Array.isArray(children)
 					? children.map(child => {
-						return child.props.name
-							? createElement(child.type, {
-								...{
-									...child.props,
-									register: {
-										...register(child.props.name, { onChange: child.props.onChange }),
-									},
-									error: errors[child.props.name]?.message,
-									resetField,
-									key: child.props.name,
-								},
-							})
-							: child;
-					})
+							return child.props.name
+								? createElement(child.type, {
+										...{
+											...child.props,
+											register: {
+												...register(child.props.name, { onChange: child.props.onChange }),
+											},
+											error: errors[child.props.name]?.message,
+											resetField,
+											key: child.props.name,
+										},
+									})
+								: child;
+						})
 					: children}
 			</div>
 			<div></div>
