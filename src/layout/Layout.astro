@@ -13,48 +13,48 @@ const portfolioLink = 'https://portfolio-lolikana.vercel.app/';
 const { pageTitle } = Astro.props;
 ---
 
-<html lang='en'>
+<html lang="en">
 	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='favicon-cyber.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<meta name='description' content='Thomas Guiart - Front End Developer | Portfolio' />
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon-cyber.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Thomas Guiart - Front End Developer | Portfolio" />
 		<meta
-			name='keywords'
-			content='Front End Developer, Web Developer, Portfolio, JavaScript, React, HTML, CSS, SASS, Nextjs, Astro, Vite, Mongodb, Swiper'
+			name="keywords"
+			content="Front End Developer, Web Developer, Portfolio, JavaScript, React, HTML, CSS, SASS, Nextjs, Astro, Vite, Mongodb, Swiper"
 		/>
-		<meta name='author' content='Thomas Guiart' />
+		<meta name="author" content="Thomas Guiart" />
 
 		<!-- Open Graph / Facebook -->
-		<meta property='og:type' content='website' />
-		<meta property='og:url' content={portfolioLink} />
-		<meta property='og:title' content='Thomas Guiart - Front End Developer | Portfolio' />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={portfolioLink} />
+		<meta property="og:title" content="Thomas Guiart - Front End Developer | Portfolio" />
 		<meta
-			property='og:description'
-			content='Self-taught front-end developer passionate about creating exceptional user experiences.'
+			property="og:description"
+			content="Self-taught front-end developer passionate about creating exceptional user experiences."
 		/>
-		<meta property='og:image' content='/portfolio.webp' />
+		<meta property="og:image" content="/portfolio.webp" />
 
 		<!-- Twitter -->
-		<meta property='twitter:card' content='/portfolio.webp' />
-		<meta property='twitter:url' content={portfolioLink} />
+		<meta property="twitter:card" content="/portfolio.webp" />
+		<meta property="twitter:url" content={portfolioLink} />
 		<meta
-			property='twitter:title'
-			content='Thomas Guiart - Front End Developer | Portfolio'
+			property="twitter:title"
+			content="Thomas Guiart - Front End Developer | Portfolio"
 		/>
 		<meta
-			property='twitter:description'
-			content='Self-taught front-end developer passionate about creating exceptional user experiences.'
+			property="twitter:description"
+			content="Self-taught front-end developer passionate about creating exceptional user experiences."
 		/>
-		<meta property='twitter:image' content='/portfolio.webp' />
+		<meta property="twitter:image" content="/portfolio.webp" />
 
 		<!-- Google tag (gtag.js) -->
 		<script
-			type='text/partytown'
+			type="text/partytown"
 			async
-			src='https://www.googletagmanager.com/gtag/js?id=G-JZNMEM6KWM'></script>
-		<script type='text/partytown'>
+			src="https://www.googletagmanager.com/gtag/js?id=G-JZNMEM6KWM"></script>
+		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				window.dataLayer.push(arguments);
@@ -68,8 +68,8 @@ const { pageTitle } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<slot name='parallax' />
-		<main class='main'>
+		<slot name="parallax" />
+		<main class="maia2n">
 			<slot />
 			<SnsBar />
 		</main>
@@ -77,7 +77,7 @@ const { pageTitle } = Astro.props;
 		<ParticlesUI />
 	</body>
 </html>
-<style lang='scss'>
+<style lang="scss">
 	.main {
 		position: relative;
 	}
