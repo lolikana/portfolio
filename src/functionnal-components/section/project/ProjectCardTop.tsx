@@ -5,7 +5,7 @@ import styles from './ProjectCardTop.module.scss';
 
 type Props = {
 	title: string;
-	codeUrl: string;
+	codeUrl?: string;
 	previewUrl?: string;
 };
 

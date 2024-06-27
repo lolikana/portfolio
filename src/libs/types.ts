@@ -12,7 +12,7 @@ export type TSnsData = {
 
 export type TProjectContent = {
 	title: string;
-	codeUrl: string;
+	codeUrl?: string;
 	previewUrl?: string;
 	desktopImg: {
 		url: { src: string; width: number; height: number };

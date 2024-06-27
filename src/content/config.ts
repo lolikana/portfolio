@@ -17,7 +17,7 @@ const projectsCollection = defineCollection({
 				url_lazy: image(),
 				alt: z.string()
 			}),
-			codeUrl: z.string(),
+			codeUrl: z.string().optional(),
 			previewUrl: z.string().optional(),
 			technologies: z.array(z.string())
 		})
