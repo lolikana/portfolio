@@ -1,0 +1,74 @@
+---
+import Burger from '@components/ui/Burger.astro';
+import Logo from '@components/ui/Logo.astro';
+
+import Navbar from '../navbar/Navbar.astro';
+import SecondaryNavbar from '../navbar/SecondaryNavbar.astro';
+---
+
+<header class="header">
+	<div class="header__logo">
+		<a href="/" aria-label="return to homepage">
+			<Logo />
+		</a>
+	</div>
+	<Navbar />
+	<SecondaryNavbar />
+	<Burger />
+</header>
+
+<style lang="scss">
+	.header {
+		z-index: 1001;
+		position: fixed;
+		width: 100%;
+		padding-inline: max(5vw, 2rem);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		height: $header-heightMobile;
+		transition:
+			height $header-heightTransition ease,
+			padding-inline calc($header-heightTransition + 400ms) ease;
+		@include mq('sm') {
+			height: $header-height-sm;
+		}
+	}
+
+	.header__logo {
+		z-index: 1002;
+		width: max(4vw, 42px);
+		height: max(4vw, 42px);
+		max-width: 58px;
+		max-height: 58px;
+		transition:
+			width $header-heightTransition,
+			height $header-heightTransition;
+	}
+
+	.header.scrolled {
+		background: $linear-navbar;
+		background-blend-mode: hard-light;
+		@include mq('md') {
+			height: $header-height-scrolled;
+
+			.primary-navbar {
+				a {
+					@include font-responsive($font16, 2vw, $font18);
+				}
+				a::before {
+					@include font-responsive($font14, 3vw, $font16);
+				}
+
+				padding-right: calc(var(--padding-right) - 2vw);
+			}
+
+			.header__logo {
+				@include mq('md') {
+					@include width-height(38px, 38px);
+				}
+			}
+		}
+	}
+</style>

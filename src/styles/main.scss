@@ -1,0 +1,117 @@
+@use 'base';
+
+main {
+	padding-inline: $main-inlinePadding-mobile;
+	@include mq(md) {
+		padding-inline: $main-inlinePadding-desktop;
+	}
+	overflow: hidden;
+}
+
+.text-justify {
+	text-align: justify;
+	hyphens: auto;
+}
+
+.hover-overline::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 2px;
+	scale: 0 1;
+	transform-origin: center right;
+	transition: scale 0.5s;
+	background-color: $secondary-color;
+}
+
+.hover-overline:hover::after {
+	scale: 1 1;
+	transform-origin: left center;
+	transition: scale 0.5s;
+}
+
+.hover-underline::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	scale: 0 1;
+	transform-origin: center right;
+	transition: scale 0.5s;
+	background-color: $secondary-color;
+}
+
+.hover-underline:hover::after {
+	scale: 1 1;
+	transform-origin: left center;
+	transition: scale 0.5s;
+}
+
+.corner-border::after {
+	--corner-weigth: 2px;
+	--corner-scale: 1.2;
+
+	content: '';
+	position: absolute;
+	scale: var(--corner-scale);
+	width: 100%;
+	height: 100%;
+	left: 0;
+
+	background:
+		linear-gradient(
+				to right,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			0 0,
+		linear-gradient(
+				to right,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			0 100%,
+		linear-gradient(
+				to left,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			100% 0,
+		linear-gradient(
+				to left,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			100% 100%,
+		linear-gradient(
+				to bottom,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			0 0,
+		linear-gradient(
+				to bottom,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			100% 0,
+		linear-gradient(
+				to top,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			0 100%,
+		linear-gradient(
+				to top,
+				var(--corner-color) var(--corner-weigth),
+				transparent var(--corner-weigth)
+			)
+			100% 100%;
+
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+}

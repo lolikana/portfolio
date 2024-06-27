@@ -1,0 +1,75 @@
+---
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
+
+interface Props {
+	imgUrlXS: ImageMetadata;
+	imgUrlSM: ImageMetadata;
+	imgUrlMD: ImageMetadata;
+	imgUrlLG?: ImageMetadata;
+	imgUrlXL?: ImageMetadata;
+	alt: string;
+	class: string;
+}
+
+const {
+	imgUrlXS,
+	imgUrlSM,
+	imgUrlMD,
+	imgUrlLG,
+	imgUrlXL,
+	alt,
+	class: picture,
+	...rest
+} = Astro.props;
+
+const imgXS = await getImage({
+	src: imgUrlXS,
+	format: 'webp',
+	width: imgUrlXS.width,
+	height: imgUrlXS.height
+});
+
+const imgSM = await getImage({
+	src: imgUrlSM,
+	format: 'webp',
+	width: imgUrlSM.width,
+	height: imgUrlSM.height
+});
+
+const imgMD =
+	imgUrlMD &&
+	(await getImage({
+		src: imgUrlMD,
+		format: 'webp',
+		width: imgUrlMD.width,
+		height: imgUrlMD.height
+	}));
+
+const imgLG =
+	imgUrlLG &&
+	(await getImage({
+		src: imgUrlLG,
+		format: 'webp',
+		width: imgUrlLG.width,
+		height: imgUrlLG?.height
+	}));
+
+const imgXL =
+	imgUrlXL &&
+	(await getImage({
+		src: imgUrlXL,
+		format: 'webp',
+		width: imgUrlXL.width,
+		height: imgUrlXL.height
+	}));
+---
+
+<picture>
+	<source srcset={imgXS.src} media="(max-width: 375px)" />
+	<source srcset={imgSM.src} media="(max-width: 640px)" />
+	{imgUrlMD && <source srcset={imgMD.src} media="(max-width: 768px)" />}
+	{imgLG && <source srcset={imgLG.src} media="(max-width: 1024px)" />}
+	{imgXL && <source srcset={imgXL.src} media="(min-width: 1025px)" />}
+	<img class:list={picture} src={imgXL ? imgXL.src : imgMD.src} alt={alt} {...rest} />
+</picture>

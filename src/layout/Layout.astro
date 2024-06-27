@@ -1,0 +1,124 @@
+---
+import Footer from '@components/layout/footer/Footer.astro';
+import Header from '@components/layout/header/Header.astro';
+import SnsBar from '@components/layout/sns/SnsBar.astro';
+import ParticlesUI from '@components/ui/ParticlesUI.astro';
+
+type Props = {
+	pageTitle: string;
+};
+
+const portfolioLink = 'https://portfolio-lolikana.vercel.app/';
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='favicon-cyber.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<meta name='description' content='Thomas Guiart - Front End Developer | Portfolio' />
+		<meta
+			name='keywords'
+			content='Front End Developer, Web Developer, Portfolio, JavaScript, React, HTML, CSS, SASS, Nextjs, Astro, Vite, Mongodb, Swiper'
+		/>
+		<meta name='author' content='Thomas Guiart' />
+
+		<!-- Open Graph / Facebook -->
+		<meta property='og:type' content='website' />
+		<meta property='og:url' content={portfolioLink} />
+		<meta property='og:title' content='Thomas Guiart - Front End Developer | Portfolio' />
+		<meta
+			property='og:description'
+			content='Self-taught front-end developer passionate about creating exceptional user experiences.'
+		/>
+		<meta property='og:image' content='/portfolio.webp' />
+
+		<!-- Twitter -->
+		<meta property='twitter:card' content='/portfolio.webp' />
+		<meta property='twitter:url' content={portfolioLink} />
+		<meta
+			property='twitter:title'
+			content='Thomas Guiart - Front End Developer | Portfolio'
+		/>
+		<meta
+			property='twitter:description'
+			content='Self-taught front-end developer passionate about creating exceptional user experiences.'
+		/>
+		<meta property='twitter:image' content='/portfolio.webp' />
+
+		<!-- Google tag (gtag.js) -->
+		<script
+			type='text/partytown'
+			async
+			src='https://www.googletagmanager.com/gtag/js?id=G-JZNMEM6KWM'></script>
+		<script type='text/partytown'>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-JZNMEM6KWM');
+		</script>
+
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<Header />
+		<slot name='parallax' />
+		<main class='main'>
+			<slot />
+			<SnsBar />
+		</main>
+		<Footer />
+		<ParticlesUI />
+	</body>
+</html>
+<style lang='scss'>
+	.main {
+		position: relative;
+	}
+</style>
+
+<script>
+	const favIcon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+	const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
+	const isDarkTheme = colorTheme.matches;
+	/** Change the favicon */
+	document.addEventListener('visibilitychange', () => {
+		if (document.hidden) {
+			favIcon.setAttribute('href', isDarkTheme ? `favicon-dark.svg` : `favicon-light.svg`);
+			return;
+		}
+		favIcon.setAttribute('href', `favicon-cyber.svg`);
+		return;
+	});
+
+	colorTheme.addEventListener('change', event => {
+		if (document.hidden) {
+			favIcon.setAttribute('href', event.matches ? `favicon-dark.svg` : `favicon-light.svg`);
+		}
+		return;
+	});
+
+	/** Scroll listener */
+	const header = document.querySelector('.header') as HTMLDivElement;
+	const nav = document.querySelector('nav') as HTMLDivElement;
+	const snsBar = document.querySelector('.sns-bar') as HTMLDivElement;
+	const scrollY = window.scrollY;
+
+	scrollY ? header.classList.add('scrolled') : null;
+	scrollY ? nav.classList.add('scrolled') : null;
+	scrollY ? snsBar.setAttribute('aria-hidden', 'false') : null;
+
+	window.addEventListener('scroll', () => {
+		const scrollY = window.scrollY;
+		if (scrollY >= 20) return;
+		scrollY === 0 ? header.classList.remove('scrolled') : header.classList.add('scrolled');
+		scrollY === 0 ? nav.classList.remove('scrolled') : nav.classList.add('scrolled');
+		snsBar.setAttribute('aria-hidden', 'false');
+	});
+</script>

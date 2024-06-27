@@ -1,0 +1,147 @@
+---
+import ProfileImg from '@assets/img-profile.png';
+import SectionCard from '@components/ui/SectionCard.astro';
+import { Image } from 'astro:assets';
+
+type Props = {
+	id: string;
+	sectionNumber: number;
+	sectionTitle: string;
+	shape: 'type1';
+};
+
+const { id, sectionNumber, sectionTitle, shape } = Astro.props;
+---
+
+<SectionCard
+	id={id}
+	sectionNumber={sectionNumber}
+	sectionTitle={sectionTitle}
+	class={shape}
+>
+	<div slot="section-text" class="about-section__text text-justify">
+		<div class="about-section__image corner-border">
+			<Image
+				src={ProfileImg}
+				alt="Profile Image"
+				width={ProfileImg.width}
+				height={ProfileImg.height}
+			/>
+		</div>
+		<p class="about-section__text_description">
+			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,
+			Japan. With a passion for creating responsive and engaging websites. With a focus on
+			quality and attention to detail, I'm dedicated to delivering exceptional web solutions
+			that exceed expectations.
+			<br />I'm constantly seeking new opportunities to learn and grow as a developer, and
+			I'm excited to contribute my skills to the tech industry.
+		</p>
+		<div class="about-section__text_technologies">
+			<p>Here are a few technologies I've been working with recently:</p>
+			<ul>
+				<li>Javascript (ES6+)</li>
+				<li>Typescript</li>
+				<li>React / Next.js</li>
+				<li>Astro</li>
+				<li>Vite</li>
+			</ul>
+		</div>
+	</div>
+</SectionCard>
+
+<style lang="scss">
+	.about-section__image {
+		width: fit-content;
+		position: relative;
+		margin: 0 auto 2rem;
+		width: 150px;
+		height: 200px;
+		box-shadow: 0px 0px 10px 2px $tertiary-color;
+
+		img {
+			object-fit: cover;
+		}
+
+		&::after {
+			--corner-color: #{$option-color-1};
+			--corner-weigth: 2px;
+		}
+
+		@include mq('md') {
+			position: absolute;
+			top: -2.3rem;
+			right: -2rem;
+		}
+	}
+
+	.about-section__text {
+		margin: 0 0 2rem 0;
+	}
+
+	.about-section__text_description {
+		margin-bottom: 2rem;
+		@include mq('md') {
+			padding-right: 8rem;
+		}
+	}
+
+	.about-section__text_technologies {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr;
+			@include mq('md') {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			grid-template-rows: repeat(3, 1fr);
+			column-gap: 2rem;
+			margin: 1rem auto 0;
+			width: fit-content;
+		}
+	}
+</style>
+
+<script>
+	let constrain = 100;
+	let mouseOverContainer = document.querySelector(
+		'.about-section__text'
+	) as HTMLDivElement;
+	let ex1Layer = document.querySelector('.about-section__image') as HTMLDivElement;
+
+	function transforms(x: number, y: number, el: HTMLElement) {
+		let box = el.getBoundingClientRect();
+		let calcX = -(y - box.y - box.height / 2) / constrain;
+		let calcY = (x - box.x - box.width / 2) / constrain;
+		let offsetX = (x - box.x - box.width / 2) / constrain;
+		let offsetY = (y - box.y - box.height / 2) / constrain;
+
+		// Adjust the shadow direction based on the light source (mouse)
+		let shadowX = -offsetX;
+		let shadowY = -offsetY;
+
+		return {
+			transform:
+				'perspective(100px) ' +
+				'   rotateX(' +
+				calcX +
+				'deg) ' +
+				'   rotateY(' +
+				calcY +
+				'deg) ',
+			boxShadow: shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2'
+		};
+	}
+
+	function transformElement(el: HTMLElement, xyEl: [number, number, HTMLDivElement]) {
+		el.style.transform = transforms(...xyEl).transform;
+		el.style.boxShadow = transforms(...xyEl).boxShadow;
+	}
+
+	mouseOverContainer.onmousemove = function (e) {
+		let xy = [e.clientX, e.clientY] as [number, number];
+		let position: [number, number, HTMLDivElement] = [...xy, mouseOverContainer];
+
+		window.requestAnimationFrame(function () {
+			transformElement(ex1Layer, position);
+		});
+	};
+</script>

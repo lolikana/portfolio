@@ -19,12 +19,12 @@
 			"dom.iterable",
 			"esnext"
 		] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
-		// "jsx": "react-jsx" /* Specify what JSX code is generated. */,
+		"jsx": "react-jsx" /* Specify what JSX code is generated. */,
 		"experimentalDecorators": true /* Enable experimental support for TC39 stage 2 draft decorators. */,
 		// "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
 		// "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
 		// "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
-		// "jsxImportSource": "react" /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */,
+		"jsxImportSource": "react" /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */,
 		// "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
 		// "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
 		"useDefineForClassFields": true /* Emit ECMAScript-standard-compliant class fields. */,
@@ -37,7 +37,9 @@
 		"baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
 		"paths": {
 			"@components/*": ["src/components/*"],
+			"@functionnal-components/*": ["src/functionnal-components/*"],
 			"@layouts/*": ["src/layouts/*"],
+			"@libs/*": ["src/libs/*"],
 			"@styles/*": ["src/styles/*"],
 			"@scripts/*": ["src/scripts/*"],
 			"@assets/*": ["src/assets/*"]
@@ -117,6 +119,14 @@
 			}
 		]
 	},
-	"include": ["src", "**/*.ts", "**/*.tsx", "**/*.astro", "*.config.mjs", ".eslintrc.cjs"],
+	"include": [
+		"src",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.astro",
+		"*.config.mjs",
+		".eslintrc.cjs",
+		"**/*.md"
+	],
 	"exclude": ["node_modules"]
 }

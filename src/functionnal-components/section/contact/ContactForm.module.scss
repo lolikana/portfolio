@@ -1,0 +1,48 @@
+.form__submit-btn {
+	@include mq('sm') {
+		width: 180px;
+		margin: 0 auto;
+	}
+}
+
+.dialog[open='false'] {
+	display: none;
+}
+
+.dialog[open] {
+	z-index: 2;
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(1px);
+
+	@extend %flex-center;
+}
+
+.dialog__text {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	padding: 3rem;
+	background-color: $primary-color;
+	&::after {
+		z-index: 1;
+		top: 0;
+		--corner-color: #{$main-color};
+		--corner-scale: 1.05;
+	}
+}
+
+.dialog__close-btn {
+	z-index: 2;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	cursor: pointer;
+}
+
+.dialog__sign {
+	text-align: end;
+}

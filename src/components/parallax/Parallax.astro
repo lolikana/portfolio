@@ -1,0 +1,184 @@
+---
+import BackgroundLG from '@assets/parallax/background/background_lg.webp';
+import BackgroundMD from '@assets/parallax/background/background_md.webp';
+import BackgroundSM from '@assets/parallax/background/background_sm.webp';
+import BackgroundXL from '@assets/parallax/background/background_xl.webp';
+import BackgroundXS from '@assets/parallax/background/background_xs.webp';
+import DustLG from '@assets/parallax/dust/dust_lg.png';
+import DustMD from '@assets/parallax/dust/dust_md.png';
+import DustSM from '@assets/parallax/dust/dust_sm.png';
+import DustXL from '@assets/parallax/dust/dust_xl.png';
+import DustXS from '@assets/parallax/dust/dust_xs.png';
+import ForegroundMD from '@assets/parallax/foreground/foreground_md.png';
+import ForegroundSM from '@assets/parallax/foreground/foreground_sm.png';
+import ForegroundXS from '@assets/parallax/foreground/foreground_xs.png';
+import ImageComponent from '@components/ImageComponent.astro';
+import Logo from '@components/ui/Logo.astro';
+---
+
+<div class="parallax">
+	<div class="parallax__hero">
+		<slot name="hero-section" />
+	</div>
+	<div class="parallax__bg">
+		<ImageComponent
+			imgUrlXS={BackgroundXS}
+			imgUrlSM={BackgroundSM}
+			imgUrlMD={BackgroundMD}
+			imgUrlLG={BackgroundLG}
+			imgUrlXL={BackgroundXL}
+			alt="Background image"
+			class="picture"
+		/>
+	</div>
+	<div class="parallax__fg">
+		<ImageComponent
+			imgUrlXS={ForegroundXS}
+			imgUrlSM={ForegroundSM}
+			imgUrlMD={ForegroundMD}
+			alt="Background image"
+			class="picture"
+		/>
+	</div>
+	<div class="parallax__dust">
+		<ImageComponent
+			imgUrlXS={DustXS}
+			imgUrlSM={DustSM}
+			imgUrlMD={DustMD}
+			imgUrlLG={DustLG}
+			imgUrlXL={DustXL}
+			alt="Background image"
+			class="picture"
+		/>
+	</div>
+	<div class="parallax__logo">
+		<Logo type={2} />
+	</div>
+	<div class="parallax__foreground-back"></div>
+	<div class="parallax__foreground-front"></div>
+</div>
+
+<style lang="scss">
+	.parallax {
+		--parallax-speed-hero: 20;
+		--parallax-speed-bg: 7;
+		--parallax-speed-fg: -2;
+		--parallax-speed-dust: -5;
+		--parallax-speed-logo: 5;
+
+		--parallax-index-hero: 5;
+		--parallax-index-bg: 1;
+		--parallax-index-fg: 4;
+		--parallax-index-dust: 2;
+		--parallax-index-logo: 3;
+
+		position: relative;
+		@include mq('sm') {
+			height: 70vh;
+		}
+		display: grid;
+		grid-template-rows: 100%;
+		grid-template-areas: 'stack';
+		contain: paint;
+	}
+
+	.parallax > * {
+		grid-area: stack;
+		animation: parallax linear;
+		animation-timeline: scroll();
+	}
+
+	.picture {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.parallax__hero {
+		--parallax-speed: var(--parallax-speed-hero);
+		z-index: var(--parallax-index-hero);
+		width: fit-content;
+		height: fit-content;
+	}
+
+	.parallax__bg {
+		--parallax-speed: var(--parallax-speed-bg);
+		z-index: var(--parallax-index-bg);
+	}
+
+	.parallax__fg {
+		--parallax-speed: var(--parallax-speed-fg);
+		z-index: var(--parallax-index-fg);
+		position: relative;
+		background-size: cover;
+		background-position: top center;
+		bottom: -20rem;
+		transition: bottom 500ms ease;
+		img {
+			overflow: visible;
+		}
+		@include mq('md') {
+			bottom: -16rem;
+		}
+		@include mq('lg') {
+			bottom: -10rem;
+		}
+		@include mq('xl') {
+			bottom: -20rem;
+		}
+	}
+
+	.parallax__dust {
+		--parallax-speed: var(--parallax-speed-dust);
+		z-index: var(--parallax-index-dust);
+	}
+
+	.parallax__logo {
+		--parallax-speed: var(--parallax-speed-logo);
+		z-index: var(--parallax-index-logo);
+		position: absolute;
+		right: 13vw;
+		top: 10rem;
+		width: 10vw;
+		height: 10vw;
+		min-width: 75px;
+		min-height: 75px;
+		max-width: 250px;
+		max-height: 250px;
+		filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
+	}
+
+	.parallax__foreground-front,
+	.parallax__foreground-back {
+		clip-path: polygon(
+			100% 100%,
+			0% 100%,
+			0 100%,
+			6% 86%,
+			21% 83%,
+			37% 73%,
+			54% 73%,
+			70% 50%,
+			88% 47%,
+			100% 14%
+		);
+		width: calc(100% + 2rem);
+		height: 200px;
+		align-self: end;
+		margin-left: -2rem;
+		margin-bottom: -0.5rem;
+		z-index: 10;
+	}
+
+	.parallax__foreground-back {
+		background-color: $tertiary-color;
+		transform: scaleY(1.2);
+		transform-origin: bottom;
+		opacity: 0.7;
+	}
+
+	@keyframes parallax {
+		to {
+			transform: translateY(calc(var(--parallax-speed) * 100px));
+		}
+	}
+</style>

@@ -1,0 +1,66 @@
+---
+import { firstCapitalizeLetter } from '@libs/helpers';
+
+type Props = {
+	classNavbar: 'primary-navbar__list_item' | 'secondary-navbar__list_item';
+	classLink: 'item-link';
+	classHover?: 'hover-underline';
+	link: {
+		href: string;
+	};
+	index: number;
+};
+
+const {
+	link,
+	index,
+	classNavbar: navbar_item,
+	classLink: item_link,
+	classHover: hover_line,
+	...rest
+} = Astro.props;
+---
+
+<li
+	class:list={['navbar__list_item', navbar_item, hover_line]}
+	style={`--delay: ${(index + 1) * 0.2}s`}
+	{...rest}
+>
+	<a
+		class:list={['item-link translate-transition', item_link]}
+		href=`#${link.href}`
+		data-link-index={`${(index + 1).toString().padStart(2, '0')}.`}
+		aria-label={`go to ${link.href} section`}
+		{...rest}
+	>
+		{firstCapitalizeLetter(link.href)}
+	</a>
+</li>
+
+<style lang="scss">
+	.navbar__list_item {
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		padding: 0.15rem 1vw;
+		position: relative;
+	}
+
+	.navbar__list_item:not(:last-child) {
+		.item-link::before {
+			content: attr(data-link-index);
+			color: $secondary-color;
+			margin-right: 0.25rem;
+		}
+	}
+
+	.navbar__list_item:last-child .item-link {
+		padding-left: 1rem;
+	}
+
+	.navbar__list_item {
+		opacity: 0;
+		@include text-appear($speed: $header-heightTransition, $translateY-from: -20px);
+		animation-delay: var(--delay);
+	}
+</style>

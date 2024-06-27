@@ -1,0 +1,13 @@
+.technologies {
+	padding: 0.25rem 0 0.25rem 0.5rem;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+
+	img {
+		max-width: 100px;
+		max-height: 2rem;
+	}
+}

@@ -1,0 +1,30 @@
+.smart-form {
+	color: $secondary-color;
+}
+
+.smart-form__group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.smart-form__input {
+	display: flex;
+	flex-direction: column;
+	input,
+	textarea {
+		color: $tertiary-color;
+		border: 1px solid $tertiary-color;
+		padding: 0.25rem 0.5rem;
+	}
+
+	textarea {
+		resize: none;
+		overflow-wrap: break-word;
+	}
+}
+
+.count-container {
+	position: absolute;
+	right: 1rem;
+	bottom: 0;
+}

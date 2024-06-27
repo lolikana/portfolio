@@ -1,0 +1,81 @@
+---
+import { navbarLinksData } from '@libs/data';
+
+import NavbarContainer from './NavbarContainer.astro';
+import NavbarLinks from './NavbarLink.astro';
+---
+
+<nav class="primary-navbar">
+	<NavbarContainer>
+		<ul slot="navbar" class="primary-navbar__list_items">
+			{
+				navbarLinksData.map((link, index) => (
+					<NavbarLinks
+						link={link}
+						index={index}
+						classNavbar="primary-navbar__list_item"
+						classLink="item-link"
+					/>
+				))
+			}
+			<NavbarLinks
+				link={{ href: 'contact' }}
+				index={navbarLinksData.length}
+				classNavbar="primary-navbar__list_item"
+				classLink="item-link"
+			/>
+		</ul>
+	</NavbarContainer>
+</nav>
+
+<style lang="scss">
+	.primary-navbar {
+		display: none;
+
+		@include mq('md') {
+			display: inline-block;
+		}
+	}
+
+	.primary-navbar__list_items {
+		display: flex;
+	}
+
+	.primary-navbar__list_item {
+		&:first-child {
+			padding-left: 2rem;
+		}
+
+		&:last-child {
+			color: $main-color;
+			background-color: $primary-color;
+			padding-right: 2rem;
+		}
+
+		&:not(:last-child) {
+			&:hover {
+				color: $main-color;
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	.primary-navbar {
+		.primary-navbar__list_item {
+			transition: font-size $header-heightTransition ease;
+			@include font-responsive($font18, 3vw, $font20);
+			.item-link::before {
+				@include font-responsive($font16, 3vw, $font18);
+			}
+		}
+	}
+
+	.primary-navbar.scrolled {
+		.primary-navbar__list_items .primary-navbar__list_item {
+			@include font-responsive($font16, 3vw, $font18);
+			.item-link::before {
+				@include font-responsive($font14, 3vw, $font16);
+			}
+		}
+	}
+</style>

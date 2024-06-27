@@ -1,0 +1,86 @@
+---
+type Props = {
+	sectionNumber: number;
+	sectionTitle: string;
+};
+const { sectionNumber, sectionTitle } = Astro.props;
+---
+
+<h2 class='section-title'>
+	<span class='section-title__number'>
+		{sectionNumber.toString().padStart(2, '0')}.
+	</span>
+	<span class='section-title__text'>{sectionTitle}</span>
+	<span class='line'></span>
+</h2>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	const sectionsTitle = document.querySelectorAll('.section-title');
+	const lines = document.querySelectorAll('.line');
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const animateWithGsap = (
+		target: Element,
+		animationProps: gsap.TweenVars,
+		trigger?: Element,
+		scrollProps?: ScrollTrigger.Vars
+	) => {
+		gsap.to(target, {
+			...animationProps,
+			duration: 0.75,
+			scrollTrigger: {
+				trigger: !trigger ? target : trigger,
+				toggleActions: 'restart reverse restart reverse',
+				start: '-100px 85%',
+				...scrollProps
+			}
+		});
+	};
+
+	sectionsTitle.forEach((title, i) => {
+		animateWithGsap(title, { opacity: 1, y: 0, ease: 'power1.inOut' });
+		animateWithGsap(
+			lines[i],
+			{ width: '30vw', maxWidth: '400px', ease: 'power1.inOut' },
+			title
+		);
+	});
+</script>
+
+<style lang='scss'>
+	.section-title {
+		width: calc(100% - 2rem);
+		max-width: 760px;
+		margin: 0 auto 4rem auto;
+		overflow: hidden;
+		position: relative;
+		transform: translateY(50px);
+		opacity: 0;
+
+		.section-title__number {
+			@include font-responsive($font20, 3vw, $font24);
+			color: $main-color;
+			@container style(--theme: dark) {
+				color: $secondary-color;
+			}
+			padding-right: 0.5rem;
+		}
+
+		.section-title__text {
+			color: $primary-color;
+			padding-right: 1rem;
+		}
+
+		.line {
+			width: 0;
+			height: 2px;
+			background-color: $primary-color;
+			position: absolute;
+			top: 50%;
+		}
+	}
+</style>

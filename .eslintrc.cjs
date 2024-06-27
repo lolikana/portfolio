@@ -7,22 +7,20 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:astro/recommended',
-		'plugin:prettier/recommended',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:@typescript-eslint/recommended',
+		'prettier'
 	],
-	plugins: ['@typescript-eslint', 'simple-import-sort', 'prettier', 'import'],
+	plugins: ['@typescript-eslint', 'simple-import-sort', 'import'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
-		sourceType: 'module',
-		tsconfigRootDir: __dirname,
-		project: ['./tsconfig.json']
+		sourceType: 'module'
 	},
 	rules: {
-		'no-mixed-spaces-and-tabs': 'error',
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		indent: [2, 'tab', { SwitchCase: 1 }],
+		indent: [1, 'tab', { SwitchCase: 1 }],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
 		semi: ['error', 'always'],
@@ -42,7 +40,14 @@ module.exports = {
 		},
 		{
 			files: ['*.ts'],
-			extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
+			parserOptions: {
+				tsconfigRootDir: __dirname,
+				project: ['./tsconfig.json']
+			},
+			extends: [
+				'plugin:@typescript-eslint/recommended-requiring-type-checking',
+				'plugin:prettier/recommended'
+			],
 			rules: {
 				'@typescript-eslint/no-unused-vars': [
 					'error',

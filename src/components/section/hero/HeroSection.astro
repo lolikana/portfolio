@@ -1,0 +1,85 @@
+---
+import Akira from '@components/ui/Akira.astro';
+
+import DynamicText from './DynamicText.astro';
+---
+
+<div class="hero-section">
+	<div class="hero-section__title">
+		<span class="hero-section__title-sub">Hi, my name is</span>
+		<div class="hero-section__title-name">
+			<span>Thomas Guiart</span>
+			<span class="stamp">
+				<Akira />
+			</span>
+		</div>
+		<div class="hero-section__title-text">
+			<DynamicText />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.hero-section {
+		width: fit-content;
+		border-radius: 20px;
+		margin-top: 25vh;
+		margin-left: max(10vw, 1rem);
+		color: $primary-color;
+		filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+	}
+
+	.hero-section__title {
+		@include font-responsive(2rem, 6vw, 3rem);
+		line-height: 1;
+		font-weight: 900;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+
+		span {
+			white-space: nowrap;
+		}
+
+		&-sub,
+		&-name {
+			font-style: italic;
+		}
+
+		&-sub {
+			font-size: 1rem;
+			line-height: 1.5;
+		}
+
+		&-name {
+			position: relative;
+			width: fit-content;
+
+			.stamp {
+				position: absolute;
+				inset: 0;
+				margin: auto;
+				padding-left: 1.5rem;
+				transform: rotate(-2deg);
+			}
+		}
+	}
+
+	.hero-section__title-name,
+	.hero-section__title-sub,
+	.hero-section__title-text {
+		opacity: 0;
+		@include text-appear($speed: $header-heightTransition, $translateY-from: 20px);
+	}
+
+	.hero-section__title-sub {
+		animation-delay: calc($loading-delay-2 + 0s);
+	}
+	.hero-section__title-name {
+		animation-delay: calc($loading-delay-2 + $header-heightTransition * 1);
+	}
+	.hero-section__title-text {
+		animation-delay: calc($loading-delay-2 + $header-heightTransition * 2);
+	}
+</style>

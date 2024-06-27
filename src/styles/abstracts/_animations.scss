@@ -1,0 +1,14 @@
+@mixin text-appear($speed: 0.5s, $translateY-from: -20px) {
+	animation: text-appear $speed ease forwards;
+
+	@keyframes text-appear {
+		from {
+			opacity: 0;
+			transform: translateY($translateY-from);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}

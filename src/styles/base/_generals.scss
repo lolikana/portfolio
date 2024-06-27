@@ -1,0 +1,45 @@
+@use '../abstracts/' as *;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-family-base;
+	font-weight: $font-weight-default;
+	font-size: $font-size-default;
+	line-height: $body-line-height;
+	@include font-responsive($font14, 3vw, $font16);
+}
+
+nav {
+	font-family: 'BlenderPro Book', sans-serif;
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Impact', sans-serif;
+}
+
+h1 {
+	@include font-responsive($font36, 3vw, $font40);
+}
+
+h2 {
+	@include font-responsive($font24, 3vw, $font32);
+}
+
+h3 {
+	@include font-responsive($font20, 3vw, $font24);
+}
+
+h4 {
+	@include font-responsive($font28, 3vw, $font20);
+}
+
+button {
+	font-family: 'Impact', sans-serif;
+	@include font-responsive($font20, 3vw, $font24);
+}

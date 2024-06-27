@@ -1,0 +1,31 @@
+---
+
+---
+
+<div class="nav-container">
+	<div class="nav-container__small-clip"></div>
+	<slot name="navbar" />
+</div>
+
+<style lang="scss">
+	.nav-container {
+		position: relative;
+		width: fit-content;
+		height: fit-content;
+		background-color: $primary-color;
+	}
+
+	.nav-container__small-clip {
+		position: absolute;
+		left: 1px;
+		top: 1px;
+		width: calc(100% - 2px);
+		height: calc(100% - 2px);
+		background-color: $main-color;
+	}
+
+	.nav-container,
+	.nav-container__small-clip {
+		clip-path: polygon(0% 20%, 5% 0%, 100% 0%, 100% 80%, 95% 100%, 0% 100%);
+	}
+</style>

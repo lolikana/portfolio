@@ -1,0 +1,62 @@
+---
+import ContainerShape from './ContainerShape.astro';
+import SectionTitle from './SectionTitle.astro';
+
+type Props = {
+	id: string;
+	sectionNumber: number;
+	sectionTitle: string;
+	class: 'type1' | 'type2' | 'type3';
+};
+
+const { class: shape, id: id, ...rest } = Astro.props;
+---
+
+<section id={id} class='section-wrapper'>
+	<SectionTitle {...rest} />
+	<div class='section-wrapper__container'>
+		<ContainerShape class={shape}>
+			<slot name='section-text' />
+		</ContainerShape>
+	</div>
+</section>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+	const sectionsContainer = document.querySelectorAll('.section-wrapper__container');
+	const animateWithGsap = (
+		target: Element,
+		animationProps: gsap.TweenVars,
+		trigger?: Element,
+		scrollProps?: ScrollTrigger.Vars
+	) => {
+		gsap.to(target, {
+			...animationProps,
+			duration: 0.75,
+			scrollTrigger: {
+				trigger: !trigger ? target : trigger,
+				toggleActions: 'restart reverse restart reverse',
+				start: '-100px 85%',
+				...scrollProps
+			}
+		});
+	};
+	sectionsContainer.forEach(el => {
+		animateWithGsap(el, { opacity: 1, x: 0 });
+	});
+</script>
+
+<style lang='scss'>
+	.section-wrapper {
+		padding: 2rem 0;
+	}
+
+	.section-wrapper__container {
+		opacity: 0;
+		position: relative;
+		transform: translateX(100%);
+	}
+</style>

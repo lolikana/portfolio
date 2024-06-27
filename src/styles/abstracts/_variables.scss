@@ -1,0 +1,16 @@
+@use 'breakpoints' as *;
+
+/** Variables **/
+$main-inlinePadding-mobile: 5%;
+$main-inlinePadding-desktop: 15%;
+
+$header-heightMobile: 20vw;
+$header-height-sm: 70px;
+$header-height-scrolled: 50px;
+$header-heightTransition: 300ms;
+
+$loading-delay-1: 0s;
+$loading-delay-2: calc($header-heightTransition * 3);
+
+/** Extends **/
+$transtion-color-scheme: all 1s ease;

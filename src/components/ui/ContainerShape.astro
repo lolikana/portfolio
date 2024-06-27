@@ -1,0 +1,87 @@
+---
+type Props = {
+	class: 'type1' | 'type2' | 'type3';
+};
+
+const { class: shape, ...rest } = Astro.props;
+---
+
+<div class:list={['div-container', shape]} {...rest}>
+	<slot />
+</div>
+
+<style lang="scss">
+	.div-container {
+		position: relative;
+		background-color: $primary-color;
+		padding: 2rem 0;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2rem;
+			left: 0;
+			background-size: 100%;
+			background-position: bottom;
+			background-repeat: no-repeat;
+		}
+		&::before {
+			top: -1.9rem;
+		}
+		&::after {
+			bottom: -0.1rem;
+		}
+	}
+
+	.div-container {
+		&.type1,
+		&.type3 {
+			max-width: 760px;
+			margin: 1rem auto 2rem auto;
+			padding: 3rem 2rem 2rem;
+		}
+
+		&.type2 {
+			margin-inline: calc(-1 * $main-inlinePadding-mobile * 1.1);
+			@include mq('md') {
+				margin-inline: calc(-1 * $main-inlinePadding-desktop * 1.43);
+			}
+		}
+
+		&.type1::before {
+			background-image: url('@assets/shape/type1.svg');
+		}
+		&.type1::after {
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type2-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type2-black.svg');
+			}
+		}
+		&.type2::before {
+			background-image: url('@assets/shape/type2.svg');
+		}
+		&.type2::after {
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type3-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type3-black.svg');
+			}
+		}
+		&.type3::before {
+			background-image: url('@assets/shape/type3.svg');
+		}
+		&.type3::after {
+			transition: $transtion-color-scheme;
+			background-image: url('@assets/shape/type1-pink.svg');
+			@container style(--theme: dark) {
+				transition: $transtion-color-scheme;
+				background-image: url('@assets/shape/type1-black.svg');
+			}
+		}
+	}
+</style>

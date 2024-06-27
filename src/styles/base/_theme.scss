@@ -1,0 +1,50 @@
+@use '@styles/abstracts/' as *;
+
+:root {
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		--theme: dark;
+		transition: $transtion-color-scheme;
+	}
+}
+
+body {
+	transition: $transtion-color-scheme;
+	background-color: $secondary-color;
+	color: $primary-color;
+	@container style(--theme: dark) {
+		transition: $transtion-color-scheme;
+		background-color: $main-color;
+	}
+}
+
+header,
+footer {
+	transition: $transtion-color-scheme;
+	@container style(--theme: dark) {
+		transition: $transtion-color-scheme;
+	}
+}
+
+section {
+	color: $tertiary-color;
+	h1 {
+		transition: $transtion-color-scheme;
+		color: $primary-color;
+		@container style(--theme: dark) {
+			transition: $transtion-color-scheme;
+			color: $tertiary-color_dark;
+		}
+	}
+}
+
+.parallax__foreground-front {
+	transition: $transtion-color-scheme;
+	background-color: $secondary-color;
+	@container style(--theme: dark) {
+		background-color: $main-color;
+	}
+}

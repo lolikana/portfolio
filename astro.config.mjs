@@ -1,17 +1,35 @@
+import partytown from '@astrojs/partytown';
+import react from '@astrojs/react';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [],
+	integrations: [
+		react(),
+		partytown({
+			config: {
+				forward: ['dataLayer.push']
+			}
+		})
+	],
 	build: {
 		inlineStylesheets: 'auto'
 	},
 	// scopedStyleStrategy: 'where',
 	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use "@styles/abstracts" as *;`
+				}
+			}
+		},
 		resolve: {
 			alias: {
 				'@components': '/src/components',
+				'@functionnal-components': '/src/functionnal-components',
 				'@layouts': '/src/layouts',
+				'@libs': '/src/libs',
 				'@styles': '/src/styles',
 				'@scripts': '/src/scripts',
 				'@assets': '/src/assets'
@@ -22,5 +40,7 @@ export default defineConfig({
 		domains: ['astro.build'],
 		remotePatterns: [{ protocol: 'https' }]
 	},
-	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true })
+	server: ({ command }) => ({ port: command === 'dev' ? 4321 : 4000, host: true }),
+	site: import.meta.env.PROD ? 'https://portfolio-lolikana.vercel.app/' : undefined
+	// base: import.meta.env.PROD ? '/portfolio' : undefined
 });
