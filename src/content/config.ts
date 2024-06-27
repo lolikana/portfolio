@@ -10,20 +10,20 @@ const projectsCollection = defineCollection({
 			type: z.string(),
 			desktopImg: z.object({
 				url: image(),
-				alt: z.string()
+				alt: z.string(),
 			}),
 			mobileImg: z.object({
 				url: image(),
 				url_lazy: image(),
-				alt: z.string()
+				alt: z.string(),
 			}),
 			codeUrl: z.string().optional(),
 			previewUrl: z.string().optional(),
-			technologies: z.array(z.string())
-		})
+			technologies: z.array(z.string()),
+		}),
 });
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-	projects: projectsCollection
+	projects: projectsCollection,
 };

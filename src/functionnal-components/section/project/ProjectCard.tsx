@@ -16,7 +16,7 @@ const ProjectCard: FC<TProjectContent & { body: string }> = props => {
 	const [containerRef, isVisible] = useIntersectionObserver({
 		root: null,
 		threshold: 0,
-		rootMargin: '100px'
+		rootMargin: '100px',
 	});
 
 	return (

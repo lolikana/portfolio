@@ -53,14 +53,14 @@ const SwiperTopics: FC<Props> = props => {
 						shadow: false,
 						slideShadows: true,
 						shadowOffset: 20,
-						shadowScale: 0.94
+						shadowScale: 0.94,
 					}}
 					coverflowEffect={{
 						rotate: 60,
 						stretch: 10,
 						depth: 10,
 						modifier: 1,
-						slideShadows: false
+						slideShadows: false,
 					}}
 					centeredSlides={true}
 					pagination={{ clickable: false }}

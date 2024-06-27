@@ -6,12 +6,12 @@ import styles from './SmartForm.module.scss';
 import type { TForm } from './types';
 
 const SmartForm = <
-	TFormValues extends Record<string, unknown> = Record<string, unknown>
+	TFormValues extends Record<string, unknown> = Record<string, unknown>,
 >({
 		onSubmnit,
 		validationSchema,
 		children,
-		options
+		options,
 	}: TForm<TFormValues>) => {
 	const resolver = zodResolver(validationSchema);
 	const methods = useForm<TFormValues>({ ...options, resolver });
@@ -20,7 +20,7 @@ const SmartForm = <
 		register,
 		reset,
 		resetField,
-		formState: { errors, isSubmitSuccessful }
+		formState: { errors, isSubmitSuccessful },
 	} = methods;
 
 	useEffect(() => {
@@ -40,15 +40,15 @@ const SmartForm = <
 								...{
 									...child.props,
 									register: {
-										...register(child.props.name, { onChange: child.props.onChange })
+										...register(child.props.name, { onChange: child.props.onChange }),
 									},
 									error: errors[child.props.name]?.message,
 									resetField,
-									key: child.props.name
-								}
-								  })
+									key: child.props.name,
+								},
+							})
 							: child;
-					  })
+					})
 					: children}
 			</div>
 			<div></div>

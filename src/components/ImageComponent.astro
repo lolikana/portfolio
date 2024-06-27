@@ -27,14 +27,14 @@ const imgXS = await getImage({
 	src: imgUrlXS,
 	format: 'webp',
 	width: imgUrlXS.width,
-	height: imgUrlXS.height
+	height: imgUrlXS.height,
 });
 
 const imgSM = await getImage({
 	src: imgUrlSM,
 	format: 'webp',
 	width: imgUrlSM.width,
-	height: imgUrlSM.height
+	height: imgUrlSM.height,
 });
 
 const imgMD =
@@ -43,7 +43,7 @@ const imgMD =
 		src: imgUrlMD,
 		format: 'webp',
 		width: imgUrlMD.width,
-		height: imgUrlMD.height
+		height: imgUrlMD.height,
 	}));
 
 const imgLG =
@@ -52,7 +52,7 @@ const imgLG =
 		src: imgUrlLG,
 		format: 'webp',
 		width: imgUrlLG.width,
-		height: imgUrlLG?.height
+		height: imgUrlLG?.height,
 	}));
 
 const imgXL =
@@ -61,15 +61,15 @@ const imgXL =
 		src: imgUrlXL,
 		format: 'webp',
 		width: imgUrlXL.width,
-		height: imgUrlXL.height
+		height: imgUrlXL.height,
 	}));
 ---
 
 <picture>
-	<source srcset={imgXS.src} media="(max-width: 375px)" />
-	<source srcset={imgSM.src} media="(max-width: 640px)" />
-	{imgUrlMD && <source srcset={imgMD.src} media="(max-width: 768px)" />}
-	{imgLG && <source srcset={imgLG.src} media="(max-width: 1024px)" />}
-	{imgXL && <source srcset={imgXL.src} media="(min-width: 1025px)" />}
+	<source srcset={imgXS.src} media='(max-width: 375px)' />
+	<source srcset={imgSM.src} media='(max-width: 640px)' />
+	{imgUrlMD && <source srcset={imgMD.src} media='(max-width: 768px)' />}
+	{imgLG && <source srcset={imgLG.src} media='(max-width: 1024px)' />}
+	{imgXL && <source srcset={imgXL.src} media='(min-width: 1025px)' />}
 	<img class:list={picture} src={imgXL ? imgXL.src : imgMD.src} alt={alt} {...rest} />
 </picture>

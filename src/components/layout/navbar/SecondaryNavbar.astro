@@ -4,25 +4,25 @@ import { navbarLinksData } from '@libs/data';
 import NavbarLinks from './NavbarLink.astro';
 ---
 
-<nav class="secondary-navbar" aria-label="secondary-navigation" aria-hidden="true">
-	<div class="secondary-nav__container">
-		<div class="secondary-navbar__list">
-			<ul class="secondary-navbar__list_items">
+<nav class='secondary-navbar' aria-label='secondary-navigation' aria-hidden='true'>
+	<div class='secondary-nav__container'>
+		<div class='secondary-navbar__list'>
+			<ul class='secondary-navbar__list_items'>
 				{
 					navbarLinksData.map((link, index) => (
 						<NavbarLinks
 							link={link}
 							index={index}
-							classNavbar="secondary-navbar__list_item"
-							classLink="item-link"
-							classHover="hover-underline"
+							classNavbar='secondary-navbar__list_item'
+							classLink='item-link'
+							classHover='hover-underline'
 						/>
 					))
 				}
-				<li class="secondary-navbar__list_item secondary-navbar__list_bottomLinks">
+				<li class='secondary-navbar__list_item secondary-navbar__list_bottomLinks'>
 					<a
-						href="#contact"
-						class="item-link translate-transition hover-underline"
+						href='#contact'
+						class='item-link translate-transition hover-underline'
 						style={`--delay: ${(navbarLinksData.length + 0.5) * 0.2}s`}
 						aria-label={`return home`}>Contact</a
 					>
@@ -32,7 +32,7 @@ import NavbarLinks from './NavbarLink.astro';
 	</div>
 </nav>
 
-<style lang="scss">
+<style lang='scss'>
 	.secondary-navbar {
 		--secondaryNav-transition: 500ms;
 		--layout-paddingLeftDesktop: 125px;
@@ -48,8 +48,8 @@ import NavbarLinks from './NavbarLink.astro';
 		overflow: hidden;
 		background-color: $primary-color;
 		transition-delay: height calc(var(--secondaryNav-transition) / 2);
-		transition: all var(--secondaryNav-transition) calc(var(--secondaryNav-transition) / 2)
-			ease-in-out;
+		transition: all var(--secondaryNav-transition)
+			calc(var(--secondaryNav-transition) / 2) ease-in-out;
 
 		.secondary-nav__container {
 			opacity: 0;

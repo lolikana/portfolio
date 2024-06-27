@@ -14,10 +14,10 @@
 	},
 	"lint-staged": {
 		"./**/*.{astro,ts,tsx,mjs}": [
-			"prettier --write --plugin=prettier-plugin-astro",
+			"prettier --config .prettierrc --write --plugin=prettier-plugin-astro",
 			"eslint --fix"
 		],
-		"./**/*.{css,scss,json,cjs}": "prettier --write --plugin=prettier-plugin-astro"
+		"./**/*.{css,scss,json,cjs}": "prettier --config .prettierrc --write --plugin=prettier-plugin-astro"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.3.1",

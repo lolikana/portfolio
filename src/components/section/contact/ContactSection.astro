@@ -19,9 +19,9 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 	sectionTitle={sectionTitle}
 	class={shape}
 >
-	<div slot="section-text">
+	<div slot='section-text'>
 		<ContactForm client:load slotSubmitButton>
-			<GlitchButton slot="slotSubmitButton" text="Send" type="submit" />
+			<GlitchButton slot='slotSubmitButton' text='Send' type='submit' />
 		</ContactForm>
 	</div>
 </SectionCard>

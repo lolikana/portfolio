@@ -15,4 +15,3 @@ technologies: ['react-native', 'typescript', 'rest-api', 'axios', 'jotai']
 ---
 
 The Weather App is a mobile application developed using React Native and TypeScript. It displays weather information for a specific location using data fetched from the WeatherAPI API. The app utilizes jotai for state management and axios for making HTTP requests. The weather icons used in the app are from Google Icons.
-

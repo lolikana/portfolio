@@ -12,7 +12,7 @@ const ProjectCardLink: FC<Props> = props => {
 	return (
 		<a
 			className={`${styles['project-card__link']} ${styles[icon]}`}
-			target="_blank"
+			target='_blank'
 			href={url}
 			aria-label={`go to ${icon}`}
 		></a>

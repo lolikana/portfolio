@@ -41,9 +41,9 @@ const ContactSection: FC<Props> = props => {
 				options={{}}
 				onSubmnit={sendEmail}
 			>
-				<Input name="from_name" label="Full Name" type="text" />
-				<Input name="from_email" label="Email" type="email" />
-				<TextArea name="message" label="Message" rows={10} cols={0} maxLength={600} />
+				<Input name='from_name' label='Full Name' type='text' />
+				<Input name='from_email' label='Email' type='email' />
+				<TextArea name='message' label='Message' rows={10} cols={0} maxLength={600} />
 				<div className={styles['form__submit-btn']}>{slotSubmitButton}</div>
 			</SmartForm>
 			<dialog className={`${styles['dialog']}`} open={isOpen}>

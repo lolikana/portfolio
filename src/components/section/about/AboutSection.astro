@@ -19,24 +19,24 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 	sectionTitle={sectionTitle}
 	class={shape}
 >
-	<div slot="section-text" class="about-section__text text-justify">
-		<div class="about-section__image corner-border">
+	<div slot='section-text' class='about-section__text text-justify'>
+		<div class='about-section__image corner-border'>
 			<Image
 				src={ProfileImg}
-				alt="Profile Image"
+				alt='Profile Image'
 				width={ProfileImg.width}
 				height={ProfileImg.height}
 			/>
 		</div>
-		<p class="about-section__text_description">
-			I'm a self-taught front-end developer with basic back-end knowledge, based in Fukuoka,
-			Japan. With a passion for creating responsive and engaging websites. With a focus on
-			quality and attention to detail, I'm dedicated to delivering exceptional web solutions
-			that exceed expectations.
+		<p class='about-section__text_description'>
+			I'm a self-taught front-end developer with basic back-end knowledge, based in
+			Fukuoka, Japan. With a passion for creating responsive and engaging websites. With a
+			focus on quality and attention to detail, I'm dedicated to delivering exceptional
+			web solutions that exceed expectations.
 			<br />I'm constantly seeking new opportunities to learn and grow as a developer, and
 			I'm excited to contribute my skills to the tech industry.
 		</p>
-		<div class="about-section__text_technologies">
+		<div class='about-section__text_technologies'>
 			<p>Here are a few technologies I've been working with recently:</p>
 			<ul>
 				<li>Javascript (ES6+)</li>
@@ -49,7 +49,7 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 	</div>
 </SectionCard>
 
-<style lang="scss">
+<style lang='scss'>
 	.about-section__image {
 		width: fit-content;
 		position: relative;
@@ -127,7 +127,7 @@ const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 				'   rotateY(' +
 				calcY +
 				'deg) ',
-			boxShadow: shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2'
+			boxShadow: shadowX + 'px ' + shadowY + 'px 10px 2px #5a85b2',
 		};
 	}
 

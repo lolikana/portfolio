@@ -15,8 +15,8 @@ const ProjectCardTop: FC<Props> = props => {
 		<div className={styles['project-card__top']}>
 			<h3 className={styles['project-card__title']}>{title}</h3>
 			<div className={styles['project-card__links']}>
-				{codeUrl && <ProjectCardLink icon="github" url={codeUrl} />}
-				{previewUrl && <ProjectCardLink icon="preview" url={previewUrl} />}
+				{codeUrl && <ProjectCardLink icon='github' url={codeUrl} />}
+				{previewUrl && <ProjectCardLink icon='preview' url={previewUrl} />}
 			</div>
 		</div>
 	);

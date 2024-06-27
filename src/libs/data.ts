@@ -7,32 +7,32 @@ import type { TNavbarLinksData, TSnsData } from './types';
 
 export const navbarLinksData: TNavbarLinksData[] = [
 	{
-		href: 'about'
+		href: 'about',
 	},
 	{
-		href: 'projects'
-	}
+		href: 'projects',
+	},
 ];
 
 export const snsData: TSnsData[] = [
 	{
 		site: 'github',
 		link: 'https://github.com/lolikana',
-		icon: IconGithub
+		icon: IconGithub,
 	},
 	{
 		site: 'instagram',
 		link: 'https://www.instagram.com/lolikana/',
-		icon: IconInstagram
+		icon: IconInstagram,
 	},
 	{
 		site: 'codepen',
 		link: 'https://codepen.io/lolikana',
-		icon: IconCodePen
+		icon: IconCodePen,
 	},
 	{
 		site: 'linkedin',
 		link: 'https://www.linkedin.com/in/thomas-guiart/',
-		icon: IconLinkedIn
-	}
+		icon: IconLinkedIn,
+	},
 ];

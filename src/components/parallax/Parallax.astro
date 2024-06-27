@@ -16,49 +16,49 @@ import ImageComponent from '@components/ImageComponent.astro';
 import Logo from '@components/ui/Logo.astro';
 ---
 
-<div class="parallax">
-	<div class="parallax__hero">
-		<slot name="hero-section" />
+<div class='parallax'>
+	<div class='parallax__hero'>
+		<slot name='hero-section' />
 	</div>
-	<div class="parallax__bg">
+	<div class='parallax__bg'>
 		<ImageComponent
 			imgUrlXS={BackgroundXS}
 			imgUrlSM={BackgroundSM}
 			imgUrlMD={BackgroundMD}
 			imgUrlLG={BackgroundLG}
 			imgUrlXL={BackgroundXL}
-			alt="Background image"
-			class="picture"
+			alt='Background image'
+			class='picture'
 		/>
 	</div>
-	<div class="parallax__fg">
+	<div class='parallax__fg'>
 		<ImageComponent
 			imgUrlXS={ForegroundXS}
 			imgUrlSM={ForegroundSM}
 			imgUrlMD={ForegroundMD}
-			alt="Background image"
-			class="picture"
+			alt='Background image'
+			class='picture'
 		/>
 	</div>
-	<div class="parallax__dust">
+	<div class='parallax__dust'>
 		<ImageComponent
 			imgUrlXS={DustXS}
 			imgUrlSM={DustSM}
 			imgUrlMD={DustMD}
 			imgUrlLG={DustLG}
 			imgUrlXL={DustXL}
-			alt="Background image"
-			class="picture"
+			alt='Background image'
+			class='picture'
 		/>
 	</div>
-	<div class="parallax__logo">
+	<div class='parallax__logo'>
 		<Logo type={2} />
 	</div>
-	<div class="parallax__foreground-back"></div>
-	<div class="parallax__foreground-front"></div>
+	<div class='parallax__foreground-back'></div>
+	<div class='parallax__foreground-front'></div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
 	.parallax {
 		--parallax-speed-hero: 20;
 		--parallax-speed-bg: 7;

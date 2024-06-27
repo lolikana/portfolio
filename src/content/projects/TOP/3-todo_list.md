@@ -16,8 +16,3 @@ technologies: ['vitejs', 'express', 'mongodb', 'typescript', 'sass']
 ---
 
 Todo App from The Odin Project's Full Stack JS course, built with Vitejs, TypeScript, Express, and MongoDB. Features include task management, unit testing with Vitest, and recent user authentication implementation.
-
-
-
-
-

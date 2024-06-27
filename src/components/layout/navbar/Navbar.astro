@@ -5,30 +5,30 @@ import NavbarContainer from './NavbarContainer.astro';
 import NavbarLinks from './NavbarLink.astro';
 ---
 
-<nav class="primary-navbar">
+<nav class='primary-navbar'>
 	<NavbarContainer>
-		<ul slot="navbar" class="primary-navbar__list_items">
+		<ul slot='navbar' class='primary-navbar__list_items'>
 			{
 				navbarLinksData.map((link, index) => (
 					<NavbarLinks
 						link={link}
 						index={index}
-						classNavbar="primary-navbar__list_item"
-						classLink="item-link"
+						classNavbar='primary-navbar__list_item'
+						classLink='item-link'
 					/>
 				))
 			}
 			<NavbarLinks
 				link={{ href: 'contact' }}
 				index={navbarLinksData.length}
-				classNavbar="primary-navbar__list_item"
-				classLink="item-link"
+				classNavbar='primary-navbar__list_item'
+				classLink='item-link'
 			/>
 		</ul>
 	</NavbarContainer>
 </nav>
 
-<style lang="scss">
+<style lang='scss'>
 	.primary-navbar {
 		display: none;
 

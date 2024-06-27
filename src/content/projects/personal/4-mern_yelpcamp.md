@@ -15,10 +15,4 @@ previewUrl: 'https://yelpcamp-mern.vercel.app/'
 technologies: ['mongodb', 'express', 'react', 'nodejs', 'sass', 'swiper', 'mapbox', 'zod']
 ---
 
-
 MERN YelpCamp Clone mirrors the YelpCamp project with MongoDB, Express.js, React.js, and Node.js. Users can interact with campgrounds and reviews, authenticate via JWT, and experience responsive design. The inclusion of Mapbox-gl enhances mapping for a more interactive user experience.
-
-
-
-
-

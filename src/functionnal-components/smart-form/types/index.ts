@@ -3,7 +3,7 @@ import type {
 	FieldValues,
 	SubmitHandler,
 	UseFormProps,
-	UseFormRegister
+	UseFormRegister,
 } from 'react-hook-form';
 import { type AnyZodObject } from 'zod';
 

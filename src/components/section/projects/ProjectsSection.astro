@@ -24,29 +24,29 @@ const ocrProject = allProjects.filter(item => item.data.type === 'ocr');
 	sectionTitle={sectionTitle}
 	class={shape}
 >
-	<div slot="section-text" class="section-container">
-		<div class="section-container__freelance">
-			<h2 class="section-container__title">Works Projects</h2>
-			<Swiper client:load projects={freelanceProject} effect="coverflow" />
+	<div slot='section-text' class='section-container'>
+		<div class='section-container__freelance'>
+			<h2 class='section-container__title'>Works Projects</h2>
+			<Swiper client:load projects={freelanceProject} effect='coverflow' />
 		</div>
-		<div class="section-container__personnal">
-			<h2 class="section-container__title">Personal Projects</h2>
-			<Swiper client:load projects={personalProject} effect="coverflow" />
+		<div class='section-container__personnal'>
+			<h2 class='section-container__title'>Personal Projects</h2>
+			<Swiper client:load projects={personalProject} effect='coverflow' />
 		</div>
-		<div class="section-container__top">
-			<h2 class="section-container__title">The Odin Project</h2>
-			<Swiper client:load projects={topProject} effect="coverflow" />
+		<div class='section-container__top'>
+			<h2 class='section-container__title'>The Odin Project</h2>
+			<Swiper client:load projects={topProject} effect='coverflow' />
 		</div>
-		<div class="section-container__ocr">
-			<h2 class="section-container__title">Open Class Room</h2>
-			<div class="section-container__ocr_projects">
+		<div class='section-container__ocr'>
+			<h2 class='section-container__title'>Open Class Room</h2>
+			<div class='section-container__ocr_projects'>
 				<Swiper client:load projects={ocrProject} effect={'cube'} />
 			</div>
 		</div>
 	</div>
 </SectionCard>
 
-<style lang="scss">
+<style lang='scss'>
 	.section-container > div {
 		padding-bottom: 4rem;
 	}

@@ -2,19 +2,19 @@ module.exports = {
 	env: {
 		node: true,
 		es2022: true,
-		browser: true
+		browser: true,
 	},
 	extends: [
 		'eslint:recommended',
 		'plugin:astro/recommended',
 		'plugin:@typescript-eslint/recommended',
-		'prettier'
+		'prettier',
 	],
 	plugins: ['@typescript-eslint', 'simple-import-sort', 'import'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
-		sourceType: 'module'
+		sourceType: 'module',
 	},
 	rules: {
 		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
@@ -28,47 +28,47 @@ module.exports = {
 		'import/newline-after-import': 'error',
 		'import/no-duplicates': 'error',
 		'no-empty-function': 'off',
-		'@typescript-eslint/no-empty-function': 'off'
+		'@typescript-eslint/no-empty-function': 'off',
 	},
 	overrides: [
 		{
 			files: ['*.astro'],
 			parser: 'astro-eslint-parser',
 			parserOptions: {
-				extraFileExtensions: ['.astro']
-			}
+				extraFileExtensions: ['.astro'],
+			},
 		},
 		{
 			files: ['*.ts'],
 			parserOptions: {
 				tsconfigRootDir: __dirname,
-				project: ['./tsconfig.json']
+				project: ['./tsconfig.json'],
 			},
 			extends: [
 				'plugin:@typescript-eslint/recommended-requiring-type-checking',
-				'plugin:prettier/recommended'
+				'plugin:prettier/recommended',
 			],
 			rules: {
 				'@typescript-eslint/no-unused-vars': [
 					'error',
-					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }
+					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
 				],
 				'@typescript-eslint/no-non-null-assertion': 'off',
 				'require-await': 'off',
-				'@typescript-eslint/require-await': 'warn'
-			}
+				'@typescript-eslint/require-await': 'warn',
+			},
 		},
 		{
 			files: ['*.d.ts'],
 			rules: {
-				'@typescript-eslint/triple-slash-reference': 'off'
-			}
+				'@typescript-eslint/triple-slash-reference': 'off',
+			},
 		},
 		{
 			// Define the configuration for `<script>` tag.
 			// Script in `<script>` is assigned a virtual file name with the `.js` extension.
 			files: ['**/*.astro/*.js', '*.astro/*.js'],
-			parser: '@typescript-eslint/parser'
-		}
-	]
+			parser: '@typescript-eslint/parser',
+		},
+	],
 };

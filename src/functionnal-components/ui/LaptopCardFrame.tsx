@@ -12,16 +12,16 @@ const LaptopCardFrame: FC<Props> = ({ frame, BgSource }) => {
 		<div className={styles['frame_container']}>
 			<img
 				className={styles['frame_shape']}
-				alt="frame"
+				alt='frame'
 				src={frame.src}
 				width={frame.width}
 				height={frame.height}
-				loading="lazy"
+				loading='lazy'
 			/>
 			<div
 				className={styles['frame_screen']}
 				style={{
-					backgroundImage: `url(${BgSource})`
+					backgroundImage: `url(${BgSource})`,
 				}}
 			></div>
 		</div>
