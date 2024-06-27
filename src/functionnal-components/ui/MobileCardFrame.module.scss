@@ -14,7 +14,7 @@
 	position: absolute;
 	top: var(--screen-top);
 	left: 50%;
-	width: var(--screen-width);
+	width: calc(var(--screen-width) + 5px);
 	padding-top: var(--screen-padding-top);
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
