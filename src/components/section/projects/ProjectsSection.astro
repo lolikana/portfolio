@@ -12,6 +12,7 @@ type Props = {
 
 const { id, sectionNumber, sectionTitle, shape } = Astro.props;
 const allProjects = await getCollection('projects');
+const workProject = allProjects.filter(item => item.data.type === 'work');
 const freelanceProject = allProjects.filter(item => item.data.type === 'freelance');
 const personalProject = allProjects.filter(item => item.data.type === 'personnal');
 const topProject = allProjects.filter(item => item.data.type === 'top');
@@ -25,6 +26,10 @@ const ocrProject = allProjects.filter(item => item.data.type === 'ocr');
 	class={shape}
 >
 	<div slot='section-text' class='section-container'>
+		<div class='section-container__work'>
+			<h2 class='section-container__title'>Works Projects</h2>
+			<Swiper client:load projects={workProject} effect='coverflow' />
+		</div>
 		<div class='section-container__freelance'>
 			<h2 class='section-container__title'>Works Projects</h2>
 			<Swiper client:load projects={freelanceProject} effect='coverflow' />
