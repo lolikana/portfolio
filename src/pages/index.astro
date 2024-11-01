@@ -1,24 +1,83 @@
----
-import '@styles/main.scss';
-
-import Parallax from '@components/parallax/Parallax.astro';
-import AboutSection from '@components/section/about/AboutSection.astro';
-import ContactSection from '@components/section/contact/ContactSection.astro';
-import HeroSection from '@components/section/hero/HeroSection.astro';
-import ProjectsSection from '@components/section/projects/ProjectsSection.astro';
-import Layout from 'src/layout/Layout.astro';
----
-
-<Layout pageTitle='Thomas Guiart'>
-	<Parallax slot='parallax'>
-		<HeroSection slot='hero-section' />
-	</Parallax>
-	<AboutSection id='about' sectionNumber={1} sectionTitle='About' shape='type1' />
-	<ProjectsSection
-		id='projects'
-		sectionNumber={2}
-		sectionTitle='Projects'
-		shape='type2'
-	/>
-	<ContactSection id='contact' sectionNumber={3} sectionTitle='Contact' shape='type3' />
-</Layout>
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<title>Portfolio</title>
+		<link
+			href='https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap'
+			rel='stylesheet'
+		/>
+		<style>
+			body {
+				background-color: #353a4e;
+				color: #f7f0f7;
+				font-family: 'Open Sans', sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+			.hero {
+				text-align: center;
+				padding: 50px 20px;
+				background-image: url('neotokyo.jpg');
+				background-size: cover;
+				background-position: center;
+				color: #fefe52;
+			}
+			.hero h1 {
+				font-family: 'Montserrat', sans-serif;
+				color: #fb515a;
+			}
+			.hero p {
+				color: #5a85b2;
+			}
+			.button {
+				background-color: #fefe52;
+				color: #353a4e;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+			}
+			.projects {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				padding: 20px;
+			}
+			.project-card {
+				background-color: #5a85b2;
+				margin: 10px;
+				padding: 20px;
+				border-radius: 10px;
+				width: calc(33% - 40px);
+			}
+			.project-card h3 {
+				color: #00f0ff;
+			}
+			.project-card p {
+				color: #f7f0f7;
+			}
+		</style>
+	</head>
+	<body>
+		<section class='hero'>
+			<h1>My Portfolio</h1>
+			<p>Welcome to my cyberpunk-inspired portfolio</p>
+			<a href='#projects' class='button'>View Projects</a>
+		</section>
+		<section class='projects' id='projects'>
+			<div class='project-card'>
+				<h3>Project One</h3>
+				<p>Description of project one.</p>
+			</div>
+			<div class='project-card'>
+				<h3>Project Two</h3>
+				<p>Description of project two.</p>
+			</div>
+			<div class='project-card'>
+				<h3>Project Three</h3>
+				<p>Description of project three.</p>
+			</div>
+		</section>
+	</body>
+</html>
